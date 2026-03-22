@@ -1,9 +1,10 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function PaymentFail() {
+function PaymentFailContent() {
   const searchParams = useSearchParams();
   const message = searchParams.get('message') || 'Thanh toán thất bại';
 
@@ -16,5 +17,18 @@ export default function PaymentFail() {
         Quay lại giỏ hàng
       </Link>
     </div>
+  );
+}
+
+export default function PaymentFailPage() {
+  return (
+    <Suspense fallback={
+      <div className="text-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+        <p className="mt-4 text-gray-600">Đang xử lý...</p>
+      </div>
+    }>
+      <PaymentFailContent />
+    </Suspense>
   );
 }
