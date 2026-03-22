@@ -1,0 +1,140 @@
+[
+  {
+    "_id": "67d800000000000000000001",
+    "user_id": "67d400000000000000000001",
+    "items": [
+      {
+        "product_id": "67d000000000000000000001",
+        "variant_id": "67d300000000000000000001",
+        "product_snapshot": {
+          "tensp": "Máy xay sinh tố đa năng ABC",
+          "giaban": 699000,
+          "anh": "may-xay-abc.jpg"
+        },
+        "quantity": 1,
+        "added_at": "2025-02-24T10:30:00.000Z"
+      },
+      {
+        "product_id": "67d000000000000000000003",
+        "variant_id": null,
+        "product_snapshot": {
+          "tensp": "Tivi 4K 55 inch Smart TV",
+          "giaban": 10990000,
+          "anh": "tivi-55inch.jpg"
+        },
+        "quantity": 1,
+        "added_at": "2025-02-24T10:35:00.000Z"
+      }
+    ],
+    "expires_at": "2025-03-24T10:35:00.000Z",
+    "updated_at": "2025-02-24T10:35:00.000Z"
+  },
+  {
+    "_id": "67d800000000000000000002",
+    "user_id": "67d400000000000000000004",
+    "items": [
+      {
+        "product_id": "67d000000000000000000004",
+        "variant_id": "67d300000000000000000007",
+        "product_snapshot": {
+          "tensp": "Máy hút bụi không dây Z12",
+          "giaban": 1790000,
+          "anh": "may-hut-bui-z12.jpg"
+        },
+        "quantity": 2,
+        "added_at": "2025-02-23T15:20:00.000Z"
+      }
+    ],
+    "expires_at": "2025-03-23T15:20:00.000Z",
+    "updated_at": "2025-02-23T15:20:00.000Z"
+  },
+  {
+    "_id": "67d800000000000000000003",
+    "user_id": null,
+    "items": [
+      {
+        "product_id": "67d000000000000000000006",
+        "variant_id": "67d30000000000000000000b",
+        "product_snapshot": {
+          "tensp": "Máy sấy tóc chuyên nghiệp 2200W",
+          "giaban": 450000,
+          "anh": "may-say-toc.jpg"
+        },
+        "quantity": 1,
+        "added_at": "2025-02-24T08:45:00.000Z"
+      }
+    ],
+    "expires_at": "2025-03-24T08:45:00.000Z",
+    "updated_at": "2025-02-24T08:45:00.000Z"
+  },
+  {
+    "_id": "69a0415e9c6c15ee3037359e",
+    "user": "699e809c34dd8863b30128a7",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "quantity": 1,
+        "_id": "69a5c68b7569ee5ce79ad6f4",
+        "addedAt": "2026-03-02T17:19:07.126Z"
+      }
+    ],
+    "updatedAt": "2026-03-03T17:47:48.317Z",
+    "createdAt": "2026-02-26T12:49:34.764Z",
+    "__v": 5
+  },
+  {
+    "_id": "69a045aa9c6c15ee30373628",
+    "user": "699da431536070de84322885",
+    "items": [
+      {
+        "product": "69a0152c1ecfe8248ff2abcd",
+        "quantity": 1,
+        "_id": "69a045b79c6c15ee30373639",
+        "addedAt": "2026-02-26T13:08:07.366Z"
+      }
+    ],
+    "updatedAt": "2026-02-26T13:08:07.367Z",
+    "createdAt": "2026-02-26T13:07:54.064Z",
+    "__v": 1
+  },
+  {
+    "_id": "69a31ff1fa415ed163e4991e",
+    "user": "69a31ff1fa415ed163e4991a",
+    "items": [],
+    "updatedAt": "2026-02-28T17:03:45.892Z",
+    "createdAt": "2026-02-28T17:03:45.892Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a320cbfa415ed163e49937",
+    "user": "69a320cbfa415ed163e49933",
+    "items": [],
+    "updatedAt": "2026-02-28T17:07:23.689Z",
+    "createdAt": "2026-02-28T17:07:23.689Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a32149fa415ed163e49951",
+    "user": "69a32149fa415ed163e4994d",
+    "items": [],
+    "updatedAt": "2026-02-28T17:09:29.723Z",
+    "createdAt": "2026-02-28T17:09:29.723Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a321c8fa415ed163e4996a",
+    "user": "69a321c7fa415ed163e49966",
+    "items": [],
+    "updatedAt": "2026-02-28T17:11:36.109Z",
+    "createdAt": "2026-02-28T17:11:36.109Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a71e021b211543862b46c2",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [],
+    "updatedAt": "2026-03-03T17:44:34.953Z",
+    "createdAt": "2026-03-03T17:44:34.953Z",
+    "__v": 0
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "_id": "67d500000000000000000001",
+    "name": "view_products",
+    "description": "Xem danh sách và chi tiết sản phẩm",
+    "group": "products",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000002",
+    "name": "add_product",
+    "description": "Thêm sản phẩm mới",
+    "group": "products",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000003",
+    "name": "edit_product",
+    "description": "Chỉnh sửa thông tin sản phẩm",
+    "group": "products",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000004",
+    "name": "delete_product",
+    "description": "Xóa sản phẩm",
+    "group": "products",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000005",
+    "name": "view_orders",
+    "description": "Xem danh sách đơn hàng",
+    "group": "orders",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000006",
+    "name": "edit_order",
+    "description": "Cập nhật trạng thái đơn hàng",
+    "group": "orders",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000007",
+    "name": "delete_order",
+    "description": "Xóa đơn hàng",
+    "group": "orders",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000008",
+    "name": "view_users",
+    "description": "Xem danh sách người dùng",
+    "group": "users",
+    "status": 1
+  },
+  {
+    "_id": "67d500000000000000000009",
+    "name": "edit_user",
+    "description": "Chỉnh sửa thông tin người dùng",
+    "group": "users",
+    "status": 1
+  },
+  {
+    "_id": "67d50000000000000000000a",
+    "name": "delete_user",
+    "description": "Khóa/xóa người dùng",
+    "group": "users",
+    "status": 1
+  },
+  {
+    "_id": "67d50000000000000000000b",
+    "name": "view_reports",
+    "description": "Xem báo cáo thống kê",
+    "group": "reports",
+    "status": 1
+  },
+  {
+    "_id": "67d50000000000000000000c",
+    "name": "manage_roles",
+    "description": "Quản lý vai trò và phân quyền",
+    "group": "system",
+    "status": 1
+  },
+  {
+    "_id": "67d50000000000000000000d",
+    "name": "manage_settings",
+    "description": "Cấu hình hệ thống",
+    "group": "system",
+    "status": 1
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "_id": "67d200000000000000000001",
+    "name": "Việt Nam",
+    "slug": "viet-nam",
+    "code": "VN",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000002",
+    "name": "Nhật Bản",
+    "slug": "nhat-ban",
+    "code": "JP",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000003",
+    "name": "Hàn Quốc",
+    "slug": "han-quoc",
+    "code": "KR",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000004",
+    "name": "Trung Quốc",
+    "slug": "trung-quoc",
+    "code": "CN",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000005",
+    "name": "Thái Lan",
+    "slug": "thai-lan",
+    "code": "TH",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000006",
+    "name": "Đức",
+    "slug": "duc",
+    "code": "DE",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000007",
+    "name": "Mỹ",
+    "slug": "my",
+    "code": "US",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000008",
+    "name": "Pháp",
+    "slug": "phap",
+    "code": "FR",
+    "status": 1
+  },
+  {
+    "_id": "67d200000000000000000009",
+    "name": "Ý",
+    "slug": "y",
+    "code": "IT",
+    "status": 1
+  },
+  {
+    "_id": "67d20000000000000000000a",
+    "name": "Thụy Điển",
+    "slug": "thuy-dien",
+    "code": "SE",
+    "status": 1
+  },
+  {
+    "_id": "67d20000000000000000000b",
+    "name": "Hà Lan",
+    "slug": "ha-lan",
+    "code": "NL",
+    "status": 1
+  },
+  {
+    "_id": "67d20000000000000000000c",
+    "name": "Đài Loan",
+    "slug": "dai-loan",
+    "code": "TW",
+    "status": 1
+  },
+  {
+    "_id": "67d20000000000000000000d",
+    "name": "Malaysia",
+    "slug": "malaysia",
+    "code": "MY",
+    "status": 1
+  },
+  {
+    "_id": "67d20000000000000000000e",
+    "name": "Indonesia",
+    "slug": "indonesia",
+    "code": "ID",
+    "status": 1
+  }
+]

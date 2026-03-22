@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "699d77b1957ded3469e75913",
+    "page": "homepage",
+    "title": "Điện Gia Dụng ABC - Thiết bị gia dụng chính hãng giá tốt",
+    "description": "Cửa hàng điện gia dụng uy tín tại TP.HCM. Sản phẩm đa dạng: máy xay, tivi, tủ lạnh, máy giặt... Bảo hành chính hãng, giao hàng nhanh.",
+    "keywords": "điện gia dụng, máy xay sinh tố, tivi, tủ lạnh, máy giặt, điều hòa, quạt, máy hút bụi"
+  },
+  {
+    "_id": "699d77b1957ded3469e75914",
+    "page": "category:may-xay-sinh-to",
+    "title": "Máy xay sinh tố chính hãng giá rẻ | Điện Gia Dụng ABC",
+    "description": "Máy xay sinh tố đa năng, máy xay cầm tay, máy xay ép. Sản phẩm chính hãng, bảo hành 12 tháng, giao hàng toàn quốc.",
+    "keywords": "máy xay sinh tố, máy xay đa năng, máy xay cầm tay"
+  },
+  {
+    "_id": "699d77b1957ded3469e75915",
+    "page": "category:tivi",
+    "title": "Tivi 4K, Smart TV chính hãng giá rẻ | Điện Gia Dụng ABC",
+    "description": "Tivi Sony, Samsung, LG chính hãng. Tivi 4K, Smart TV, tivi OLED. Giá tốt, trả góp 0%, giao hàng tận nơi.",
+    "keywords": "tivi, smart tv, tivi 4k, tivi sony, tivi samsung"
+  },
+  {
+    "_id": "699d77b1957ded3469e75916",
+    "page": "product:may-xay-sinh-to-da-nang-abc",
+    "title": "Máy xay sinh tố đa năng ABC - 1000W, 1.5 lít | Điện Gia Dụng ABC",
+    "description": "Máy xay sinh tố đa năng ABC công suất 1000W, dung tích 1.5 lít, xay đá, xay thịt, làm sinh tố. Bảo hành 12 tháng.",
+    "keywords": "máy xay sinh tố abc, máy xay đa năng, máy xay 1000w"
+  },
+  {
+    "_id": "699d77b1957ded3469e75917",
+    "page": "contact",
+    "title": "Liên hệ | Điện Gia Dụng ABC",
+    "description": "Thông tin liên hệ, địa chỉ cửa hàng, hotline hỗ trợ 24/7. Gửi yêu cầu tư vấn mua hàng.",
+    "keywords": "liên hệ, hotline, hỗ trợ, tư vấn"
+  },
+  {
+    "_id": "699d77b1957ded3469e75918",
+    "page": "about",
+    "title": "Giới thiệu | Điện Gia Dụng ABC",
+    "description": "Điện Gia Dụng ABC - Nhà phân phối thiết bị gia dụng hàng đầu. Cam kết chính hãng, giá tốt, dịch vụ chuyên nghiệp.",
+    "keywords": "giới thiệu, về chúng tôi"
+  },
+  {
+    "_id": "699d77b1957ded3469e75919",
+    "page": "policy:return",
+    "title": "Chính sách đổi trả | Điện Gia Dụng ABC",
+    "description": "Chính sách đổi trả sản phẩm trong 7 ngày. Điều kiện và quy trình đổi trả.",
+    "keywords": "chính sách đổi trả, trả hàng, hoàn tiền"
+  },
+  {
+    "_id": "699d77b1957ded3469e7591a",
+    "page": "policy:warranty",
+    "title": "Chính sách bảo hành | Điện Gia Dụng ABC",
+    "description": "Chính sách bảo hành sản phẩm từ 6-24 tháng. Trung tâm bảo hành ủy quyền toàn quốc.",
+    "keywords": "bảo hành, chính sách bảo hành"
+  }
+]

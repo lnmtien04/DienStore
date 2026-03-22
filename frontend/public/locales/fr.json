@@ -1,0 +1,20 @@
+{
+  "welcome": "환영합니다",
+  "home": "홈",
+  "product": "제품",
+  "products": "제품",
+  "cart": "장바구니",
+  "login": "로그인",
+  "register": "회원가입",
+  "logout": "로그아웃",
+  "profile": "프로필",
+  "settings": "설정",
+  "orders": "주문",
+  "wishlist": "찜",
+  "notifications": "알림",
+  "language": "언어",
+  "theme": "테마",
+  "light": "라이트",
+  "dark": "다크",
+  "system": "시스템"
+}

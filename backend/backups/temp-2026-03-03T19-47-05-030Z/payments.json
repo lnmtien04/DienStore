@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "67d900000000000000000001",
+    "order_id": "67d600000000000000000001",
+    "amount": 12418000,
+    "method": "cod",
+    "status": "pending",
+    "transaction_id": null,
+    "paid_at": null,
+    "created_at": "2025-02-24T10:30:00.000Z"
+  },
+  {
+    "_id": "67d900000000000000000002",
+    "order_id": "67d600000000000000000002",
+    "amount": 3500000,
+    "method": "bank_transfer",
+    "status": "paid",
+    "transaction_id": "BK2502241415001",
+    "paid_at": "2025-02-24T14:30:00.000Z",
+    "created_at": "2025-02-24T14:15:00.000Z"
+  },
+  {
+    "_id": "67d900000000000000000003",
+    "order_id": "67d600000000000000000003",
+    "amount": 480000,
+    "method": "momo",
+    "status": "paid",
+    "transaction_id": "MOMO2302230945",
+    "paid_at": "2025-02-23T09:50:00.000Z",
+    "created_at": "2025-02-23T09:45:00.000Z"
+  }
+]

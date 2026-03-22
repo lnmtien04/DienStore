@@ -1,0 +1,20 @@
+{
+  "welcome": "Bienvenido",
+  "home": "Inicio",
+  "product": "Producto",
+  "products": "Productos",
+  "cart": "Carrito",
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
+  "logout": "Cerrar sesión",
+  "profile": "Perfil",
+  "settings": "Configuración",
+  "orders": "Pedidos",
+  "wishlist": "Favoritos",
+  "notifications": "Notificaciones",
+  "language": "Idioma",
+  "theme": "Tema",
+  "light": "Claro",
+  "dark": "Oscuro",
+  "system": "Sistema"
+}

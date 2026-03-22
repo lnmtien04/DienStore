@@ -1,0 +1,20 @@
+{
+  "welcome": "Добро пожаловать",
+  "home": "Главная",
+  "product": "Товар",
+  "products": "Товары",
+  "cart": "Корзина",
+  "login": "Войти",
+  "register": "Регистрация",
+  "logout": "Выйти",
+  "profile": "Профиль",
+  "settings": "Настройки",
+  "orders": "Заказы",
+  "wishlist": "Избранное",
+  "notifications": "Уведомления",
+  "language": "Язык",
+  "theme": "Тема",
+  "light": "Светлая",
+  "dark": "Темная",
+  "system": "Системная"
+}

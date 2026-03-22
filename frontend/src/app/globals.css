@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Dark mode class */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* Fallback system preference */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.comment-item {
+  position: relative;
+}
+.comment-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #e5e7eb;
+}
+.comment-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 28px;
+  width: 16px;
+  height: 2px;
+  background-color: #e5e7eb;
+}
+.comment-item:last-child::after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 28px;
+  width: 16px;
+  height: 2px;
+  background-color: #e5e7eb;
+}

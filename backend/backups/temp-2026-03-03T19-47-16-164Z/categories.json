@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "67cba1e00000000000000001",
+    "name": "Điện lạnh",
+    "slug": "dien-lanh",
+    "parent_id": null,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "_id": "67cba1e00000000000000002",
+    "name": "Thiết bị nhà bếp",
+    "slug": "thiet-bi-nha-bep",
+    "parent_id": null,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "_id": "67cba1e00000000000000003",
+    "name": "Thiết bị giải trí",
+    "slug": "thiet-bi-giai-tri",
+    "parent_id": null,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "_id": "67cba1e00000000000000004",
+    "name": "Dọn dẹp & chăm sóc nhà cửa",
+    "slug": "don-dep-cham-soc-nha-cua",
+    "parent_id": null,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "_id": "67cba1e00000000000000005",
+    "name": "Quạt & sưởi",
+    "slug": "quat-suoi",
+    "parent_id": null,
+    "level": 1,
+    "status": 1
+  },
+  {
+    "_id": "67cba1e00000000000000006",
+    "name": "Làm đẹp cá nhân",
+    "slug": "lam-dep-ca-nhan",
+    "parent_id": null,
+    "level": 1,
+    "status": 1
+  }
+]

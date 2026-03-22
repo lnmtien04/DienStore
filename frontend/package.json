@@ -1,0 +1,48 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "archiver": "^7.0.1",
+    "axios": "^1.13.5",
+    "cors": "^2.8.6",
+    "date-fns": "^4.1.0",
+    "emoji-picker-react": "^4.5.0",
+    "exceljs": "^4.4.0",
+    "lucide-react": "^0.576.0",
+    "multer": "^2.0.2",
+    "next": "16.1.6",
+    "next-themes": "^0.4.6",
+    "quill": "^2.0.3",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-dropzone": "^15.0.0",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.6.0",
+    "react-quilljs": "^2.0.5",
+    "recharts": "^3.7.0",
+    "slugify": "^1.6.6",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/xlsx": "^0.0.35",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.0",
+    "typescript": "^5"
+  }
+}

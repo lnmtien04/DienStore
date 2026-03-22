@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "699d72f6957ded3469e75745",
+    "question": "Thời gian giao hàng mất bao lâu?",
+    "answer": "Thời gian giao hàng nội thành từ 1-2 ngày làm việc, ngoại thành từ 3-5 ngày làm việc. Với các tỉnh xa có thể từ 5-7 ngày.",
+    "category": "Vận chuyển",
+    "order": 1
+  },
+  {
+    "_id": "699d72f6957ded3469e75746",
+    "question": "Chính sách bảo hành sản phẩm như thế nào?",
+    "answer": "Sản phẩm được bảo hành từ 6-24 tháng tùy loại. Chi tiết bảo hành được ghi rõ trong phiếu bảo hành kèm theo sản phẩm. Trong thời gian bảo hành, nếu lỗi do nhà sản xuất, chúng tôi sẽ sửa chữa hoặc đổi mới miễn phí.",
+    "category": "Bảo hành",
+    "order": 1
+  },
+  {
+    "_id": "699d72f6957ded3469e75747",
+    "question": "Có được đổi trả sản phẩm không?",
+    "answer": "Bạn có thể đổi trả trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi kỹ thuật hoặc không đúng mô tả. Sản phẩm phải còn nguyên tem, bao bì và chưa qua sử dụng.",
+    "category": "Đổi trả",
+    "order": 2
+  },
+  {
+    "_id": "699d72f6957ded3469e75748",
+    "question": "Tôi có thể thanh toán bằng những phương thức nào?",
+    "answer": "Chúng tôi hỗ trợ thanh toán khi nhận hàng (COD), chuyển khoản ngân hàng, ví MoMo, VNPAY và thẻ tín dụng/ghi nợ.",
+    "category": "Thanh toán",
+    "order": 1
+  },
+  {
+    "_id": "699d72f6957ded3469e75749",
+    "question": "Làm sao để theo dõi đơn hàng?",
+    "answer": "Bạn có thể theo dõi đơn hàng bằng cách đăng nhập vào tài khoản, vào mục 'Đơn hàng của tôi' và xem trạng thái. Hoặc liên hệ hotline để được hỗ trợ.",
+    "category": "Đơn hàng",
+    "order": 2
+  },
+  {
+    "_id": "699d72f6957ded3469e7574a",
+    "question": "Phí vận chuyển tính thế nào?",
+    "answer": "Phí vận chuyển được tính dựa trên địa chỉ nhận hàng và trọng lượng đơn hàng. Bạn sẽ thấy phí vận chuyển cụ thể trước khi xác nhận đặt hàng.",
+    "category": "Vận chuyển",
+    "order": 2
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "699ee9dbe5a015192eb39749",
+    "code": "MA59912",
+    "description": "happy birth Day to me ",
+    "discountType": "percentage",
+    "discountValue": 3,
+    "minOrderAmount": 10000000,
+    "maxDiscountAmount": null,
+    "startDate": "2026-02-27T05:23:00.000Z",
+    "endDate": "2026-03-03T05:23:00.000Z",
+    "usageLimit": 8,
+    "usedCount": 0,
+    "applicableProducts": [],
+    "applicableCategories": [],
+    "isActive": true,
+    "createdBy": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-02-25T12:23:55.399Z",
+    "updatedAt": "2026-02-27T11:41:06.884Z",
+    "__v": 0
+  }
+]

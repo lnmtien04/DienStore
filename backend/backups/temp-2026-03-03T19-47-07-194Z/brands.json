@@ -1,0 +1,167 @@
+[
+  {
+    "_id": "67d100000000000000000001",
+    "name": "Samsung",
+    "slug": "samsung",
+    "logo": "samsung.png",
+    "description": "Thương hiệu điện tử hàng đầu Hàn Quốc",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299009018-702181023.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:16:50.338Z"
+  },
+  {
+    "_id": "67d100000000000000000002",
+    "name": "LG",
+    "slug": "lg",
+    "logo": "lg.png",
+    "description": "Thương hiệu điện tử và gia dụng uy tín từ Hàn Quốc",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299051638-617441552.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:17:32.508Z"
+  },
+  {
+    "_id": "67d100000000000000000003",
+    "name": "Sony",
+    "slug": "sony",
+    "logo": "sony.png",
+    "description": "Thương hiệu công nghệ Nhật Bản nổi tiếng toàn cầu",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299115101-393780742.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:18:35.973Z"
+  },
+  {
+    "_id": "67d100000000000000000004",
+    "name": "Panasonic",
+    "slug": "panasonic",
+    "logo": "panasonic.png",
+    "description": "Thương hiệu điện tử và thiết bị gia dụng Nhật Bản",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299132126-762071756.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:18:53.207Z"
+  },
+  {
+    "_id": "67d100000000000000000005",
+    "name": "Sharp",
+    "slug": "sharp",
+    "logo": "sharp.png",
+    "description": "Thương hiệu điện tử và gia dụng đến từ Nhật Bản",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299221784-84611976.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:20:23.100Z"
+  },
+  {
+    "_id": "67d100000000000000000006",
+    "name": "Toshiba",
+    "slug": "toshiba",
+    "logo": "toshiba.png",
+    "description": "Tập đoàn công nghệ đa quốc gia của Nhật Bản",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299255086-502574365.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:20:56.080Z"
+  },
+  {
+    "_id": "67d100000000000000000007",
+    "name": "Hitachi",
+    "slug": "hitachi",
+    "logo": "hitachi.png",
+    "description": "Thương hiệu điện tử và thiết bị công nghiệp Nhật Bản",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299262266-89547100.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:21:03.132Z"
+  },
+  {
+    "_id": "67d100000000000000000008",
+    "name": "Electrolux",
+    "slug": "electrolux",
+    "logo": "electrolux.png",
+    "description": "Thương hiệu gia dụng cao cấp đến từ Thụy Điển",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299357693-913174450.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:22:38.913Z"
+  },
+  {
+    "_id": "67d100000000000000000009",
+    "name": "Philips",
+    "slug": "philips",
+    "logo": "philips.png",
+    "description": "Thương hiệu điện tử và chăm sóc sức khỏe Hà Lan",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299370637-825198909.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:22:51.876Z"
+  },
+  {
+    "_id": "67d10000000000000000000a",
+    "name": "Xiaomi",
+    "slug": "xiaomi",
+    "logo": "xiaomi.png",
+    "description": "Thương hiệu công nghệ Trung Quốc với hệ sinh thái thông minh",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299383649-92912695.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:23:04.875Z"
+  },
+  {
+    "_id": "67d10000000000000000000b",
+    "name": "Sunhouse",
+    "slug": "sunhouse",
+    "logo": "sunhouse.png",
+    "description": "Thương hiệu gia dụng Việt Nam, chuyên sản xuất đồ điện gia dụng",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299397679-260628167.png",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:23:18.705Z"
+  },
+  {
+    "_id": "67d10000000000000000000c",
+    "name": "Kangaroo",
+    "slug": "kangaroo",
+    "logo": "kangaroo.png",
+    "description": "Thương hiệu Việt Nam chuyên về máy lọc nước và thiết bị nhà bếp",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299471625-416711241.png",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:24:32.531Z"
+  },
+  {
+    "_id": "67d10000000000000000000d",
+    "name": "Midea",
+    "slug": "midea",
+    "logo": "midea.png",
+    "description": "Thương hiệu gia dụng Trung Quốc phổ biến tại Việt Nam",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299479564-904087878.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:24:40.615Z"
+  },
+  {
+    "_id": "67d10000000000000000000e",
+    "name": "Daikin",
+    "slug": "daikin",
+    "logo": "daikin.png",
+    "description": "Thương hiệu máy lạnh và điều hòa không khí hàng đầu Nhật Bản",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299487928-613766320.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:24:48.967Z"
+  },
+  {
+    "_id": "67d10000000000000000000f",
+    "name": "TCL",
+    "slug": "tcl",
+    "logo": "tcl.png",
+    "description": "Thương hiệu điện tử tiêu dùng Trung Quốc",
+    "status": 1,
+    "image": "http://localhost:5000/uploads/image-1772299497077-626479608.jpg",
+    "isActive": true,
+    "updatedAt": "2026-02-28T17:24:57.840Z"
+  }
+]

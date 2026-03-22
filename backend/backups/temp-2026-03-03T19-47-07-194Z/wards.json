@@ -1,0 +1,1090 @@
+[
+  {
+    "_id": "699d7680957ded3469e7586a",
+    "name": "Phường Phúc Xá",
+    "slug": "phuong-phuc-xa",
+    "code": "00001",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7586b",
+    "name": "Phường Trúc Bạch",
+    "slug": "phuong-truc-bach",
+    "code": "00002",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7586c",
+    "name": "Phường Điện Biên",
+    "slug": "phuong-dien-bien",
+    "code": "00004",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7586d",
+    "name": "Phường Đội Cấn",
+    "slug": "phuong-doi-can",
+    "code": "00006",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7586e",
+    "name": "Phường Ngọc Hà",
+    "slug": "phuong-ngoc-ha",
+    "code": "00008",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7586f",
+    "name": "Phường Quán Thánh",
+    "slug": "phuong-quan-thanh",
+    "code": "00010",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75870",
+    "name": "Phường Cống Vị",
+    "slug": "phuong-cong-vi",
+    "code": "00013",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75871",
+    "name": "Phường Liễu Giai",
+    "slug": "phuong-lieu-giai",
+    "code": "00016",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75872",
+    "name": "Phường Nguyễn Trung Trực",
+    "slug": "phuong-nguyen-trung-truc",
+    "code": "00019",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75873",
+    "name": "Phường Quang Trung",
+    "slug": "phuong-quang-trung",
+    "code": "00022",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75874",
+    "name": "Phường Trần Hưng Đạo",
+    "slug": "phuong-tran-hung-dao",
+    "code": "00025",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75875",
+    "name": "Phường Trần Phú",
+    "slug": "phuong-tran-phu",
+    "code": "00028",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75876",
+    "name": "Phường Vĩnh Phúc",
+    "slug": "phuong-vinh-phuc",
+    "code": "00031",
+    "district_code": "001",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75877",
+    "name": "Phường Hàng Trống",
+    "slug": "phuong-hang-trong",
+    "code": "00034",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75878",
+    "name": "Phường Hàng Bông",
+    "slug": "phuong-hang-bong",
+    "code": "00037",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75879",
+    "name": "Phường Hàng Bài",
+    "slug": "phuong-hang-bai",
+    "code": "00040",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7587a",
+    "name": "Phường Lý Thái Tổ",
+    "slug": "phuong-ly-thai-to",
+    "code": "00043",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7587b",
+    "name": "Phường Phan Chu Trinh",
+    "slug": "phuong-phan-chu-trinh",
+    "code": "00046",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7587c",
+    "name": "Phường Phố Huế",
+    "slug": "phuong-pho-hue",
+    "code": "00049",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7587d",
+    "name": "Phường Đồng Tâm",
+    "slug": "phuong-dong-tam",
+    "code": "00052",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7587e",
+    "name": "Phường Bạch Mai",
+    "slug": "phuong-bach-mai",
+    "code": "00055",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7587f",
+    "name": "Phường Cửa Nam",
+    "slug": "phuong-cua-nam",
+    "code": "00058",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75880",
+    "name": "Phường Cầu Dền",
+    "slug": "phuong-cau-den",
+    "code": "00061",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75881",
+    "name": "Phường Bách Khoa",
+    "slug": "phuong-bach-khoa",
+    "code": "00064",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75882",
+    "name": "Phường Đồng Nhân",
+    "slug": "phuong-dong-nhan",
+    "code": "00067",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75883",
+    "name": "Phường Quỳnh Mai",
+    "slug": "phuong-quynh-mai",
+    "code": "00070",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75884",
+    "name": "Phường Quỳnh Lôi",
+    "slug": "phuong-quynh-loi",
+    "code": "00073",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75885",
+    "name": "Phường Minh Khai",
+    "slug": "phuong-minh-khai",
+    "code": "00076",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75886",
+    "name": "Phường Trương Định",
+    "slug": "phuong-truong-dinh",
+    "code": "00079",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75887",
+    "name": "Phường Thanh Lương",
+    "slug": "phuong-thanh-luong",
+    "code": "00082",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75888",
+    "name": "Phường Thanh Nhàn",
+    "slug": "phuong-thanh-nhan",
+    "code": "00085",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75889",
+    "name": "Phường Tương Mai",
+    "slug": "phuong-tuong-mai",
+    "code": "00088",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7588a",
+    "name": "Phường Phương Liên",
+    "slug": "phuong-phuong-lien",
+    "code": "00091",
+    "district_code": "003",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7588b",
+    "name": "Phường Văn Miếu",
+    "slug": "phuong-van-mieu",
+    "code": "00094",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7588c",
+    "name": "Phường Quốc Tử Giám",
+    "slug": "phuong-quoc-tu-giam",
+    "code": "00097",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7588d",
+    "name": "Phường Láng Hạ",
+    "slug": "phuong-lang-ha",
+    "code": "00100",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7588e",
+    "name": "Phường Ô Chợ Dừa",
+    "slug": "phuong-o-cho-dua",
+    "code": "00103",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7588f",
+    "name": "Phường Láng Thượng",
+    "slug": "phuong-lang-thuong",
+    "code": "00106",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75890",
+    "name": "Phường Cát Linh",
+    "slug": "phuong-cat-linh",
+    "code": "00109",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75891",
+    "name": "Phường Hàng Bột",
+    "slug": "phuong-hang-bot",
+    "code": "00112",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75892",
+    "name": "Phường Phương Mai",
+    "slug": "phuong-phuong-mai",
+    "code": "00115",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75893",
+    "name": "Phường Khâm Thiên",
+    "slug": "phuong-kham-thien",
+    "code": "00118",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75894",
+    "name": "Phường Thổ Quan",
+    "slug": "phuong-tho-quan",
+    "code": "00121",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75895",
+    "name": "Phường Văn Chương",
+    "slug": "phuong-van-chuong",
+    "code": "00124",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75896",
+    "name": "Phường Khương Thượng",
+    "slug": "phuong-khuong-thuong",
+    "code": "00127",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75897",
+    "name": "Phường Kim Liên",
+    "slug": "phuong-kim-lien",
+    "code": "00130",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75898",
+    "name": "Phường Trung Tự",
+    "slug": "phuong-trung-tu",
+    "code": "00133",
+    "district_code": "004",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e75899",
+    "name": "Phường Thịnh Quang",
+    "slug": "phuong-thinh-quang",
+    "code": "00136",
+    "district_code": "005",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7589a",
+    "name": "Phường Trung Liệt",
+    "slug": "phuong-trung-liet",
+    "code": "00139",
+    "district_code": "005",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7589b",
+    "name": "Phường Quang Trung",
+    "slug": "phuong-quang-trung",
+    "code": "00142",
+    "district_code": "005",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7589c",
+    "name": "Phường Phương Liên",
+    "slug": "phuong-phuong-lien",
+    "code": "00145",
+    "district_code": "005",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7589d",
+    "name": "Phường Khâm Thiên",
+    "slug": "phuong-kham-thien",
+    "code": "00148",
+    "district_code": "005",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7589e",
+    "name": "Phường Đống Mác",
+    "slug": "phuong-dong-mac",
+    "code": "00151",
+    "district_code": "005",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e7589f",
+    "name": "Phường Cửa Đông",
+    "slug": "phuong-cua-dong",
+    "code": "00154",
+    "district_code": "005",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a0",
+    "name": "Phường Hàng Gai",
+    "slug": "phuong-hang-gai",
+    "code": "00157",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a1",
+    "name": "Phường Hàng Buồm",
+    "slug": "phuong-hang-buom",
+    "code": "00160",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a2",
+    "name": "Phường Hàng Đào",
+    "slug": "phuong-hang-dao",
+    "code": "00163",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a3",
+    "name": "Phường Hàng Bạc",
+    "slug": "phuong-hang-bac",
+    "code": "00166",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a4",
+    "name": "Phường Đồng Xuân",
+    "slug": "phuong-dong-xuan",
+    "code": "00169",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a5",
+    "name": "Phường Cửa Nam",
+    "slug": "phuong-cua-nam",
+    "code": "00172",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a6",
+    "name": "Phường Hàng Bông",
+    "slug": "phuong-hang-bong",
+    "code": "00175",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a7",
+    "name": "Phường Tràng Tiền",
+    "slug": "phuong-trang-tien",
+    "code": "00178",
+    "district_code": "002",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a8",
+    "name": "Phường Bến Thành",
+    "slug": "phuong-ben-thanh",
+    "code": "76001",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758a9",
+    "name": "Phường Cô Giang",
+    "slug": "phuong-co-giang",
+    "code": "76004",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758aa",
+    "name": "Phường Cầu Kho",
+    "slug": "phuong-cau-kho",
+    "code": "76007",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ab",
+    "name": "Phường Cầu Ông Lãnh",
+    "slug": "phuong-cau-ong-lanh",
+    "code": "76010",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ac",
+    "name": "Phường Đa Kao",
+    "slug": "phuong-da-kao",
+    "code": "76013",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ad",
+    "name": "Phường Nguyễn Cư Trinh",
+    "slug": "phuong-nguyen-cu-trinh",
+    "code": "76016",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ae",
+    "name": "Phường Nguyễn Thái Bình",
+    "slug": "phuong-nguyen-thai-binh",
+    "code": "76019",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758af",
+    "name": "Phường Phạm Ngũ Lão",
+    "slug": "phuong-pham-ngu-lao",
+    "code": "76022",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b0",
+    "name": "Phường Tân Định",
+    "slug": "phuong-tan-dinh",
+    "code": "76025",
+    "district_code": "760",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b1",
+    "name": "Phường Bến Nghé",
+    "slug": "phuong-ben-nghe",
+    "code": "76028",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b2",
+    "name": "Phường Thảo Điền",
+    "slug": "phuong-thao-dien",
+    "code": "76031",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b3",
+    "name": "Phường An Khánh",
+    "slug": "phuong-an-khanh",
+    "code": "76034",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b4",
+    "name": "Phường An Phú",
+    "slug": "phuong-an-phu",
+    "code": "76037",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b5",
+    "name": "Phường Bình An",
+    "slug": "phuong-binh-an",
+    "code": "76040",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b6",
+    "name": "Phường Bình Khánh",
+    "slug": "phuong-binh-khanh",
+    "code": "76043",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b7",
+    "name": "Phường Bình Trưng Đông",
+    "slug": "phuong-binh-trung-dong",
+    "code": "76046",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b8",
+    "name": "Phường Bình Trưng Tây",
+    "slug": "phuong-binh-trung-tay",
+    "code": "76049",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758b9",
+    "name": "Phường Cát Lái",
+    "slug": "phuong-cat-lai",
+    "code": "76052",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ba",
+    "name": "Phường Thạnh Mỹ Lợi",
+    "slug": "phuong-thanh-my-loi",
+    "code": "76055",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758bb",
+    "name": "Phường An Lợi Đông",
+    "slug": "phuong-an-loi-dong",
+    "code": "76058",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758bc",
+    "name": "Phường Thủ Thiêm",
+    "slug": "phuong-thu-thiem",
+    "code": "76061",
+    "district_code": "761",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758bd",
+    "name": "Phường 1",
+    "slug": "phuong-1",
+    "code": "76064",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758be",
+    "name": "Phường 2",
+    "slug": "phuong-2",
+    "code": "76067",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758bf",
+    "name": "Phường 3",
+    "slug": "phuong-3",
+    "code": "76070",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c0",
+    "name": "Phường 4",
+    "slug": "phuong-4",
+    "code": "76073",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c1",
+    "name": "Phường 5",
+    "slug": "phuong-5",
+    "code": "76076",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c2",
+    "name": "Phường 6",
+    "slug": "phuong-6",
+    "code": "76079",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c3",
+    "name": "Phường 7",
+    "slug": "phuong-7",
+    "code": "76082",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c4",
+    "name": "Phường 8",
+    "slug": "phuong-8",
+    "code": "76085",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c5",
+    "name": "Phường 9",
+    "slug": "phuong-9",
+    "code": "76088",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c6",
+    "name": "Phường 14",
+    "slug": "phuong-14",
+    "code": "76091",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c7",
+    "name": "Phường 12",
+    "slug": "phuong-12",
+    "code": "76094",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c8",
+    "name": "Phường 13",
+    "slug": "phuong-13",
+    "code": "76097",
+    "district_code": "762",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758c9",
+    "name": "Phường 4",
+    "slug": "phuong-4",
+    "code": "76100",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ca",
+    "name": "Phường 5",
+    "slug": "phuong-5",
+    "code": "76103",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758cb",
+    "name": "Phường 6",
+    "slug": "phuong-6",
+    "code": "76106",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758cc",
+    "name": "Phường 7",
+    "slug": "phuong-7",
+    "code": "76109",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758cd",
+    "name": "Phường 8",
+    "slug": "phuong-8",
+    "code": "76112",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ce",
+    "name": "Phường 9",
+    "slug": "phuong-9",
+    "code": "76115",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758cf",
+    "name": "Phường 10",
+    "slug": "phuong-10",
+    "code": "76118",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d0",
+    "name": "Phường 11",
+    "slug": "phuong-11",
+    "code": "76121",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d1",
+    "name": "Phường 12",
+    "slug": "phuong-12",
+    "code": "76124",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d2",
+    "name": "Phường 13",
+    "slug": "phuong-13",
+    "code": "76127",
+    "district_code": "763",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d3",
+    "name": "Phường 1",
+    "slug": "phuong-1",
+    "code": "76130",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d4",
+    "name": "Phường 2",
+    "slug": "phuong-2",
+    "code": "76133",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d5",
+    "name": "Phường 3",
+    "slug": "phuong-3",
+    "code": "76136",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d6",
+    "name": "Phường 4",
+    "slug": "phuong-4",
+    "code": "76139",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d7",
+    "name": "Phường 5",
+    "slug": "phuong-5",
+    "code": "76142",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d8",
+    "name": "Phường 6",
+    "slug": "phuong-6",
+    "code": "76145",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758d9",
+    "name": "Phường 7",
+    "slug": "phuong-7",
+    "code": "76148",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758da",
+    "name": "Phường 8",
+    "slug": "phuong-8",
+    "code": "76151",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758db",
+    "name": "Phường 9",
+    "slug": "phuong-9",
+    "code": "76154",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758dc",
+    "name": "Phường 10",
+    "slug": "phuong-10",
+    "code": "76157",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758dd",
+    "name": "Phường 11",
+    "slug": "phuong-11",
+    "code": "76160",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758de",
+    "name": "Phường 12",
+    "slug": "phuong-12",
+    "code": "76163",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758df",
+    "name": "Phường 13",
+    "slug": "phuong-13",
+    "code": "76166",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e0",
+    "name": "Phường 14",
+    "slug": "phuong-14",
+    "code": "76169",
+    "district_code": "764",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e1",
+    "name": "Phường Hải Châu I",
+    "slug": "phuong-hai-chau-i",
+    "code": "49001",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e2",
+    "name": "Phường Hải Châu II",
+    "slug": "phuong-hai-chau-ii",
+    "code": "49004",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e3",
+    "name": "Phường Thạch Thang",
+    "slug": "phuong-thach-thang",
+    "code": "49007",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e4",
+    "name": "Phường Thanh Bình",
+    "slug": "phuong-thanh-binh",
+    "code": "49010",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e5",
+    "name": "Phường Thuận Phước",
+    "slug": "phuong-thuan-phuoc",
+    "code": "49013",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e6",
+    "name": "Phường Hòa Thuận Tây",
+    "slug": "phuong-hoa-thuan-tay",
+    "code": "49016",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e7",
+    "name": "Phường Hòa Thuận Đông",
+    "slug": "phuong-hoa-thuan-dong",
+    "code": "49019",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e8",
+    "name": "Phường Bình Hiên",
+    "slug": "phuong-binh-hien",
+    "code": "49022",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758e9",
+    "name": "Phường Bình Thuận",
+    "slug": "phuong-binh-thuan",
+    "code": "49025",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ea",
+    "name": "Phường Nam Dương",
+    "slug": "phuong-nam-duong",
+    "code": "49028",
+    "district_code": "490",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758eb",
+    "name": "Phường An Hải Bắc",
+    "slug": "phuong-an-hai-bac",
+    "code": "49031",
+    "district_code": "491",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ec",
+    "name": "Phường An Hải Tây",
+    "slug": "phuong-an-hai-tay",
+    "code": "49034",
+    "district_code": "491",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ed",
+    "name": "Phường An Hải Đông",
+    "slug": "phuong-an-hai-dong",
+    "code": "49037",
+    "district_code": "491",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ee",
+    "name": "Phường Mân Thái",
+    "slug": "phuong-man-thai",
+    "code": "49040",
+    "district_code": "491",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758ef",
+    "name": "Phường Nại Hiên Đông",
+    "slug": "phuong-nai-hien-dong",
+    "code": "49043",
+    "district_code": "491",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758f0",
+    "name": "Phường Phước Mỹ",
+    "slug": "phuong-phuoc-my",
+    "code": "49046",
+    "district_code": "491",
+    "status": 1
+  },
+  {
+    "_id": "699d7680957ded3469e758f1",
+    "name": "Phường Thọ Quang",
+    "slug": "phuong-tho-quang",
+    "code": "49049",
+    "district_code": "491",
+    "status": 1
+  }
+]

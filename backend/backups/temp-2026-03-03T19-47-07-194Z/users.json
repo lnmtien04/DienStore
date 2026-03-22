@@ -1,0 +1,233 @@
+[
+  {
+    "_id": "67d400000000000000000001",
+    "email": "khachhang1@gmail.com",
+    "password": "123",
+    "hoten": "Nguyễn Thị Hương",
+    "dienthoai": "0987654321",
+    "avatar": "avatar-huong.jpg",
+    "role": "customer",
+    "status": 1,
+    "created_at": "2025-01-15T08:30:00.000Z",
+    "updated_at": "2025-02-20T10:15:00.000Z",
+    "addresses": [
+      {
+        "_id": "67d400000000000000000101",
+        "ten_nguoi_nhan": "Nguyễn Thị Hương",
+        "dienthoai": "0987654321",
+        "tinh_thanh": "Hà Nội",
+        "quan_huyen": "Cầu Giấy",
+        "phuong_xa": "Dịch Vọng",
+        "diachi_ct": "Số 123 đường Trần Duy Hưng",
+        "loai": "nha"
+      },
+      {
+        "_id": "67d400000000000000000102",
+        "ten_nguoi_nhan": "Nguyễn Thị Hương",
+        "dienthoai": "0987654321",
+        "tinh_thanh": "Hà Nội",
+        "quan_huyen": "Hoàn Kiếm",
+        "phuong_xa": "Hàng Bạc",
+        "diachi_ct": "Số 45 phố Hàng Đào",
+        "loai": "vanphong"
+      }
+    ],
+    "wishlist": [
+      {
+        "product_id": "67d000000000000000000001",
+        "added_at": "2025-02-10T14:20:00.000Z"
+      },
+      {
+        "product_id": "67d000000000000000000003",
+        "added_at": "2025-02-15T09:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "_id": "67d400000000000000000002",
+    "email": "Van@shop.com",
+    "password": "1234",
+    "hoten": "Trần Văn An",
+    "dienthoai": "0912345678",
+    "avatar": "avatar-An.jpg",
+    "role": "customer",
+    "status": 1,
+    "created_at": "2024-12-01T10:00:00.000Z",
+    "updated_at": "2025-02-18T16:30:00.000Z",
+    "addresses": [
+      {
+        "_id": "67d400000000000000000103",
+        "ten_nguoi_nhan": "Trần Văn Admin",
+        "dienthoai": "0912345678",
+        "tinh_thanh": "Hồ Chí Minh",
+        "quan_huyen": "Quận 7",
+        "phuong_xa": "Phú Mỹ Hưng",
+        "diachi_ct": "Số 10 đường Nguyễn Lương Bằng",
+        "loai": "nha"
+      }
+    ],
+    "wishlist": []
+  },
+  {
+    "_id": "699da431536070de84322885",
+    "fullName": "Lê Nguyễn Minh Tiến",
+    "username": "tiengpyc1j",
+    "email": "tien@example.com",
+    "password": "$2a$10$gFvXRR9zQ97Tr2XLI7hYS.XZnuJpSaNyRinwqsz1oT9DpOl8ndPSG",
+    "phoneNumber": "0335836635",
+    "address": "xứ sở thần tiên ",
+    "avatar": "http://localhost:5000/uploads/avatar-1772297967642-145317357.jpg",
+    "roles": [
+      "customer"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-24T13:14:25.669Z",
+    "updatedAt": "2026-02-28T17:00:03.737Z",
+    "__v": 0,
+    "bio": "vui vẻ hòa đồng sống tích cực ",
+    "gender": "male",
+    "dob": "2004-03-03T00:00:00.000Z"
+  },
+  {
+    "_id": "699e809c34dd8863b30128a7",
+    "fullName": "Quản trị viên",
+    "username": "admin",
+    "email": "admin@example.com",
+    "password": "$2a$10$yE9wxjHo0gCIqJ5gbsqEPuhPdtkHXM1Y/GHScnVqwRcSAItRhq3LW",
+    "roles": [
+      "admin"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-25T00:00:00.000Z",
+    "role": "admin",
+    "address": "Phường Long Xuyên , An Giang",
+    "phoneNumber": "1999 9999",
+    "updatedAt": "2026-03-01T04:49:26.915Z",
+    "avatar": "http://localhost:5000/uploads/avatar-1772298027716-404544032.jpg",
+    "bio": "ĐaiKa",
+    "gender": "male",
+    "dob": "2004-03-03T00:00:00.000Z",
+    "preferredLanguage": "vi"
+  },
+  {
+    "_id": "69a0481e9c6c15ee30373644",
+    "fullName": "ĐaiKa_AnGiang",
+    "username": "daika5xnlkx",
+    "email": "DaiKa@gmail.com",
+    "password": "$2a$10$b/8wvkVVoAEQ3MfzcK4DK.t7b9dPaC2GWST9L2ZZzkrARWHCdMZ0i",
+    "phoneNumber": "0963567933",
+    "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang",
+    "avatar": "http://localhost:5000/uploads/avatar-1772297937737-46963187.jpg",
+    "roles": [
+      "customer"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-26T13:18:22.468Z",
+    "updatedAt": "2026-03-03T15:28:56.128Z",
+    "__v": 0,
+    "bio": "đẹp traii",
+    "dob": "2026-03-18T00:00:00.000Z",
+    "gender": "male",
+    "preferredLanguage": "en"
+  },
+  {
+    "_id": "69a31ff1fa415ed163e4991a",
+    "fullName": "Mói Tình Đầu",
+    "username": "nycsoj9gg",
+    "email": "nyc@2801",
+    "password": "$2a$10$Fc0sq5liPbNaYWg8HargJeo3P4RUiByZ93m5Um.8Aey7HlTBFupxa",
+    "phoneNumber": "1900 0000",
+    "address": "Bà Rịa - Vũng Tàu",
+    "avatar": "http://localhost:5000/uploads/avatar-1772298242737-548731781.jpg",
+    "bio": "nyc",
+    "gender": "male",
+    "roles": [
+      "customer"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-28T17:03:45.709Z",
+    "updatedAt": "2026-03-01T03:58:02.661Z",
+    "__v": 0,
+    "dob": "2003-01-26T00:00:00.000Z"
+  },
+  {
+    "_id": "69a320cbfa415ed163e49933",
+    "fullName": "Chàng Thơ",
+    "username": "changtho",
+    "email": "changtho@gmail.com",
+    "password": "$2a$10$E7K93DVf63GHuyOjL7RUSOlNvQVGHPkkBoQKIzpBY8IBhYtTxsfHe",
+    "phoneNumber": "1900 2222",
+    "address": "Đà Lạt ",
+    "avatar": "http://localhost:5000/uploads/avatar-1772298466298-483001061.jpg",
+    "bio": "kẻ suy tình",
+    "gender": "male",
+    "roles": [
+      "customer"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-28T17:07:23.322Z",
+    "updatedAt": "2026-02-28T17:08:19.747Z",
+    "__v": 0,
+    "dob": "2003-03-03T00:00:00.000Z"
+  },
+  {
+    "_id": "69a32149fa415ed163e4994d",
+    "fullName": "Sadboy",
+    "username": "sadboy",
+    "email": "Sadboy@gmail.com",
+    "password": "$2a$10$oKVigVog.opkWSciF0/Hx.ND4sOWX/l3kTiA2TMArdDZHZB0j6ux.",
+    "phoneNumber": "1900 6666",
+    "address": "Sài Gòn",
+    "avatar": "http://localhost:5000/uploads/avatar-1772298583378-191439244.jpg",
+    "bio": "Kỉ Niệm về em :33",
+    "gender": "male",
+    "roles": [
+      "customer"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-28T17:09:29.590Z",
+    "updatedAt": "2026-02-28T17:10:29.544Z",
+    "__v": 0,
+    "dob": "1999-03-12T00:00:00.000Z"
+  },
+  {
+    "_id": "69a321c7fa415ed163e49966",
+    "fullName": "Chillchill",
+    "username": "chillchill",
+    "email": "chillchill@gmail.com",
+    "password": "$2a$10$fpAlJGIe9WCSHF3PcCN4uOcSbTsuDjScrPVAy41thSH8TfhWOcM1S",
+    "phoneNumber": "1222 13333",
+    "address": "Nha Trang",
+    "avatar": "http://localhost:5000/uploads/avatar-1772298710759-889809926.jpg",
+    "bio": "kẻ ngẩm ngơ",
+    "gender": "male",
+    "roles": [
+      "customer"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-28T17:11:35.985Z",
+    "updatedAt": "2026-02-28T17:12:25.886Z",
+    "__v": 0,
+    "dob": "2001-09-02T00:00:00.000Z"
+  },
+  {
+    "_id": "69a3223cfa415ed163e4997f",
+    "fullName": "Độc Toàn Thân",
+    "username": "docdtkny2",
+    "email": "Doc@gmail.com",
+    "password": "$2a$10$BZjVeNWGc16RTOqDJu544uLQwFrShPBU7b08m3vspS.3ed6N6YAeu",
+    "phoneNumber": "1888 68668",
+    "address": "TP.Hồ CHí Minh",
+    "avatar": "http://localhost:5000/uploads/avatar-1772298828231-38482887.jpg",
+    "bio": "Máu Chiến , huỷ duyệt setlove",
+    "gender": "male",
+    "roles": [
+      "customer"
+    ],
+    "isActive": true,
+    "createdAt": "2026-02-28T17:13:32.549Z",
+    "updatedAt": "2026-02-28T17:14:32.340Z",
+    "__v": 0,
+    "dob": "2002-09-16T00:00:00.000Z"
+  }
+]

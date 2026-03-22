@@ -1,0 +1,211 @@
+[
+  {
+    "_id": "67d300000000000000000001",
+    "product_id": "67d000000000000000000001",
+    "sku": "MAYXAY-ABC-TRANG",
+    "tenmau": "Trắng",
+    "anh": "/img/may-xay-trang.jpg",
+    "soluong": 20,
+    "giaban": 699000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000002",
+    "product_id": "67d000000000000000000001",
+    "sku": "MAYXAY-ABC-DEN",
+    "tenmau": "Đen",
+    "anh": "/img/may-xay-den.jpg",
+    "soluong": 15,
+    "giaban": 719000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000003",
+    "product_id": "67d000000000000000000001",
+    "sku": "MAYXAY-ABC-HONG",
+    "tenmau": "Hồng",
+    "anh": "/img/may-xay-hong.jpg",
+    "soluong": 15,
+    "giaban": 719000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000004",
+    "product_id": "67d000000000000000000002",
+    "sku": "TULANH-XYZ-BAC",
+    "tenmau": "Bạc",
+    "anh": "/img/tu-lanh-bac.jpg",
+    "soluong": 15,
+    "giaban": 5990000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000005",
+    "product_id": "67d000000000000000000002",
+    "sku": "TULANH-XYZ-TRANG",
+    "tenmau": "Trắng",
+    "anh": "/img/tu-lanh-trang.jpg",
+    "soluong": 15,
+    "giaban": 5790000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000006",
+    "product_id": "67d000000000000000000003",
+    "sku": "TIVI-55-DEN",
+    "tenmau": "Đen",
+    "anh": "/img/tivi-den.jpg",
+    "soluong": 20,
+    "giaban": 10990000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000007",
+    "product_id": "67d000000000000000000004",
+    "sku": "HUTBUI-Z12-XAM",
+    "tenmau": "Xám",
+    "anh": "/img/hut-bui-xam.jpg",
+    "soluong": 25,
+    "giaban": 1790000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000008",
+    "product_id": "67d000000000000000000004",
+    "sku": "HUTBUI-Z12-XANH",
+    "tenmau": "Xanh",
+    "anh": "/img/hut-bui-xanh.jpg",
+    "soluong": 15,
+    "giaban": 1790000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000009",
+    "product_id": "67d000000000000000000005",
+    "sku": "QUAT-5CANH-TRANG",
+    "tenmau": "Trắng",
+    "anh": "/img/quat-trang.jpg",
+    "soluong": 30,
+    "giaban": 890000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d30000000000000000000a",
+    "product_id": "67d000000000000000000005",
+    "sku": "QUAT-5CANH-DEN",
+    "tenmau": "Đen",
+    "anh": "/img/quat-den.jpg",
+    "soluong": 30,
+    "giaban": 890000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d30000000000000000000b",
+    "product_id": "67d000000000000000000006",
+    "sku": "SAYTOC-2200W-DEN",
+    "tenmau": "Đen",
+    "anh": "/img/say-toc-den.jpg",
+    "soluong": 40,
+    "giaban": 450000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d30000000000000000000c",
+    "product_id": "67d000000000000000000006",
+    "sku": "SAYTOC-2200W-HONG",
+    "tenmau": "Hồng",
+    "anh": "/img/say-toc-hong.jpg",
+    "soluong": 40,
+    "giaban": 470000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d30000000000000000000d",
+    "product_id": "67d000000000000000000007",
+    "sku": "DENBAN-LED-TRANG",
+    "tenmau": "Trắng",
+    "anh": "/img/den-ban-trang.jpg",
+    "soluong": 50,
+    "giaban": 299000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d30000000000000000000e",
+    "product_id": "67d000000000000000000007",
+    "sku": "DENBAN-LED-XAM",
+    "tenmau": "Xám",
+    "anh": "/img/den-ban-xam.jpg",
+    "soluong": 50,
+    "giaban": 299000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d30000000000000000000f",
+    "product_id": "67d000000000000000000008",
+    "sku": "NOICOM-1.8L-TRANG",
+    "tenmau": "Trắng",
+    "anh": "/img/noi-com-trang.jpg",
+    "soluong": 35,
+    "giaban": 850000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000010",
+    "product_id": "67d000000000000000000008",
+    "sku": "NOICOM-1.8L-DO",
+    "tenmau": "Đỏ",
+    "anh": "/img/noi-com-do.jpg",
+    "soluong": 35,
+    "giaban": 870000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000011",
+    "product_id": "67d000000000000000000009",
+    "sku": "MAYLANH-1HP-TRANG",
+    "tenmau": "Trắng",
+    "anh": "/img/may-lanh-trang.jpg",
+    "soluong": 25,
+    "giaban": 7490000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000012",
+    "product_id": "67d000000000000000000010",
+    "sku": "BANUI-DUNG-XANH",
+    "tenmau": "Xanh",
+    "anh": "/img/ban-ui-xanh.jpg",
+    "soluong": 20,
+    "giaban": 1290000,
+    "status": 1,
+    "thuoctinh": {}
+  },
+  {
+    "_id": "67d300000000000000000013",
+    "product_id": "67d000000000000000000010",
+    "sku": "BANUI-DUNG-HONG",
+    "tenmau": "Hồng",
+    "anh": "/img/ban-ui-hong.jpg",
+    "soluong": 15,
+    "giaban": 1290000,
+    "status": 1,
+    "thuoctinh": {}
+  }
+]

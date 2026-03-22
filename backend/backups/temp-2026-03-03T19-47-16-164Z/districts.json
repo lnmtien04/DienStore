@@ -1,0 +1,570 @@
+[
+  {
+    "_id": "699d7536957ded3469e75795",
+    "name": "Quận Ba Đình",
+    "slug": "quan-ba-dinh",
+    "code": "001",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e75796",
+    "name": "Quận Hoàn Kiếm",
+    "slug": "quan-hoan-kiem",
+    "code": "002",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e75797",
+    "name": "Quận Hai Bà Trưng",
+    "slug": "quan-hai-ba-trung",
+    "code": "003",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e75798",
+    "name": "Quận Đống Đa",
+    "slug": "quan-dong-da",
+    "code": "004",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e75799",
+    "name": "Quận Tây Hồ",
+    "slug": "quan-tay-ho",
+    "code": "005",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e7579a",
+    "name": "Quận Cầu Giấy",
+    "slug": "quan-cau-giay",
+    "code": "006",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e7579b",
+    "name": "Quận Thanh Xuân",
+    "slug": "quan-thanh-xuan",
+    "code": "007",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e7579c",
+    "name": "Quận Hoàng Mai",
+    "slug": "quan-hoang-mai",
+    "code": "008",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e7579d",
+    "name": "Quận Long Biên",
+    "slug": "quan-long-bien",
+    "code": "009",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e7579e",
+    "name": "Quận Bắc Từ Liêm",
+    "slug": "quan-bac-tu-liem",
+    "code": "010",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e7579f",
+    "name": "Quận Nam Từ Liêm",
+    "slug": "quan-nam-tu-liem",
+    "code": "011",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a0",
+    "name": "Huyện Thanh Trì",
+    "slug": "huyen-thanh-tri",
+    "code": "012",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a1",
+    "name": "Huyện Gia Lâm",
+    "slug": "huyen-gia-lam",
+    "code": "013",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a2",
+    "name": "Huyện Đông Anh",
+    "slug": "huyen-dong-anh",
+    "code": "014",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a3",
+    "name": "Huyện Sóc Sơn",
+    "slug": "huyen-soc-son",
+    "code": "015",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a4",
+    "name": "Huyện Mê Linh",
+    "slug": "huyen-me-linh",
+    "code": "016",
+    "province_code": "01",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a5",
+    "name": "Quận 1",
+    "slug": "quan-1",
+    "code": "760",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a6",
+    "name": "Quận 2",
+    "slug": "quan-2",
+    "code": "761",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a7",
+    "name": "Quận 3",
+    "slug": "quan-3",
+    "code": "762",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a8",
+    "name": "Quận 4",
+    "slug": "quan-4",
+    "code": "763",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757a9",
+    "name": "Quận 5",
+    "slug": "quan-5",
+    "code": "764",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757aa",
+    "name": "Quận 6",
+    "slug": "quan-6",
+    "code": "765",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757ab",
+    "name": "Quận 7",
+    "slug": "quan-7",
+    "code": "766",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757ac",
+    "name": "Quận 8",
+    "slug": "quan-8",
+    "code": "767",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757ad",
+    "name": "Quận 9",
+    "slug": "quan-9",
+    "code": "768",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757ae",
+    "name": "Quận 10",
+    "slug": "quan-10",
+    "code": "769",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757af",
+    "name": "Quận 11",
+    "slug": "quan-11",
+    "code": "770",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b0",
+    "name": "Quận 12",
+    "slug": "quan-12",
+    "code": "771",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b1",
+    "name": "Quận Gò Vấp",
+    "slug": "quan-go-vap",
+    "code": "772",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b2",
+    "name": "Quận Tân Bình",
+    "slug": "quan-tan-binh",
+    "code": "773",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b3",
+    "name": "Quận Tân Phú",
+    "slug": "quan-tan-phu",
+    "code": "774",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b4",
+    "name": "Quận Bình Thạnh",
+    "slug": "quan-binh-thanh",
+    "code": "775",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b5",
+    "name": "Quận Phú Nhuận",
+    "slug": "quan-phu-nhuan",
+    "code": "776",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b6",
+    "name": "Quận Thủ Đức",
+    "slug": "quan-thu-duc",
+    "code": "777",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b7",
+    "name": "Quận Bình Tân",
+    "slug": "quan-binh-tan",
+    "code": "778",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b8",
+    "name": "Huyện Củ Chi",
+    "slug": "huyen-cu-chi",
+    "code": "779",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757b9",
+    "name": "Huyện Hóc Môn",
+    "slug": "huyen-hoc-mon",
+    "code": "780",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757ba",
+    "name": "Huyện Bình Chánh",
+    "slug": "huyen-binh-chanh",
+    "code": "781",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757bb",
+    "name": "Huyện Nhà Bè",
+    "slug": "huyen-nha-be",
+    "code": "782",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757bc",
+    "name": "Huyện Cần Giờ",
+    "slug": "huyen-can-gio",
+    "code": "783",
+    "province_code": "79",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757bd",
+    "name": "Quận Hải Châu",
+    "slug": "quan-hai-chau",
+    "code": "490",
+    "province_code": "48",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757be",
+    "name": "Quận Thanh Khê",
+    "slug": "quan-thanh-khe",
+    "code": "491",
+    "province_code": "48",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757bf",
+    "name": "Quận Sơn Trà",
+    "slug": "quan-son-tra",
+    "code": "492",
+    "province_code": "48",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c0",
+    "name": "Quận Ngũ Hành Sơn",
+    "slug": "quan-ngu-hanh-son",
+    "code": "493",
+    "province_code": "48",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c1",
+    "name": "Quận Liên Chiểu",
+    "slug": "quan-lien-chieu",
+    "code": "494",
+    "province_code": "48",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c2",
+    "name": "Quận Cẩm Lệ",
+    "slug": "quan-cam-le",
+    "code": "495",
+    "province_code": "48",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c3",
+    "name": "Huyện Hòa Vang",
+    "slug": "huyen-hoa-vang",
+    "code": "496",
+    "province_code": "48",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c4",
+    "name": "Quận Hồng Bàng",
+    "slug": "quan-hong-bang",
+    "code": "303",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c5",
+    "name": "Quận Ngô Quyền",
+    "slug": "quan-ngo-quyen",
+    "code": "304",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c6",
+    "name": "Quận Lê Chân",
+    "slug": "quan-le-chan",
+    "code": "305",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c7",
+    "name": "Quận Hải An",
+    "slug": "quan-hai-an",
+    "code": "306",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c8",
+    "name": "Quận Kiến An",
+    "slug": "quan-kien-an",
+    "code": "307",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757c9",
+    "name": "Quận Đồ Sơn",
+    "slug": "quan-do-son",
+    "code": "308",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757ca",
+    "name": "Quận Dương Kinh",
+    "slug": "quan-duong-kinh",
+    "code": "309",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757cb",
+    "name": "Huyện Thủy Nguyên",
+    "slug": "huyen-thuy-nguyen",
+    "code": "310",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757cc",
+    "name": "Huyện An Dương",
+    "slug": "huyen-an-duong",
+    "code": "311",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757cd",
+    "name": "Huyện An Lão",
+    "slug": "huyen-an-lao",
+    "code": "312",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757ce",
+    "name": "Huyện Kiến Thụy",
+    "slug": "huyen-kien-thuy",
+    "code": "313",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757cf",
+    "name": "Huyện Tiên Lãng",
+    "slug": "huyen-tien-lang",
+    "code": "314",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d0",
+    "name": "Huyện Vĩnh Bảo",
+    "slug": "huyen-vinh-bao",
+    "code": "315",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d1",
+    "name": "Huyện Cát Hải",
+    "slug": "huyen-cat-hai",
+    "code": "316",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d2",
+    "name": "Huyện Bạch Long Vĩ",
+    "slug": "huyen-bach-long-vi",
+    "code": "317",
+    "province_code": "31",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d3",
+    "name": "Quận Ninh Kiều",
+    "slug": "quan-ninh-kieu",
+    "code": "916",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d4",
+    "name": "Quận Bình Thủy",
+    "slug": "quan-binh-thuy",
+    "code": "917",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d5",
+    "name": "Quận Cái Răng",
+    "slug": "quan-cai-rang",
+    "code": "918",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d6",
+    "name": "Quận Ô Môn",
+    "slug": "quan-o-mon",
+    "code": "919",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d7",
+    "name": "Quận Thốt Nốt",
+    "slug": "quan-thot-not",
+    "code": "920",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d8",
+    "name": "Huyện Phong Điền",
+    "slug": "huyen-phong-dien",
+    "code": "921",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757d9",
+    "name": "Huyện Cờ Đỏ",
+    "slug": "huyen-co-do",
+    "code": "922",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757da",
+    "name": "Huyện Thới Lai",
+    "slug": "huyen-thoi-lai",
+    "code": "923",
+    "province_code": "92",
+    "status": 1
+  },
+  {
+    "_id": "699d7536957ded3469e757db",
+    "name": "Huyện Vĩnh Thạnh",
+    "slug": "huyen-vinh-thanh",
+    "code": "924",
+    "province_code": "92",
+    "status": 1
+  }
+]

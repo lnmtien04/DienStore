@@ -1,0 +1,53 @@
+[
+  {
+    "_id": "699d7095957ded3469e7572f",
+    "user_id": "67d400000000000000000001",
+    "product_id": "67d000000000000000000001",
+    "order_id": "67d600000000000000000001",
+    "rating": 5,
+    "title": "Rất hài lòng",
+    "content": "Máy xay sinh tố xay rất mịn, dễ vệ sinh. Đáng tiền!",
+    "images": [
+      "/uploads/reviews/mayxay-1.jpg",
+      "/uploads/reviews/mayxay-2.jpg"
+    ],
+    "variants": {
+      "tenmau": "Trắng"
+    },
+    "status": 1,
+    "created_at": "2025-02-25T10:30:00Z",
+    "updated_at": "2025-02-25T10:30:00Z"
+  },
+  {
+    "_id": "699d7095957ded3469e75730",
+    "user_id": "67d400000000000000000004",
+    "product_id": "67d000000000000000000003",
+    "order_id": "67d600000000000000000002",
+    "rating": 4,
+    "title": "Hình ảnh đẹp, âm thanh tốt",
+    "content": "Tivi hình ảnh sắc nét, màu sắc chuẩn. Giao hàng nhanh.",
+    "images": [],
+    "variants": {},
+    "status": 1,
+    "created_at": "2025-02-26T15:20:00Z",
+    "updated_at": "2025-02-26T15:20:00Z"
+  },
+  {
+    "_id": "699d7095957ded3469e75731",
+    "user_id": "67d400000000000000000001",
+    "product_id": "67d000000000000000000006",
+    "order_id": "67d600000000000000000003",
+    "rating": 5,
+    "title": "Máy sấy tóc tốt, sấy nhanh khô",
+    "content": "Công suất lớn, sấy nhanh, có chế độ mát. Rất thích.",
+    "images": [
+      "/uploads/reviews/saytoc-1.jpg"
+    ],
+    "variants": {
+      "tenmau": "Đen"
+    },
+    "status": 1,
+    "created_at": "2025-02-27T08:45:00Z",
+    "updated_at": "2025-02-27T08:45:00Z"
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "home": {
+    "hero": {
+      "title": "Premium Technology, Best Price Every Day",
+      "subtitle": "Discover thousands of genuine tech products with attractive offers at DienStore.",
+      "shop_now": "Shop Now",
+      "categories": "Categories"
+    },
+    "categories": "Product Categories",
+    "featured": "Featured Products",
+    "testimonials": "What Our Customers Say",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "common": {
+    "search": "Search...",
+    "add_to_cart": "Add to cart",
+    "view_detail": "View details",
+    "price": "Price"
+  },
+  "product": {
+    "out_of_stock": "Out of stock",
+    "discount": "Off",
+    "no_image": "No image"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty"
+  },
+  "testimonial": {
+    "sample1": "HomiTech is reputable, fast delivery, genuine products.",
+    "sample2": "I am very satisfied with the service and product quality here."
+  },
+  "nav": {
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "hotline": {
+    "title": "Customer Support Center",
+    "subtitle": "We are always ready to support you 24/7",
+    "phone": "Phone",
+    "phone_desc": "24/7 Support",
+    "email": "Email",
+    "email_desc": "Response within 24h",
+    "working_hours": "Working Hours",
+    "working_hours_detail": "Mon - Sat: 8:00 AM - 9:00 PM",
+    "working_hours_note": "Sunday: 9:00 AM - 5:00 PM",
+    "address": "Address",
+    "address_detail": "123 Dien Bien Phu, District 3, HCMC",
+    "address_note": "Main Office",
+    "contact_now": "Contact Now",
+    "faq_title": "Frequently Asked Questions",
+    "faq1_q": "How to place an order?",
+    "faq1_a": "You can order directly on the website or call our hotline 1900 1234 for assistance.",
+    "faq2_q": "What is the return policy?",
+    "faq2_a": "Products can be returned within 7 days if there is a manufacturer defect.",
+    "faq3_q": "How long does delivery take?",
+    "faq3_a": "Delivery within 24h for inner city, 2-3 working days for outer areas.",
+    "other_contact": "Or contact us via other channels:"
+  }
+}

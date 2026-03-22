@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "699d7265957ded3469e7573f",
+    "email": "khachhang1@gmail.com",
+    "subscribed_at": "2025-01-15T08:30:00Z"
+  },
+  {
+    "_id": "699d7265957ded3469e75740",
+    "email": "nguyenthihuong@yahoo.com",
+    "subscribed_at": "2025-02-10T14:20:00Z"
+  },
+  {
+    "_id": "699d7265957ded3469e75741",
+    "email": "tranvanadmin@shop.com",
+    "subscribed_at": "2025-02-18T16:30:00Z"
+  },
+  {
+    "_id": "699d7265957ded3469e75742",
+    "email": "phamvankhach@gmail.com",
+    "subscribed_at": "2025-02-21T08:45:00Z"
+  },
+  {
+    "_id": "699d7265957ded3469e75743",
+    "email": "lehoangc@gmail.com",
+    "subscribed_at": "2025-02-25T11:20:00Z"
+  }
+]

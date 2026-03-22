@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "699d739d957ded3469e7574d",
+    "name": "Công ty Điện máy X",
+    "contact": "Nguyễn Văn Anh",
+    "phone": "02812345678",
+    "address": "123 Lê Lợi, Quận 1, TP.HCM"
+  },
+  {
+    "_id": "699d739d957ded3469e7574e",
+    "name": "TNHH Thương mại Điện tử Y",
+    "contact": "Trần Thị Bình",
+    "phone": "02498765432",
+    "address": "456 Nguyễn Trãi, Thanh Xuân, Hà Nội"
+  },
+  {
+    "_id": "699d739d957ded3469e7574f",
+    "name": "Công ty Cổ phần Gia dụng Z",
+    "contact": "Phạm Văn Ca",
+    "phone": "0511222333",
+    "address": "789 Hùng Vương, Hải Châu, Đà Nẵng"
+  },
+  {
+    "_id": "699d739d957ded3469e75750",
+    "name": "Nhập khẩu Điện lạnh W",
+    "contact": "Lê Thị Dinh",
+    "phone": "0270369147",
+    "address": "Số 10 đường 30/4, Ninh Kiều, Cần Thơ"
+  },
+  {
+    "_id": "699d739d957ded3469e75751",
+    "name": "Công ty TNHH Xuất nhập khẩu V",
+    "contact": "Hoàng Văn Em",
+    "phone": "0222333444",
+    "address": "Lô B5, KCN Biên Hòa, Đồng Nai"
+  }
+]

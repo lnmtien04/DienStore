@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "69a6c2ad9baa75f157c7ca54",
+    "user": "69a0481e9c6c15ee30373644",
+    "recipientName": "hhj",
+    "phone": "099900",
+    "province": "njnkhjnjk",
+    "district": "ihku",
+    "ward": "iugiu",
+    "detail": "iohiubkj",
+    "isDefault": false,
+    "createdAt": "2026-03-03T11:14:53.758Z",
+    "updatedAt": "2026-03-03T12:24:12.855Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a6c5989baa75f157c7ca87",
+    "user": "69a0481e9c6c15ee30373644",
+    "recipientName": "uigiuu",
+    "phone": "09977",
+    "province": "iohio0998",
+    "district": "gugu",
+    "ward": "ydtytf",
+    "detail": "t6ycjmgj",
+    "isDefault": true,
+    "createdAt": "2026-03-03T11:27:20.119Z",
+    "updatedAt": "2026-03-03T12:24:12.859Z",
+    "__v": 0
+  }
+]

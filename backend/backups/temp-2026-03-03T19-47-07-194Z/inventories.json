@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "67e000000000000000000001",
+    "product_variant_id": "67d300000000000000000001",
+    "type": "import",
+    "quantity": 50,
+    "reference_id": "67e100000000000000000001",
+    "note": "Nhập hàng đợt 1 từ nhà cung cấp ABC",
+    "created_by": "67d400000000000000000002",
+    "created_at": "2025-01-10T09:00:00.000Z"
+  },
+  {
+    "_id": "67e000000000000000000002",
+    "product_variant_id": "67d300000000000000000002",
+    "type": "import",
+    "quantity": 30,
+    "reference_id": "67e100000000000000000001",
+    "note": "Nhập hàng đợt 1 từ nhà cung cấp ABC",
+    "created_by": "67d400000000000000000002",
+    "created_at": "2025-01-10T09:00:00.000Z"
+  },
+  {
+    "_id": "67e000000000000000000003",
+    "product_variant_id": "67d300000000000000000004",
+    "type": "import",
+    "quantity": 15,
+    "reference_id": "67e100000000000000000002",
+    "note": "Nhập tủ lạnh từ nhà cung cấp XYZ",
+    "created_by": "67d400000000000000000002",
+    "created_at": "2025-01-15T14:30:00.000Z"
+  },
+  {
+    "_id": "67e000000000000000000004",
+    "product_variant_id": "67d300000000000000000005",
+    "type": "import",
+    "quantity": 15,
+    "reference_id": "67e100000000000000000002",
+    "note": "Nhập tủ lạnh từ nhà cung cấp XYZ",
+    "created_by": "67d400000000000000000002",
+    "created_at": "2025-01-15T14:30:00.000Z"
+  },
+  {
+    "_id": "67e000000000000000000006",
+    "product_variant_id": "67d300000000000000000006",
+    "type": "export",
+    "quantity": -1,
+    "reference_id": "67d600000000000000000001",
+    "note": "Xuất bán đơn hàng DH-20250224-001",
+    "created_by": null,
+    "created_at": "2025-02-24T10:35:00.000Z"
+  },
+  {
+    "_id": "67e000000000000000000007",
+    "product_variant_id": "67d300000000000000000007",
+    "type": "export",
+    "quantity": -2,
+    "reference_id": "67d600000000000000000002",
+    "note": "Xuất bán đơn hàng DH-20250224-002",
+    "created_by": null,
+    "created_at": "2025-02-24T14:20:00.000Z"
+  },
+  {
+    "_id": "67e000000000000000000009",
+    "product_variant_id": "67d30000000000000000000b",
+    "type": "export",
+    "quantity": -1,
+    "reference_id": "67d600000000000000000003",
+    "note": "Xuất bán đơn hàng DH-20250223-001",
+    "created_by": null,
+    "created_at": "2025-02-23T09:50:00.000Z"
+  },
+  {
+    "_id": "67e000000000000000000008",
+    "product_variant_id": "67d300000000000000000009",
+    "type": "export",
+    "quantity": -2,
+    "reference_id": "67d600000000000000000002",
+    "note": "Xuất bán đơn hàng DH-20250224-002",
+    "created_by": null,
+    "created_at": "2025-02-24T14:20:00.000Z"
+  },
+  {
+    "_id": "67e00000000000000000000a",
+    "product_variant_id": "67d300000000000000000001",
+    "type": "adjustment",
+    "quantity": 1,
+    "reference_id": null,
+    "note": "Kiểm kê phát hiện thừa 1 sản phẩm, điều chỉnh tăng",
+    "created_by": "67d400000000000000000003",
+    "created_at": "2025-02-28T16:00:00.000Z"
+  }
+]

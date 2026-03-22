@@ -1,0 +1,20 @@
+{
+  "welcome": "Willkommen",
+  "home": "Startseite",
+  "product": "Produkt",
+  "products": "Produkte",
+  "cart": "Warenkorb",
+  "login": "Anmelden",
+  "register": "Registrieren",
+  "logout": "Abmelden",
+  "profile": "Profil",
+  "settings": "Einstellungen",
+  "orders": "Bestellungen",
+  "wishlist": "Wunschliste",
+  "notifications": "Benachrichtigungen",
+  "language": "Sprache",
+  "theme": "Design",
+  "light": "Hell",
+  "dark": "Dunkel",
+  "system": "System"
+}

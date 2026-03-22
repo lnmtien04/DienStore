@@ -1,0 +1,59 @@
+[
+  {
+    "_id": "69a7319b93e67389cb93af93",
+    "title": "ừ",
+    "slug": "u",
+    "content": "<p>vsv</p>",
+    "excerpt": "gư",
+    "featuredImage": "http://localhost:5000/uploads/featuredImage-1772564891743-864836323.png",
+    "tags": [
+      "sb"
+    ],
+    "status": "published",
+    "publishedAt": "2026-03-03T19:08:11.823Z",
+    "views": 0,
+    "metaTitle": "ừ",
+    "author": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-03-03T19:08:11.863Z",
+    "updatedAt": "2026-03-03T19:08:11.863Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a731da93e67389cb93afca",
+    "title": "sv",
+    "slug": "sv",
+    "content": "<p>gsv</p>",
+    "excerpt": "dsb",
+    "featuredImage": "http://localhost:5000/uploads/featuredImage-1772564954694-66294655.png",
+    "tags": [
+      "ds"
+    ],
+    "status": "published",
+    "publishedAt": "2026-03-03T19:09:14.719Z",
+    "views": 0,
+    "metaTitle": "sv",
+    "author": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-03-03T19:09:14.722Z",
+    "updatedAt": "2026-03-03T19:09:14.722Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a7337c2a82b612ea08101e",
+    "title": "aC",
+    "slug": "ac",
+    "content": "<p>ác</p>",
+    "excerpt": "ávc",
+    "featuredImage": "http://localhost:5000/uploads/featuredImage-1772565372026-45357802.png",
+    "tags": [
+      "áyt"
+    ],
+    "status": "published",
+    "publishedAt": "2026-03-03T19:16:12.055Z",
+    "views": 0,
+    "metaTitle": "aC",
+    "author": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-03-03T19:16:12.070Z",
+    "updatedAt": "2026-03-03T19:17:58.698Z",
+    "__v": 1
+  }
+]

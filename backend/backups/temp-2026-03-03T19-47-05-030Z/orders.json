@@ -1,0 +1,680 @@
+[
+  {
+    "_id": "699fc88bd62d63df1728aca4",
+    "orderNumber": "ORD26022600001",
+    "user": "699da431536070de84322885",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "tủ lạnh ",
+        "price": 150000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772020264460-407480080.png",
+        "_id": "699fc88bd62d63df1728aca5"
+      }
+    ],
+    "totalAmount": 150000,
+    "shippingAddress": {
+      "fullName": "dshnx",
+      "phone": "dsj",
+      "address": "dxrjm",
+      "city": "djkf",
+      "district": "jdr",
+      "ward": "fjdx"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "delivered",
+    "notes": "nhẹ tay ",
+    "createdBy": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-02-26T04:14:03.062Z",
+    "updatedAt": "2026-02-26T04:14:17.183Z",
+    "__v": 0,
+    "shippedAt": "2026-02-26T04:14:13.738Z",
+    "deliveredAt": "2026-02-26T04:14:17.182Z"
+  },
+  {
+    "_id": "699fd1bef4d2ec5373ee88bc",
+    "orderNumber": "ORD26022600002",
+    "user": "699da431536070de84322885",
+    "items": [
+      {
+        "product": "699fd0b6f4d2ec5373ee8854",
+        "name": "bánh mì ",
+        "price": 291000000,
+        "quantity": 1,
+        "image": null,
+        "_id": "699fd1bef4d2ec5373ee88bd"
+      }
+    ],
+    "totalAmount": 291000000,
+    "shippingAddress": {
+      "fullName": "ádhb",
+      "phone": "0123456792",
+      "address": "ftguj",
+      "city": "Hồ Chí Minh",
+      "district": "Quận 3",
+      "ward": "Phường 1"
+    },
+    "paymentMethod": "zalopay",
+    "paymentStatus": "pending",
+    "orderStatus": "shipping",
+    "notes": "hjnl",
+    "createdBy": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-02-26T04:53:19.002Z",
+    "updatedAt": "2026-02-26T04:54:31.357Z",
+    "__v": 0,
+    "shippedAt": "2026-02-26T04:54:31.356Z"
+  },
+  {
+    "_id": "699fd5bdf4d2ec5373ee895c",
+    "orderNumber": "ORD26022600003",
+    "user": "699da431536070de84322885",
+    "items": [
+      {
+        "product": "699fd0b6f4d2ec5373ee8854",
+        "name": "bánh mì ",
+        "price": 291000000,
+        "quantity": 1,
+        "image": null,
+        "_id": "699fd5bdf4d2ec5373ee895d"
+      }
+    ],
+    "totalAmount": 291000000,
+    "shippingAddress": {
+      "fullName": "saegv",
+      "phone": "01334658847",
+      "address": "sazhy",
+      "city": "Hải Phòng",
+      "district": "Hồng Bàng",
+      "ward": "Phường Hạ Lý"
+    },
+    "paymentMethod": "momo",
+    "paymentStatus": "pending",
+    "orderStatus": "confirmed",
+    "notes": "shbzx",
+    "createdBy": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-02-26T05:10:21.956Z",
+    "updatedAt": "2026-02-26T05:34:53.553Z",
+    "__v": 0
+  },
+  {
+    "_id": "699ffee42d6f5d257c9e75af",
+    "orderNumber": "ORD26022600004",
+    "user": "699da431536070de84322885",
+    "items": [
+      {
+        "product": "699fd0b6f4d2ec5373ee8854",
+        "name": "bánh mì ",
+        "price": 291000000,
+        "quantity": 1,
+        "image": null,
+        "_id": "699ffee42d6f5d257c9e75b0"
+      }
+    ],
+    "totalAmount": 291000000,
+    "shippingAddress": {
+      "fullName": "etwwyrh",
+      "phone": "02155555566",
+      "address": "avxhndf",
+      "city": "Hải Phòng",
+      "district": "Hồng Bàng",
+      "ward": "Phường Hạ Lý"
+    },
+    "paymentMethod": "momo",
+    "paymentStatus": "pending",
+    "orderStatus": "confirmed",
+    "notes": "rdhf",
+    "createdBy": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-02-26T08:05:56.521Z",
+    "updatedAt": "2026-02-26T08:06:43.593Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a0170c75c3b25bb59e1cd4",
+    "orderNumber": "ORD26022600005",
+    "user": "699da431536070de84322885",
+    "items": [
+      {
+        "product": "69a0152c1ecfe8248ff2abcd",
+        "name": "fgg",
+        "price": 100000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772098858029-986260953.png",
+        "_id": "69a0170c75c3b25bb59e1cd5"
+      }
+    ],
+    "totalAmount": 100000000,
+    "shippingAddress": {
+      "fullName": "dgvdf",
+      "phone": "0988756543",
+      "address": "dsvdfz",
+      "city": "Cần Thơ",
+      "district": "Cái Răng",
+      "ward": "Phường Phú Thứ"
+    },
+    "paymentMethod": "zalopay",
+    "paymentStatus": "pending",
+    "orderStatus": "pending",
+    "notes": "zdb",
+    "createdBy": "699e809c34dd8863b30128a7",
+    "createdAt": "2026-02-26T09:49:00.881Z",
+    "updatedAt": "2026-02-26T09:49:00.881Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a04a460b260648907f3a30",
+    "orderNumber": "ORD26022600006",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "69a0152c1ecfe8248ff2abcd",
+        "name": "fgg",
+        "price": 100000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772098858029-986260953.png",
+        "_id": "69a04a460b260648907f3a31"
+      }
+    ],
+    "totalAmount": 100000000,
+    "shippingAddress": {
+      "fullName": "zsgyhxcbx",
+      "phone": "0987654326",
+      "address": "bz ",
+      "city": "Hà Nội",
+      "district": "Hoàn Kiếm",
+      "ward": "Phường Hàng Trống"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "cancelled",
+    "notes": "dhbx",
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-02-26T13:27:34.856Z",
+    "updatedAt": "2026-03-03T16:25:39.422Z",
+    "__v": 0,
+    "cancelledAt": "2026-03-03T16:25:39.415Z",
+    "discountAmount": 0,
+    "shippingFee": 0
+  },
+  {
+    "_id": "69a050c09efc113f093f911d",
+    "orderNumber": "ORD26022600007",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "69a0152c1ecfe8248ff2abcd",
+        "name": "fgg",
+        "price": 100000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772098858029-986260953.png",
+        "_id": "69a050c09efc113f093f911e"
+      }
+    ],
+    "totalAmount": 100000000,
+    "shippingAddress": {
+      "fullName": "sfzv dx",
+      "phone": "099888523",
+      "address": "fxjn",
+      "city": "Hà Nội",
+      "district": "Ba Đình",
+      "ward": "Phường Đội Cấn"
+    },
+    "paymentMethod": "bank_transfer",
+    "paymentStatus": "pending",
+    "orderStatus": "shipping",
+    "notes": "",
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-02-26T13:55:12.809Z",
+    "updatedAt": "2026-02-26T14:03:46.758Z",
+    "__v": 0,
+    "shippedAt": "2026-02-26T14:03:46.752Z"
+  },
+  {
+    "_id": "69a32b18fa415ed163e49b55",
+    "orderNumber": "ORD26030100001",
+    "user": "69a3223cfa415ed163e4997f",
+    "items": [
+      {
+        "product": "69a0152c1ecfe8248ff2abcd",
+        "name": "Tủ lạnh 4 cánh ",
+        "price": 30490000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772299770969-512991398.jpg",
+        "_id": "69a32b18fa415ed163e49b56"
+      }
+    ],
+    "totalAmount": 30490000,
+    "shippingAddress": {
+      "fullName": "Độc Toàn Thân",
+      "phone": "1888 68668",
+      "address": "TP.Hồ CHí Minh"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "shipping",
+    "notes": "",
+    "createdBy": "69a3223cfa415ed163e4997f",
+    "createdAt": "2026-02-28T17:51:20.272Z",
+    "updatedAt": "2026-02-28T17:51:47.708Z",
+    "__v": 0,
+    "shippedAt": "2026-02-28T17:51:47.706Z"
+  },
+  {
+    "_id": "69a48e12f7bde327401cc013",
+    "orderNumber": "ORD26030200001",
+    "user": "69a3223cfa415ed163e4997f",
+    "items": [
+      {
+        "product": "69a3b5225ba18666e518785f",
+        "name": "Máy Rửa Mặt LumiSpa iO Nuskin",
+        "price": 3770000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772336415435-674466569.jpg",
+        "_id": "69a48e12f7bde327401cc014"
+      }
+    ],
+    "totalAmount": 3770000,
+    "shippingAddress": {
+      "fullName": "Độc Toàn Thân",
+      "phone": "1888 68668",
+      "address": "TP.Hồ CHí Minh"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "pending",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a3223cfa415ed163e4997f",
+    "createdAt": "2026-03-01T19:05:54.920Z",
+    "updatedAt": "2026-03-01T19:05:54.920Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a48ee4f7bde327401cc05d",
+    "orderNumber": "ORD26030200002",
+    "user": "69a3223cfa415ed163e4997f",
+    "items": [
+      {
+        "product": "699ee1a31f8529405424ac8d",
+        "name": "Tủ lạnh",
+        "price": 80000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300547909-537235460.jpg",
+        "_id": "69a48ee4f7bde327401cc05e"
+      }
+    ],
+    "totalAmount": 80000000,
+    "shippingAddress": {
+      "fullName": "Độc Toàn Thân",
+      "phone": "1888 68668",
+      "address": "TP.Hồ CHí Minh"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "delivered",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a3223cfa415ed163e4997f",
+    "createdAt": "2026-03-01T19:09:24.194Z",
+    "updatedAt": "2026-03-01T19:13:35.727Z",
+    "__v": 0,
+    "shippedAt": "2026-03-01T19:13:35.174Z",
+    "deliveredAt": "2026-03-01T19:13:35.726Z"
+  },
+  {
+    "_id": "69a491041ecc86a5776d847d",
+    "orderNumber": "ORD26030200003",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "69a3b9115ba18666e5187889",
+        "name": "Máy massage mắt túi khí EYECARE",
+        "price": 630000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772337415801-46918797.jpg",
+        "_id": "69a491041ecc86a5776d847e"
+      }
+    ],
+    "totalAmount": 630000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "pending",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-01T19:18:28.182Z",
+    "updatedAt": "2026-03-01T19:18:28.182Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a4921f196c5548c66305c8",
+    "orderNumber": "ORD26030200004",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a4921f196c5548c66305c9"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "cancelled",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-01T19:23:11.262Z",
+    "updatedAt": "2026-03-03T17:42:12.719Z",
+    "__v": 0,
+    "cancelledAt": "2026-03-03T17:42:12.718Z"
+  },
+  {
+    "_id": "69a493612e2596c29e0d2e74",
+    "orderNumber": "ORD26030200005",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a493612e2596c29e0d2e75"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "shipping",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-01T19:28:33.256Z",
+    "updatedAt": "2026-03-02T07:40:17.360Z",
+    "__v": 0,
+    "shippedAt": "2026-03-02T07:40:17.358Z"
+  },
+  {
+    "_id": "69a49440237d7ec4c729b68d",
+    "orderNumber": "ORD26030200006",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a49440237d7ec4c729b68e"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "shipping",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-01T19:32:16.996Z",
+    "updatedAt": "2026-03-02T07:40:03.927Z",
+    "__v": 0,
+    "shippedAt": "2026-03-02T07:40:03.926Z"
+  },
+  {
+    "_id": "69a5437f45eea0e3c44d2e93",
+    "orderNumber": "ORD26030200007",
+    "user": "69a3223cfa415ed163e4997f",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a5437f45eea0e3c44d2e94"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "Độc Toàn Thân",
+      "phone": "1888 68668",
+      "address": "TP.Hồ CHí Minh"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "shipping",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a3223cfa415ed163e4997f",
+    "createdAt": "2026-03-02T07:59:59.741Z",
+    "updatedAt": "2026-03-02T08:07:11.866Z",
+    "__v": 0,
+    "shippedAt": "2026-03-02T08:07:11.865Z"
+  },
+  {
+    "_id": "69a5c3b07569ee5ce79ad696",
+    "orderNumber": "ORD26030300001",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee1a31f8529405424ac8d",
+        "name": "Tủ lạnh",
+        "price": 80000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300547909-537235460.jpg",
+        "_id": "69a5c3b07569ee5ce79ad697"
+      }
+    ],
+    "totalAmount": 80000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "cancelled",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-02T17:06:56.971Z",
+    "updatedAt": "2026-03-03T17:42:10.633Z",
+    "__v": 0,
+    "cancelledAt": "2026-03-03T17:42:10.631Z"
+  },
+  {
+    "_id": "69a5c7127569ee5ce79ad73a",
+    "orderNumber": "ORD26030300002",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a5c7127569ee5ce79ad73b"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "cancelled",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-02T17:21:22.956Z",
+    "updatedAt": "2026-03-03T17:42:08.099Z",
+    "__v": 0,
+    "cancelledAt": "2026-03-03T17:42:08.097Z"
+  },
+  {
+    "_id": "69a5c86d15c5961295dedef4",
+    "orderNumber": "ORD26030300003",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a5c86d15c5961295dedef5"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "delivered",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-02T17:27:09.914Z",
+    "updatedAt": "2026-03-03T17:43:50.308Z",
+    "__v": 0,
+    "shippedAt": "2026-03-03T17:43:29.954Z",
+    "deliveredAt": "2026-03-03T17:43:50.308Z"
+  },
+  {
+    "_id": "69a5cb249ff803d16fd5b652",
+    "orderNumber": "ORD26030300004",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a5cb249ff803d16fd5b653"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "delivered",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-02T17:38:44.995Z",
+    "updatedAt": "2026-03-02T17:39:36.162Z",
+    "__v": 0,
+    "shippedAt": "2026-03-02T17:39:13.059Z",
+    "deliveredAt": "2026-03-02T17:39:14.152Z",
+    "receivedAt": "2026-03-02T17:39:36.160Z"
+  },
+  {
+    "_id": "69a5cc9d9ff803d16fd5b788",
+    "orderNumber": "ORD26030300005",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699fd0b6f4d2ec5373ee8854",
+        "name": "Tủ lạnh mini",
+        "price": 9000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300039975-456328910.jpg",
+        "_id": "69a5cc9d9ff803d16fd5b789"
+      }
+    ],
+    "totalAmount": 9000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "cancelled",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-02T17:45:01.556Z",
+    "updatedAt": "2026-03-03T16:02:59.330Z",
+    "__v": 0,
+    "cancelledAt": "2026-03-03T16:02:59.322Z"
+  },
+  {
+    "_id": "69a71d551b211543862b451a",
+    "orderNumber": "ORD26030400001",
+    "user": "69a0481e9c6c15ee30373644",
+    "items": [
+      {
+        "product": "699ee25c1f8529405424ac97",
+        "name": "Tủ đông",
+        "price": 25000000,
+        "quantity": 1,
+        "image": "http://localhost:5000/uploads/image-1772300380938-319322902.jpg",
+        "_id": "69a71d551b211543862b451b"
+      }
+    ],
+    "totalAmount": 25000000,
+    "shippingAddress": {
+      "fullName": "ĐaiKa_AnGiang",
+      "phone": "0963567933",
+      "address": "số 329, ấp vĩnh thạnh , xã vĩnh an , phường Long Xuyên , Tỉnh an giang"
+    },
+    "paymentMethod": "cod",
+    "paymentStatus": "pending",
+    "orderStatus": "pending",
+    "notes": "",
+    "discountAmount": 0,
+    "shippingFee": 0,
+    "createdBy": "69a0481e9c6c15ee30373644",
+    "createdAt": "2026-03-03T17:41:41.323Z",
+    "updatedAt": "2026-03-03T17:41:41.323Z",
+    "__v": 0
+  }
+]

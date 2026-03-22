@@ -1,0 +1,63 @@
+{
+  "home": {
+    "hero": {
+      "title": "Công nghệ đỉnh cao, giá tốt mỗi ngày",
+      "subtitle": "Khám phá hàng ngàn sản phẩm công nghệ chính hãng với ưu đãi hấp dẫn tại HomiTech.",
+      "shop_now": "Mua ngay",
+      "categories": "Danh mục"
+    },
+    "categories": "Danh mục sản phẩm",
+    "featured": "Sản phẩm nổi bật",
+    "testimonials": "Khách hàng nói gì về chúng tôi",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi"
+  },
+  "common": {
+    "search": "Tìm kiếm...",
+    "add_to_cart": "Thêm vào giỏ",
+    "view_detail": "Xem chi tiết",
+    "price": "Giá"
+  },
+  "product": {
+    "out_of_stock": "Hết hàng",
+    "discount": "Giảm",
+    "no_image": "Không có ảnh"
+  },
+  "cart": {
+    "title": "Giỏ hàng",
+    "empty": "Giỏ hàng trống"
+  },
+  "testimonial": {
+    "sample1": "HomiTech bán hàng uy tín, giao hàng nhanh, sản phẩm chính hãng.",
+    "sample2": "Tôi rất hài lòng với dịch vụ và chất lượng sản phẩm tại đây."
+  },
+  "nav": {
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất"
+  }, 
+  "hotline": {
+    "title": "Trung tâm hỗ trợ khách hàng",
+    "subtitle": "Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7",
+    "phone": "Số điện thoại",
+    "phone_desc": "Hỗ trợ 24/7",
+    "email": "Email",
+    "email_desc": "Phản hồi trong 24h",
+    "working_hours": "Giờ làm việc",
+    "working_hours_detail": "Thứ 2 - Thứ 7: 8:00 - 21:00",
+    "working_hours_note": "Chủ nhật: 9:00 - 17:00",
+    "address": "Địa chỉ",
+    "address_detail": "123 Điện Biên Phủ, Quận 3, TP.HCM",
+    "address_note": "Văn phòng chính",
+    "contact_now": "Liên hệ ngay",
+    "faq_title": "Câu hỏi thường gặp",
+    "faq1_q": "Làm sao để đặt hàng?",
+    "faq1_a": "Bạn có thể đặt hàng trực tiếp trên website hoặc gọi hotline 1900 1234 để được hỗ trợ.",
+    "faq2_q": "Chính sách đổi trả như thế nào?",
+    "faq2_a": "Sản phẩm được đổi trả trong vòng 7 ngày nếu có lỗi từ nhà sản xuất.",
+    "faq3_q": "Thời gian giao hàng bao lâu?",
+    "faq3_a": "Giao hàng nội thành trong 24h, ngoại thành từ 2-3 ngày làm việc.",
+    "other_contact": "Hoặc liên hệ qua các kênh khác:"
+  }
+}

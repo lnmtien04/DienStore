@@ -1,0 +1,119 @@
+[
+  {
+    "_id": "67e200000000000000000001",
+    "key": "company_name",
+    "value": "Điện Gia Dụng ABC",
+    "group": "general",
+    "currency": "VND",
+    "favicon": "",
+    "logo": "http://localhost:5000/uploads/image-1772089999606-536054125.png",
+    "paymentMethods": {
+      "cod": true,
+      "bankTransfer": true,
+      "momo": true,
+      "zalopay": true
+    },
+    "shippingSettings": {
+      "freeShippingThreshold": 5000,
+      "defaultShippingFee": 1
+    },
+    "smtp": {
+      "host": "",
+      "port": 587,
+      "secure": false,
+      "user": "admin@example.com",
+      "pass": "minhtien04"
+    },
+    "storeAddress": "Phường Long Xuyên , Tỉnh An Giang",
+    "storeEmail": "HomiTech04@gmail.com",
+    "storeName": "HomiTech",
+    "storePhone": "0335836635",
+    "taxRate": 1,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "updatedAt": "2026-02-26T07:32:13.376Z"
+  },
+  {
+    "_id": "67e200000000000000000002",
+    "key": "company_address",
+    "value": "123 Đường Lê Lợi, Quận 1, TP.HCM",
+    "group": "general"
+  },
+  {
+    "_id": "67e200000000000000000003",
+    "key": "hotline",
+    "value": "1900 1234",
+    "group": "general"
+  },
+  {
+    "_id": "67e200000000000000000004",
+    "key": "support_email",
+    "value": "support@diengiadungabc.vn",
+    "group": "general"
+  },
+  {
+    "_id": "67e200000000000000000005",
+    "key": "tax_code",
+    "value": "0123456789",
+    "group": "general"
+  },
+  {
+    "_id": "67e200000000000000000006",
+    "key": "working_hours",
+    "value": "Thứ 2 - Thứ 7: 8:00 - 18:00",
+    "group": "general"
+  },
+  {
+    "_id": "67e200000000000000000007",
+    "key": "facebook_url",
+    "value": "https://facebook.com/diengiadungabc",
+    "group": "social"
+  },
+  {
+    "_id": "67e200000000000000000008",
+    "key": "instagram_url",
+    "value": "https://instagram.com/diengiadungabc",
+    "group": "social"
+  },
+  {
+    "_id": "67e200000000000000000009",
+    "key": "youtube_url",
+    "value": "https://youtube.com/@diengiadungabc",
+    "group": "social"
+  },
+  {
+    "_id": "67e20000000000000000000a",
+    "key": "zalo_phone",
+    "value": "0987654321",
+    "group": "social"
+  },
+  {
+    "_id": "67e20000000000000000000b",
+    "key": "meta_title",
+    "value": "Điện Gia Dụng ABC - Thiết bị gia dụng chính hãng giá tốt",
+    "group": "seo"
+  },
+  {
+    "_id": "67e20000000000000000000c",
+    "key": "meta_description",
+    "value": "Cửa hàng điện gia dụng uy tín tại TP.HCM. Sản phẩm đa dạng: máy xay, tivi, tủ lạnh, máy giặt... Bảo hành chính hãng, giao hàng nhanh.",
+    "group": "seo"
+  },
+  {
+    "_id": "67e20000000000000000000d",
+    "key": "meta_keywords",
+    "value": "điện gia dụng, máy xay sinh tố, tivi, tủ lạnh, máy giặt, điều hòa, quạt, máy hút bụi",
+    "group": "seo"
+  },
+  {
+    "_id": "67e20000000000000000000e",
+    "key": "order_auto_confirm",
+    "value": "true",
+    "group": "order"
+  },
+  {
+    "_id": "67e20000000000000000000f",
+    "key": "cancel_timeout_hours",
+    "value": "24",
+    "group": "order"
+  }
+]

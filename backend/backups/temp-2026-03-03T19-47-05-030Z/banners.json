@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "699d7122957ded3469e75733",
+    "title": "Khuyến mãi Tết 2025",
+    "image": "/uploads/banners/tet2025.jpg",
+    "link": "/khuyen-mai/tet-2025",
+    "position": "homepage_slider",
+    "status": 1,
+    "start_date": "2025-01-01T00:00:00Z",
+    "end_date": "2025-02-15T23:59:59Z",
+    "created_at": "2024-12-20T08:00:00Z",
+    "updated_at": "2024-12-20T08:00:00Z"
+  },
+  {
+    "_id": "699d7122957ded3469e75734",
+    "title": "Máy xay sinh tố giảm 20%",
+    "image": "/uploads/banners/may-xay-sale.jpg",
+    "link": "/danh-muc/may-xay-sinh-to",
+    "position": "homepage_middle",
+    "status": 1,
+    "start_date": "2025-02-01T00:00:00Z",
+    "end_date": "2025-02-28T23:59:59Z",
+    "created_at": "2025-01-15T10:30:00Z",
+    "updated_at": "2025-01-15T10:30:00Z"
+  },
+  {
+    "_id": "699d7122957ded3469e75735",
+    "title": "Tivi 4K chính hãng",
+    "image": "/uploads/banners/tivi-4k.jpg",
+    "link": "/danh-muc/tivi",
+    "position": "sidebar",
+    "status": 1,
+    "start_date": null,
+    "end_date": null,
+    "created_at": "2025-01-10T14:20:00Z",
+    "updated_at": "2025-01-10T14:20:00Z"
+  },
+  {
+    "_id": "699d7122957ded3469e75736",
+    "title": "Miễn phí vận chuyển",
+    "image": "/uploads/banners/free-ship.jpg",
+    "link": "/chinh-sach-van-chuyen",
+    "position": "homepage_bottom",
+    "status": 0,
+    "start_date": "2025-01-01T00:00:00Z",
+    "end_date": "2025-01-31T23:59:59Z",
+    "created_at": "2024-12-25T09:15:00Z",
+    "updated_at": "2024-12-25T09:15:00Z"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "_id": "69a6c841dfffab6a261b6b90",
+    "user": "69a0481e9c6c15ee30373644",
+    "orderUpdates": true,
+    "promotions": false,
+    "emailNotifications": true,
+    "smsNotifications": true,
+    "createdAt": "2026-03-03T11:38:41.061Z",
+    "updatedAt": "2026-03-03T11:42:12.844Z",
+    "__v": 0
+  }
+]
