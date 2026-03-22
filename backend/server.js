@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const fs = require("fs");  // <-- thêm fs
 
 dotenv.config({ path: path.join(__dirname, '.env') });
 console.log('MONGO_URI from env:', process.env.MONGO_URI);
@@ -27,8 +28,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Chỉ cần một dòng static (đã được bảo vệ bởi CORS)
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// --- Tạo thư mục uploads nếu chưa tồn tại ---
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+  console.log('📁 Created uploads directory');
+}
+// ------------------------------------------
+
+// Phục vụ file tĩnh (đã được bảo vệ bởi CORS)
+app.use("/uploads", express.static(uploadDir));
 
 // Routes
 app.use("/api/accounts", require("./routes/accountRoutes"));
