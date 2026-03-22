@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
@@ -34,7 +35,7 @@ interface Product {
   description?: string;
 }
 
-export default function ProductsPage() {
+function ProductsContent() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -308,5 +309,17 @@ export default function ProductsPage() {
         <p className="text-center py-10 text-gray-500 dark:text-gray-400">Không tìm thấy sản phẩm nào.</p>
       )}
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto px-4 py-8 bg-gray-50 dark:bg-gray-900 min-h-screen flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    }>
+      <ProductsContent />
+    </Suspense>
   );
 }

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,7 +18,7 @@ interface Product {
   stock: number;
 }
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [products, setProducts] = useState<Product[]>([]);
@@ -103,5 +104,13 @@ export default function SearchPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-10">Đang tải...</div>}>
+      <SearchContent />
+    </Suspense>
   );
 }
