@@ -17,15 +17,18 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express();
 
-// CORS
+// CORS phải đặt TRƯỚC tất cả route và static
 app.use(cors({ 
   origin: process.env.CLIENT_URL || 'http://localhost:3000', 
   credentials: true 
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use("/uploads", express.static("uploads"));
+
+// Chỉ cần một dòng static (đã được bảo vệ bởi CORS)
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
 app.use("/api/accounts", require("./routes/accountRoutes"));
@@ -50,7 +53,6 @@ app.use("/api/addresses", require("./routes/addressRoutes"));
 app.use('/api/notifications', require('./routes/notificationRoutes'));
 app.use('/api/banners', require('./routes/bannerRoutes'));
 app.use('/api/posts', require('./routes/postRoutes'));
-app.use('/uploads', express.static('uploads'));
 app.use('/api/contacts', require('./routes/contactRoutes'));
 app.use('/api/backup', require('./routes/backupRoutes'));
 app.use('/api/logs', require('./routes/logRoutes'));
@@ -60,8 +62,8 @@ app.use('/api/suppliers', require('./routes/supplierRoutes'));
 app.use('/api/audits', require('./routes/auditRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/comments', require('./routes/commentRoutes'));
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-// Error handling
+
+// Error handling (giữ nguyên)
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 app.use(notFound);
 app.use(errorHandler);
