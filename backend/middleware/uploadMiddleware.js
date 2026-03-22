@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'dienstore',           // thư mục trên Cloudinary
+    folder: 'dienstore',
     allowed_formats: ['jpg', 'png', 'jpeg', 'gif', 'webp'],
     transformation: [{ width: 1000, crop: 'limit' }]
   }
