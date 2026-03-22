@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const ActivityLog = require('../models/ActivityLog');
+const ActivityLog = require('../models/activityLog');
 
 // @desc    Lấy danh sách activity log (có phân trang, lọc)
 // @route   GET /api/logs
