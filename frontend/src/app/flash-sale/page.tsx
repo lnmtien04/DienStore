@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import axios from 'axios';
@@ -62,7 +62,8 @@ const CountdownTimer = ({ endTime }: { endTime: string }) => {
   );
 };
 
-export default function FlashSalePage() {
+// Component con chứa logic và UI chính
+function FlashSaleContent() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [flashSaleEndTime, setFlashSaleEndTime] = useState<string>('');
@@ -275,5 +276,14 @@ export default function FlashSalePage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Trang chính bọc trong Suspense
+export default function FlashSalePage() {
+  return (
+    <Suspense fallback={<div>Đang tải...</div>}>
+      <FlashSaleContent />
+    </Suspense>
   );
 }
