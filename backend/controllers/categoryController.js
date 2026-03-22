@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const Category = require('../models/Category'); // Đảm bảo tên file model đúng (Category.js hoặc category.js)
+const Category = require('../models/category'); // Đảm bảo tên file model đúng (Category.js hoặc category.js)
 const slugify = require('slugify');
 const fs = require('fs');
 const path = require('path');
@@ -70,7 +70,7 @@ const createCategory = asyncHandler(async (req, res) => {
 
   let imageUrl = '';
   if (req.file) {
-    imageUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+  imageUrl = `https://${req.get('host')}/uploads/${req.file.filename}`;
   }
 
   const category = await Category.create({
