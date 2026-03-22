@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import { useUser } from '@/context/UserContext';
@@ -46,7 +46,8 @@ type CartItem = {
   quantity: number;
 };
 
-export default function CheckoutPage() {
+// Component con để sử dụng useSearchParams
+function CheckoutContent() {
   const { cart, loading: cartLoading, clearCart, removeFromCart } = useCart();
   const { user, token } = useUser();
   const isAdmin = user?.roles?.includes('admin') ?? false;
@@ -137,28 +138,28 @@ export default function CheckoutPage() {
 
   // Lấy danh sách shipper
   useEffect(() => {
-   const fetchShippers = async () => {
-  setLoadingShippers(true);
-  try {
-    const res = await axios.get(`${API_URL}/api/shippers`);
-    // Chuyển đổi dữ liệu từ API (defaultFee) sang shippingFee
-    const formattedShippers = res.data.map((s: any) => ({
-      _id: s._id,
-      name: s.name,
-      description: s.description,
-      shippingFee: s.defaultFee ?? 0, // 👈 lấy từ defaultFee
-    }));
-    setShippers(formattedShippers);
-    if (formattedShippers.length > 0) {
-      setSelectedShipper(formattedShippers[0]._id);
-      setShippingFee(formattedShippers[0].shippingFee);
-    }
-  } catch (error) {
-    console.error('Lỗi tải shipper:', error);
-  } finally {
-    setLoadingShippers(false);
-  }
-};
+    const fetchShippers = async () => {
+      setLoadingShippers(true);
+      try {
+        const res = await axios.get(`${API_URL}/api/shippers`);
+        // Chuyển đổi dữ liệu từ API (defaultFee) sang shippingFee
+        const formattedShippers = res.data.map((s: any) => ({
+          _id: s._id,
+          name: s.name,
+          description: s.description,
+          shippingFee: s.defaultFee ?? 0, // 👈 lấy từ defaultFee
+        }));
+        setShippers(formattedShippers);
+        if (formattedShippers.length > 0) {
+          setSelectedShipper(formattedShippers[0]._id);
+          setShippingFee(formattedShippers[0].shippingFee);
+        }
+      } catch (error) {
+        console.error('Lỗi tải shipper:', error);
+      } finally {
+        setLoadingShippers(false);
+      }
+    };
     fetchShippers();
   }, [API_URL]);
 
@@ -352,87 +353,82 @@ export default function CheckoutPage() {
               </div>
 
               {/* HomiTech Voucher */}
-<div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
-  <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">HomiTech Voucher</h2>
-  {loadingCoupons ? (
-    <p className="text-gray-500">Đang tải...</p>
-  ) : coupons.length === 0 ? (
-    <p className="text-gray-500">Hiện chưa có voucher nào.</p>
-  ) : (
-    <div className="space-y-3">
-      {coupons.map((coupon) => {
-        const isSelected = selectedCoupon?._id === coupon._id;
-        return (
-          <div key={coupon._id}>
-            {/* Radio thật – ẩn đi */}
-            <input
-              type="radio"
-              name="coupon"
-              id={`coupon-${coupon._id}`}
-              checked={isSelected}
-              onChange={() => {}} // không dùng, tránh warning
-              className="hidden"
-            />
-            {/* Label tùy chỉnh */}
-            <label
-              htmlFor={`coupon-${coupon._id}`}
-              className={`flex items-center p-3 border rounded-lg cursor-pointer transition ${
-                isSelected
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
-                  : 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
-              }`}
-              onClick={(e) => {
-                e.preventDefault(); // ngăn chặn hành vi mặc định của label
-                if (isSelected) {
-                  setSelectedCoupon(null); // bỏ chọn
-                } else {
-                  setSelectedCoupon(coupon); // chọn mới
-                }
-              }}
-            >
-              {/* Radio giả (hình tròn) */}
-              <span
-                className={`w-4 h-4 rounded-full border flex items-center justify-center mr-3 ${
-                  isSelected ? 'border-blue-500' : 'border-gray-400'
-                }`}
-              >
-                {isSelected && <span className="w-2 h-2 rounded-full bg-blue-500" />}
-              </span>
-
-              {/* Nội dung voucher */}
-              <div className="flex-1">
-                <div className="flex justify-between">
-                  <span className="font-medium text-gray-800 dark:text-white">
-                    {coupon.code} {coupon.description ? `- ${coupon.description}` : ''}
-                  </span>
-                  <span className="text-blue-600 dark:text-blue-400 font-semibold">
-                    {coupon.discountType === 'percentage'
-                      ? `Giảm ${coupon.discountValue}%`
-                      : `Giảm ${coupon.discountValue.toLocaleString('vi-VN')}đ`}
-                  </span>
-                </div>
-                {coupon.description && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{coupon.description}</p>
-                )}
-                <p className="text-xs text-blue-600">✓ Giảm giá đơn hàng</p>
-                {coupon.minOrderAmount > 0 && (
-                  <p className="text-xs text-gray-400">
-                    Đơn tối thiểu {coupon.minOrderAmount.toLocaleString('vi-VN')}đ
-                  </p>
-                )}
-                {coupon.maxDiscountAmount && coupon.discountType === 'percentage' && (
-                  <p className="text-xs text-gray-400">
-                    Giảm tối đa {coupon.maxDiscountAmount.toLocaleString('vi-VN')}đ
-                  </p>
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">HomiTech Voucher</h2>
+                {loadingCoupons ? (
+                  <p className="text-gray-500">Đang tải...</p>
+                ) : coupons.length === 0 ? (
+                  <p className="text-gray-500">Hiện chưa có voucher nào.</p>
+                ) : (
+                  <div className="space-y-3">
+                    {coupons.map((coupon) => {
+                      const isSelected = selectedCoupon?._id === coupon._id;
+                      return (
+                        <div key={coupon._id}>
+                          <input
+                            type="radio"
+                            name="coupon"
+                            id={`coupon-${coupon._id}`}
+                            checked={isSelected}
+                            onChange={() => {}} // không dùng, tránh warning
+                            className="hidden"
+                          />
+                          <label
+                            htmlFor={`coupon-${coupon._id}`}
+                            className={`flex items-center p-3 border rounded-lg cursor-pointer transition ${
+                              isSelected
+                                ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                                : 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
+                            }`}
+                            onClick={(e) => {
+                              e.preventDefault(); // ngăn chặn hành vi mặc định của label
+                              if (isSelected) {
+                                setSelectedCoupon(null); // bỏ chọn
+                              } else {
+                                setSelectedCoupon(coupon); // chọn mới
+                              }
+                            }}
+                          >
+                            <span
+                              className={`w-4 h-4 rounded-full border flex items-center justify-center mr-3 ${
+                                isSelected ? 'border-blue-500' : 'border-gray-400'
+                              }`}
+                            >
+                              {isSelected && <span className="w-2 h-2 rounded-full bg-blue-500" />}
+                            </span>
+                            <div className="flex-1">
+                              <div className="flex justify-between">
+                                <span className="font-medium text-gray-800 dark:text-white">
+                                  {coupon.code} {coupon.description ? `- ${coupon.description}` : ''}
+                                </span>
+                                <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                                  {coupon.discountType === 'percentage'
+                                    ? `Giảm ${coupon.discountValue}%`
+                                    : `Giảm ${coupon.discountValue.toLocaleString('vi-VN')}đ`}
+                                </span>
+                              </div>
+                              {coupon.description && (
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{coupon.description}</p>
+                              )}
+                              <p className="text-xs text-blue-600">✓ Giảm giá đơn hàng</p>
+                              {coupon.minOrderAmount > 0 && (
+                                <p className="text-xs text-gray-400">
+                                  Đơn tối thiểu {coupon.minOrderAmount.toLocaleString('vi-VN')}đ
+                                </p>
+                              )}
+                              {coupon.maxDiscountAmount && coupon.discountType === 'percentage' && (
+                                <p className="text-xs text-gray-400">
+                                  Giảm tối đa {coupon.maxDiscountAmount.toLocaleString('vi-VN')}đ
+                                </p>
+                              )}
+                            </div>
+                          </label>
+                        </div>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
-            </label>
-          </div>
-        );
-      })}
-    </div>
-  )}
-</div>
 
               {/* Phương thức vận chuyển */}
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
@@ -587,5 +583,14 @@ export default function CheckoutPage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Component chính bọc Suspense
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Đang tải trang thanh toán...</div>}>
+      <CheckoutContent />
+    </Suspense>
   );
 }
