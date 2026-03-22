@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
-import Link from 'next/link';
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
-export default function PaymentSuccess() {
+// Component con chứa logic sử dụng useSearchParams
+function PaymentSuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('orderId');
 
@@ -17,5 +18,19 @@ export default function PaymentSuccess() {
         Xem đơn hàng
       </Link>
     </div>
+  );
+}
+
+// Trang chính bọc trong Suspense
+export default function PaymentSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="text-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+        <p className="mt-4 text-gray-600">Đang xử lý...</p>
+      </div>
+    }>
+      <PaymentSuccessContent />
+    </Suspense>
   );
 }
