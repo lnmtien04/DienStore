@@ -1,18 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 
-export default function PaymentResultPage() {
+// Component con chứa logic sử dụng useSearchParams
+function PaymentResultContent() {
   const searchParams = useSearchParams();
-  const [success, setSuccess] = useState(false);
+  const success = searchParams.get('success') === 'true';
   const orderId = searchParams.get('orderId');
-
-  useEffect(() => {
-    setSuccess(searchParams.get('success') === 'true');
-  }, [searchParams]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -37,5 +34,21 @@ export default function PaymentResultPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+// Trang chính bọc trong Suspense
+export default function PaymentResultPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-md text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Đang xử lý kết quả thanh toán...</p>
+        </div>
+      </div>
+    }>
+      <PaymentResultContent />
+    </Suspense>
   );
 }
