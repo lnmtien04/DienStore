@@ -1,8 +1,16 @@
 const asyncHandler = require('express-async-handler');
-const Category = require('../models/category');
+const Category = require('../models/Category'); // Đảm bảo tên file model đúng (Category.js hoặc category.js)
 const slugify = require('slugify');
 const fs = require('fs');
 const path = require('path');
+
+// Helper xóa file ảnh
+const deleteImageFile = (imageUrl, protocol, host) => {
+  if (!imageUrl) return;
+  const relativePath = imageUrl.replace(`${protocol}://${host}/uploads/`, 'uploads/');
+  const absolutePath = path.resolve(__dirname, '..', relativePath);
+  if (fs.existsSync(absolutePath)) fs.unlinkSync(absolutePath);
+};
 
 // @desc    Get all categories
 // @route   GET /api/categories
@@ -10,23 +18,17 @@ const getCategories = asyncHandler(async (req, res) => {
   const categories = await Category.aggregate([
     {
       $lookup: {
-        from: 'Products', // tên collection products (thường là 'products')
+        from: 'products',        // Tên collection products (viết thường)
         localField: '_id',
         foreignField: 'category',
         as: 'products'
       }
     },
     {
-      $addFields: {
-        productCount: { $size: '$products' }
-      }
+      $addFields: { productCount: { $size: '$products' } }
     },
-    {
-      $project: { products: 0 } // loại bỏ mảng products nếu không cần
-    }
+    { $project: { products: 0 } }
   ]);
-
-  // Nếu bạn cần populate parent, có thể làm thêm bước nữa, nhưng tạm thời bỏ qua
   res.json(categories);
 });
 
@@ -58,8 +60,7 @@ const getCategoryBySlug = asyncHandler(async (req, res) => {
 // @route   POST /api/categories
 const createCategory = asyncHandler(async (req, res) => {
   const { name, description, isActive, parent, metaTitle, metaDescription, showOnHome, showInMenu } = req.body;
-
-  const slug = slugify(name, { lower: true, strict: true });
+  const slug = slugify(name, { lower: true, strict: true, locale: 'vi' });
 
   const existing = await Category.findOne({ slug });
   if (existing) {
@@ -100,7 +101,7 @@ const updateCategory = asyncHandler(async (req, res) => {
   const { name, description, isActive, parent, metaTitle, metaDescription, showOnHome, showInMenu } = req.body;
 
   if (name && name !== category.name) {
-    const slug = slugify(name, { lower: true, strict: true });
+    const slug = slugify(name, { lower: true, strict: true, locale: 'vi' });
     const existing = await Category.findOne({ slug, _id: { $ne: category._id } });
     if (existing) {
       res.status(400);
@@ -119,12 +120,7 @@ const updateCategory = asyncHandler(async (req, res) => {
   category.showInMenu = showInMenu !== undefined ? (showInMenu === 'true' || showInMenu === true) : category.showInMenu;
 
   if (req.file) {
-    if (category.image) {
-      const oldPath = path.join(__dirname, '..', category.image.replace(`${req.protocol}://${req.get('host')}/uploads/`, 'uploads/'));
-      if (fs.existsSync(oldPath)) {
-        fs.unlinkSync(oldPath);
-      }
-    }
+    if (category.image) deleteImageFile(category.image, req.protocol, req.get('host'));
     category.image = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
   }
 
@@ -141,13 +137,7 @@ const deleteCategory = asyncHandler(async (req, res) => {
     throw new Error('Category not found');
   }
 
-  if (category.image) {
-    const imagePath = path.join(__dirname, '..', category.image.replace(`${req.protocol}://${req.get('host')}/uploads/`, 'uploads/'));
-    if (fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
-    }
-  }
-
+  if (category.image) deleteImageFile(category.image, req.protocol, req.get('host'));
   await category.deleteOne();
   res.json({ message: 'Category removed' });
 });
