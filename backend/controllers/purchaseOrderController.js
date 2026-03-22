@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const PurchaseOrder = require('../models/purchaseOrder');
+const PurchaseOrder = require('../models/purchaseorder');
 const Product = require('../models/product');
 const Supplier = require('../models/supplier');
 const Transaction = require('../models/transaction'); // để ghi lịch sử kho
