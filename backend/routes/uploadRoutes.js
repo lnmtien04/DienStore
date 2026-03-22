@@ -8,7 +8,7 @@ router.post('/', protect, authorize('admin'), upload.single('image'), (req, res)
   if (!req.file) {
     return res.status(400).json({ message: 'Không có file nào được upload' });
   }
-  // Cloudinary trả về URL trong req.file.path
+  // req.file.path là URL Cloudinary
   res.json({ url: req.file.path });
 });
 
