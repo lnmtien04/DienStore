@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const NotificationSetting = require('../models/notificationSetting');
+const NotificationSetting = require('../models/notificationsetting');
 
 // @desc    Lấy cài đặt thông báo của user hiện tại
 // @route   GET /api/notifications/settings

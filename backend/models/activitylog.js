@@ -11,4 +11,4 @@ const activityLogSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('ActivityLog', activityLogSchema);
+module.exports = mongoose.models.ActivityLog || mongoose.model('ActivityLog', activityLogSchema);
