@@ -4,16 +4,13 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
-const fs = require("fs");  // <-- thêm fs
+const fs = require("fs");
 
-const cors = require('cors');
-app.use(cors({
-  origin: ['https://dienstore-minhtien.onrender.com', 'https://dienstore-be.onrender.com'],
-  credentials: true
-}));
+// Load env
 dotenv.config({ path: path.join(__dirname, '.env') });
 console.log('MONGO_URI from env:', process.env.MONGO_URI);
 
+// Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected successfully"))
   .catch(err => {
@@ -23,25 +20,25 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express();
 
-// CORS phải đặt TRƯỚC tất cả route và static
+// CORS (chỉ một lần, sau khi có app)
 app.use(cors({ 
   origin: process.env.CLIENT_URL || 'http://localhost:3000', 
   credentials: true 
 }));
 
+// Middleware cơ bản
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// --- Tạo thư mục uploads nếu chưa tồn tại ---
+// Tạo thư mục uploads nếu chưa tồn tại
 const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
   console.log('📁 Created uploads directory');
 }
-// ------------------------------------------
 
-// Phục vụ file tĩnh (đã được bảo vệ bởi CORS)
+// Phục vụ file tĩnh
 app.use("/uploads", express.static(uploadDir));
 
 // Routes
@@ -77,7 +74,7 @@ app.use('/api/audits', require('./routes/auditRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/comments', require('./routes/commentRoutes'));
 
-// Error handling (giữ nguyên)
+// Error handling
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 app.use(notFound);
 app.use(errorHandler);
