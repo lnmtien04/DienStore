@@ -59,7 +59,7 @@ router.post(
         return res.status(400).json({ message: "Không có file được gửi lên" });
       }
 
-      // ✅ Lấy URL từ Cloudinary (do uploadMiddleware trả về)
+      // Lấy URL Cloudinary từ req.file.path
       const avatarUrl = req.file.path;
 
       const user = await Account.findById(req.user._id);
