@@ -73,7 +73,8 @@ app.use('/api/suppliers', require('./routes/supplierRoutes'));
 app.use('/api/audits', require('./routes/auditRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/comments', require('./routes/commentRoutes'));
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/api/accounts/avatar', (req, res) => res.status(200).json({}));
 // Error handling
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 app.use(notFound);
