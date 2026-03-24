@@ -65,7 +65,7 @@ export default function AccountSecurityPage() {
     const formData = new FormData();
     formData.append('avatar', avatar);
     try {
-      await axios.post(`${API_URL}/api/accounts/avatar`, formData, {
+      await axios.post(`${API_URL}/api/accounts/upload-avatar`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
