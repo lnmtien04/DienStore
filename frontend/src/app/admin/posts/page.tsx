@@ -90,45 +90,69 @@ export default function AdminPostsPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-            {posts.map((post) => (
-              <tr key={post._id}>
-                <td className="px-6 py-4 whitespace-nowrap">
-  {post.featuredImage ? (
-    <div className="relative w-16 h-12">
-      <Image 
-        src={post.featuredImage} 
-        alt={post.title} 
-        fill 
-        className="object-cover rounded" 
-        unoptimized // 👈 thêm dòng này
-      />
-    </div>
-  ) : (
-    <span className="text-gray-400">No image</span>
-  )}
-</td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`px-2 py-1 text-xs rounded-full ${
-                    post.status === 'published' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
-                  }`}>
-                    {post.status === 'published' ? 'Đã xuất bản' : 'Bản nháp'}
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm">{post.views}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm">
-                  {new Date(post.createdAt).toLocaleDateString('vi-VN')}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm">
-                  <Link href={`/admin/posts/${post._id}/edit`} className="text-blue-600 hover:text-blue-900 mr-3">
-                    <PencilIcon className="w-5 h-5 inline" />
-                  </Link>
-                  <button onClick={() => handleDelete(post._id)} className="text-red-600 hover:text-red-900">
-                    <TrashIcon className="w-5 h-5 inline" />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+  {posts.map((post) => (
+    <tr key={post._id}>
+      {/* 1. Ảnh */}
+      <td className="px-6 py-4 whitespace-nowrap">
+        {post.featuredImage ? (
+          <div className="relative w-16 h-12">
+            <Image
+              src={post.featuredImage}
+              alt={post.title}
+              fill
+              className="object-cover rounded"
+              unoptimized
+            />
+          </div>
+        ) : (
+          <span className="text-gray-400">No image</span>
+        )}
+      </td>
+
+      {/* 2. Tiêu đề */}
+      <td className="px-6 py-4 whitespace-nowrap font-medium">
+        {post.title}
+      </td>
+
+      {/* 3. Trạng thái */}
+      <td className="px-6 py-4 whitespace-nowrap">
+        <span
+          className={`px-2 py-1 text-xs rounded-full ${
+            post.status === 'published'
+              ? 'bg-green-100 text-green-800'
+              : 'bg-yellow-100 text-yellow-800'
+          }`}
+        >
+          {post.status === 'published' ? 'Đã xuất bản' : 'Bản nháp'}
+        </span>
+      </td>
+
+      {/* 4. Lượt xem */}
+      <td className="px-6 py-4 whitespace-nowrap text-sm">{post.views}</td>
+
+      {/* 5. Ngày tạo */}
+      <td className="px-6 py-4 whitespace-nowrap text-sm">
+        {new Date(post.createdAt).toLocaleDateString('vi-VN')}
+      </td>
+
+      {/* 6. Thao tác */}
+      <td className="px-6 py-4 whitespace-nowrap text-sm">
+        <Link
+          href={`/admin/posts/${post._id}/edit`}
+          className="text-blue-600 hover:text-blue-900 mr-3"
+        >
+          <PencilIcon className="w-5 h-5 inline" />
+        </Link>
+        <button
+          onClick={() => handleDelete(post._id)}
+          className="text-red-600 hover:text-red-900"
+        >
+          <TrashIcon className="w-5 h-5 inline" />
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
         </table>
       </div>
     </div>
