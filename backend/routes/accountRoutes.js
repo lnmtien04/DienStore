@@ -59,7 +59,8 @@ router.post(
         return res.status(400).json({ message: "Không có file được gửi lên" });
       }
 
-      const avatarUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+      // ✅ Lấy URL Cloudinary từ req.file.path
+      const avatarUrl = req.file.path;
 
       const user = await Account.findById(req.user._id);
       if (!user) {
@@ -73,8 +74,8 @@ router.post(
         message: "Upload avatar thành công",
         url: avatarUrl,
       });
-
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       res.status(500).json({ message: "Lỗi server" });
     }
