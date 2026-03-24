@@ -31,6 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// Health check endpoint (để UptimeRobot và các dịch vụ kiểm tra)
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 // Tạo thư mục uploads nếu chưa tồn tại
 const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
@@ -79,10 +84,7 @@ app.use('/api/accounts/avatar', (req, res) => res.status(200).json({}));
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 app.use(notFound);
 app.use(errorHandler);
-// Health check endpoint (để UptimeRobot và các dịch vụ kiểm tra)
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
-});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
