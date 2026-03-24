@@ -6,6 +6,11 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 const fs = require("fs");  // <-- thêm fs
 
+const cors = require('cors');
+app.use(cors({
+  origin: ['https://dienstore-minhtien.onrender.com', 'https://dienstore-be.onrender.com'],
+  credentials: true
+}));
 dotenv.config({ path: path.join(__dirname, '.env') });
 console.log('MONGO_URI from env:', process.env.MONGO_URI);
 
