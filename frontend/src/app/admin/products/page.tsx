@@ -19,10 +19,7 @@ const SkeletonRow = () => (
     <td className="px-4 py-4"><div className="h-4 bg-gray-200 rounded w-16"></div></td>
     <td className="px-4 py-4"><div className="h-4 bg-gray-200 rounded w-16"></div></td>
     <td className="px-4 py-4"><div className="h-4 bg-gray-200 rounded w-16"></div></td>
-    <td className="px-4 py-4"><div className="flex gap-2">
-      <div className="h-5 w-5 bg-gray-200 rounded"></div>
-      <div className="h-5 w-5 bg-gray-200 rounded"></div>
-    </div></td>
+    <td className="px-4 py-4"><div className="flex gap-2"><div className="h-5 w-5 bg-gray-200 rounded"></div><div className="h-5 w-5 bg-gray-200 rounded"></div></div></td>
   </tr>
 );
 
@@ -45,7 +42,7 @@ interface Product {
   discount: number;
   importPrice?: number;
   origin?: string;
-  warranty?: Warranty | string; // có thể là object sau khi populate hoặc string id
+  warranty?: Warranty | string;
   brand?: string;
   stock: number;
   category?: Category;
@@ -86,16 +83,18 @@ export default function ProductsPage() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
-  if (token) {
-    fetchProducts();
-    fetchCategories();
-    fetchWarranties(); // chỉ gọi khi có token
-  }
-}, [token]);
+    if (token) {
+      fetchProducts();
+      fetchCategories();
+      fetchWarranties();
+    }
+  }, [token]);
 
+  // 🔁 Lấy tất cả sản phẩm (tăng limit lên cao)
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/products`);
+      // Thêm limit=9999 để lấy nhiều nhất có thể (tuỳ backend hỗ trợ)
+      const res = await axios.get(`${API_URL}/api/products?limit=9999`);
       console.log('API /products response:', res.data);
       let productsData = Array.isArray(res.data) ? res.data : res.data?.products || [];
       productsData = productsData.map((p: any) => ({
@@ -104,7 +103,9 @@ export default function ProductsPage() {
         discount: Number(p.discount) || 0,
         importPrice: p.importPrice ? Number(p.importPrice) : undefined,
         stock: Number(p.stock) || 0,
+        name: p.name || '', // ✅ đảm bảo name không undefined
       }));
+      console.log('Total products loaded:', productsData.length);
       setProducts(productsData);
     } catch (error) {
       console.error('Lỗi tải sản phẩm:', error);
@@ -116,7 +117,6 @@ export default function ProductsPage() {
   const fetchCategories = async () => {
     try {
       const res = await axios.get(`${API_URL}/api/categories`);
-      console.log('API /categories response:', res.data);
       const categoriesData = Array.isArray(res.data) ? res.data : [];
       setCategories(categoriesData);
     } catch (error) {
@@ -126,16 +126,16 @@ export default function ProductsPage() {
   };
 
   const fetchWarranties = async () => {
-  console.log('Token:', token); // kiểm tra token có undefined không
-  try {
-    const res = await axios.get(`${API_URL}/api/warranties`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    setWarranties(res.data);
-  } catch (error) {
-    console.error('Lỗi tải bảo hành:', error);
-  }
-};
+    try {
+      const res = await axios.get(`${API_URL}/api/warranties`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setWarranties(res.data);
+    } catch (error) {
+      console.error('Lỗi tải bảo hành:', error);
+    }
+  };
+
   const validateForm = () => {
     if (!formData.name.trim()) {
       toast.error('Vui lòng nhập tên sản phẩm');
@@ -212,6 +212,16 @@ export default function ProductsPage() {
     e.preventDefault();
     if (!validateForm()) return;
 
+    // Kiểm tra trùng tên ở frontend (không phân biệt hoa thường)
+    const isDuplicate = products.some(p => 
+      p.name.toLowerCase() === formData.name.trim().toLowerCase() && 
+      (!editingProduct || p._id !== editingProduct._id)
+    );
+    if (isDuplicate) {
+  toast.error('⚠️ Tên sản phẩm này đã được sử dụng. Bạn vui lòng chọn tên khác nhé!');
+  return;
+}
+
     try {
       const payload = {
         name: formData.name,
@@ -224,7 +234,7 @@ export default function ProductsPage() {
         isActive: formData.isActive,
         importPrice: Number(formData.importPrice) || 0,
         origin: formData.origin || '',
-        warranty: formData.warranty || null, // gửi null nếu không chọn
+        warranty: formData.warranty || null,
         brand: formData.brand || '',
       };
       console.log('Submitting payload:', payload);
@@ -252,8 +262,13 @@ export default function ProductsPage() {
     } catch (error: any) {
       console.error('Lỗi lưu sản phẩm:', error);
       if (axios.isAxiosError(error) && error.response) {
-        console.error('Server response:', error.response.data);
-        toast.error(error.response.data.message || 'Dữ liệu không hợp lệ');
+        const serverMessage = error.response.data?.message || '';
+        // Nếu server trả về lỗi trùng tên (có thể là 400 với message cụ thể)
+        if (serverMessage.toLowerCase().includes('duplicate') || serverMessage.toLowerCase().includes('already exists')) {
+          toast.error('Sản phẩm với tên này đã tồn tại. Vui lòng chọn tên khác.');
+        } else {
+          toast.error(serverMessage || 'Dữ liệu không hợp lệ');
+        }
       } else {
         toast.error('Đã xảy ra lỗi, vui lòng thử lại');
       }
@@ -313,11 +328,12 @@ export default function ProductsPage() {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
   };
 
-  const filteredProducts = products.filter(p =>
-    (p.name || '').toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // ✅ Tìm kiếm an toàn
+  const filteredProducts = products.filter(p => {
+    const name = (p.name || '').toLowerCase();
+    return name.includes(searchTerm.toLowerCase());
+  });
 
-  // Hàm xuất Excel
   const handleExport = async () => {
     try {
       const response = await axios.get(`${API_URL}/api/products/export`, {
@@ -338,7 +354,6 @@ export default function ProductsPage() {
     }
   };
 
-  // Hàm nhập Excel
   const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -357,7 +372,6 @@ export default function ProductsPage() {
       toast.success(`Import thành công! Thêm mới/cập nhật: ${res.data.results.success} sản phẩm.`);
       if (res.data.results.errors.length > 0) {
         console.warn('Lỗi import:', res.data.results.errors);
-        // Có thể hiển thị chi tiết lỗi trong modal
       }
       fetchProducts();
     } catch (error: any) {
@@ -392,7 +406,7 @@ export default function ProductsPage() {
                 ))}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody>
               {Array(5).fill(0).map((_, i) => (
                 <SkeletonRow key={i} />
               ))}
@@ -409,32 +423,13 @@ export default function ProductsPage() {
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <h1 className="text-2xl font-semibold text-gray-900">Quản lý sản phẩm</h1>
         <div className="flex items-center gap-2">
-          <button
-            onClick={handleExport}
-            className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm"
-          >
-            Xuất excel
-          </button>
-          <input
-            type="file"
-            ref={fileInputRef}
-            accept=".xlsx, .xls"
-            onChange={handleImport}
-            className="hidden"
-          />
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            disabled={importing}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm disabled:bg-blue-300"
-          >
+          <button onClick={handleExport} className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm">Xuất excel</button>
+          <input type="file" ref={fileInputRef} accept=".xlsx, .xls" onChange={handleImport} className="hidden" />
+          <button onClick={() => fileInputRef.current?.click()} disabled={importing} className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm disabled:bg-blue-300">
             {importing ? 'Đang import...' : 'Nhập excel'}
           </button>
-          <button
-            onClick={resetModal}
-            className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm"
-          >
-            <PlusIcon className="h-4 w-4 mr-1" />
-            Thêm mới
+          <button onClick={resetModal} className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm">
+            <PlusIcon className="h-4 w-4 mr-1" /> Thêm mới
           </button>
         </div>
       </div>
@@ -482,12 +477,8 @@ export default function ProductsPage() {
                   ) : '-'}
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{p.stock}</td>
-                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {p.importPrice ? formatCurrency(p.importPrice) : '-'}
-                </td>
-                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {formatCurrency(p.price)}
-                </td>
+                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{p.importPrice ? formatCurrency(p.importPrice) : '-'}</td>
+                <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(p.price)}</td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{p.category?.name || '-'}</td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{p.origin || '-'}</td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -495,25 +486,17 @@ export default function ProductsPage() {
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{p.brand || '-'}</td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm font-medium">
-                  <button
-                    onClick={() => openEditModal(p)}
-                    className="text-blue-600 hover:text-blue-900 mr-3"
-                  >
-                    <PencilIcon className="h-5 w-5" />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(p._id)}
-                    className="text-red-600 hover:text-red-900"
-                  >
-                    <TrashIcon className="h-5 w-5" />
-                  </button>
+                  <button onClick={() => openEditModal(p)} className="text-blue-600 hover:text-blue-900 mr-3"><PencilIcon className="h-5 w-5" /></button>
+                  <button onClick={() => handleDelete(p._id)} className="text-red-600 hover:text-red-900"><TrashIcon className="h-5 w-5" /></button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
         {filteredProducts.length === 0 && (
-          <p className="text-center py-4 text-gray-500">Không có sản phẩm nào</p>
+          <p className="text-center py-4 text-gray-500">
+            {products.length === 0 ? 'Chưa có sản phẩm nào' : `Không tìm thấy sản phẩm nào khớp với "${searchTerm}"`}
+          </p>
         )}
       </div>
 
@@ -529,137 +512,62 @@ export default function ProductsPage() {
                 {/* Các trường cơ bản */}
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Tên sản phẩm *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Tồn kho</label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={formData.stock}
-                    onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="number" min="0" value={formData.stock} onChange={(e) => setFormData({ ...formData, stock: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Danh mục *</label>
-                  <select
-                    required
-                    value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  >
+                  <select required value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md">
                     <option value="">Chọn danh mục</option>
-                    {categories.map((cat) => (
-                      <option key={cat._id} value={cat._id}>{cat.name}</option>
-                    ))}
+                    {categories.map((cat) => (<option key={cat._id} value={cat._id}>{cat.name}</option>))}
                   </select>
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Nơi sản xuất</label>
-                  <input
-                    type="text"
-                    value={formData.origin}
-                    onChange={(e) => setFormData({ ...formData, origin: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="text" value={formData.origin} onChange={(e) => setFormData({ ...formData, origin: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Giá xuất *</label>
-                  <input
-                    type="number"
-                    required
-                    min="0"
-                    step="1000"
-                    value={formData.price}
-                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="number" required min="0" step="1000" value={formData.price} onChange={(e) => setFormData({ ...formData, price: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Bảo hành</label>
-                  <select
-                    value={formData.warranty}
-                    onChange={(e) => setFormData({ ...formData, warranty: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  >
+                  <select value={formData.warranty} onChange={(e) => setFormData({ ...formData, warranty: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md">
                     <option value="">Chọn chính sách bảo hành</option>
-                    {warranties.map(w => (
-                      <option key={w._id} value={w._id}>{w.name} ({w.duration} tháng)</option>
-                    ))}
+                    {warranties.map(w => (<option key={w._id} value={w._id}>{w.name} ({w.duration} tháng)</option>))}
                   </select>
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Giá nhập</label>
-                  <input
-                    type="number"
-                    min="0"
-                    step="1000"
-                    value={formData.importPrice}
-                    onChange={(e) => setFormData({ ...formData, importPrice: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="number" min="0" step="1000" value={formData.importPrice} onChange={(e) => setFormData({ ...formData, importPrice: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Thương hiệu</label>
-                  <input
-                    type="text"
-                    value={formData.brand}
-                    onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="text" value={formData.brand} onChange={(e) => setFormData({ ...formData, brand: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Giảm giá (%)</label>
-                  <input
-                    type="number"
-                    min="0"
-                    max="100"
-                    value={formData.discount}
-                    onChange={(e) => setFormData({ ...formData, discount: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="number" min="0" max="100" value={formData.discount} onChange={(e) => setFormData({ ...formData, discount: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Mô tả</label>
-                  <input
-                    type="text"
-                    value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  />
+                  <input type="text" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
               </div>
 
               {/* Upload ảnh */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-1">Ảnh sản phẩm</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={handleImageUpload}
-                  disabled={uploading}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
+                <input type="file" accept="image/*" multiple onChange={handleImageUpload} disabled={uploading} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 {uploading && <p className="text-sm text-blue-600 mt-1">Đang tải lên...</p>}
                 <div className="flex flex-wrap gap-2 mt-2">
                   {formData.images.map((img, idx) => (
                     <div key={idx} className="relative">
                       <img src={img} alt={`product-${idx}`} className="h-16 w-16 object-cover rounded border" />
-                      <button
-                        type="button"
-                        onClick={() => removeImage(idx)}
-                        className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-0.5"
-                      >
-                        <XMarkIcon className="h-4 w-4" />
-                      </button>
+                      <button type="button" onClick={() => removeImage(idx)} className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-0.5"><XMarkIcon className="h-4 w-4" /></button>
                     </div>
                   ))}
                   {previewImages.map((url, idx) => (
@@ -672,30 +580,12 @@ export default function ProductsPage() {
               </div>
 
               <div className="mb-4 flex items-center">
-                <input
-                  type="checkbox"
-                  id="isActive"
-                  checked={formData.isActive}
-                  onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label htmlFor="isActive" className="ml-2 block text-sm text-gray-900">
-                  Hoạt động
-                </label>
+                <input type="checkbox" id="isActive" checked={formData.isActive} onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })} className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                <label htmlFor="isActive" className="ml-2 block text-sm text-gray-900">Hoạt động</label>
               </div>
               <div className="flex justify-end gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300"
-                >
-                  Hủy
-                </button>
-                <button
-                  type="submit"
-                  disabled={uploading}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-blue-300"
-                >
+                <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Hủy</button>
+                <button type="submit" disabled={uploading} className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-blue-300">
                   {uploading ? 'Đang xử lý...' : (editingProduct ? 'Cập nhật' : 'Thêm mới')}
                 </button>
               </div>
