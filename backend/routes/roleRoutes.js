@@ -10,15 +10,13 @@ const {
   deleteRole,
 } = require('../controllers/roleController');
 
-router.use(protect, authorize('admin'));
+// Cho phép staff xem danh sách và chi tiết
+router.get('/', protect, authorize('admin', 'staff'), getRoles);
+router.get('/:id', protect, authorize('admin', 'staff'), getRoleById);
 
-router.route('/')
-  .get(getRoles)
-  .post(createRole);
-
-router.route('/:id')
-  .get(getRoleById)
-  .put(updateRole)
-  .delete(deleteRole);
+// Chỉ admin mới được tạo, sửa, xóa
+router.post('/', protect, authorize('admin'), createRole);
+router.put('/:id', protect, authorize('admin'), updateRole);
+router.delete('/:id', protect, authorize('admin'), deleteRole);
 
 module.exports = router;

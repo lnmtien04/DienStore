@@ -79,8 +79,9 @@ export default function ProductsPage() {
   const [importing, setImporting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const { token } = useUser();
+  const { token, user } = useUser();
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const isAdmin = user?.roles?.includes('admin');
 
   useEffect(() => {
     if (token) {
@@ -90,10 +91,8 @@ export default function ProductsPage() {
     }
   }, [token]);
 
-  // 🔁 Lấy tất cả sản phẩm (tăng limit lên cao)
   const fetchProducts = async () => {
     try {
-      // Thêm limit=9999 để lấy nhiều nhất có thể (tuỳ backend hỗ trợ)
       const res = await axios.get(`${API_URL}/api/products?limit=9999`);
       console.log('API /products response:', res.data);
       let productsData = Array.isArray(res.data) ? res.data : res.data?.products || [];
@@ -103,7 +102,7 @@ export default function ProductsPage() {
         discount: Number(p.discount) || 0,
         importPrice: p.importPrice ? Number(p.importPrice) : undefined,
         stock: Number(p.stock) || 0,
-        name: p.name || '', // ✅ đảm bảo name không undefined
+        name: p.name || '',
       }));
       console.log('Total products loaded:', productsData.length);
       setProducts(productsData);
@@ -212,15 +211,14 @@ export default function ProductsPage() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    // Kiểm tra trùng tên ở frontend (không phân biệt hoa thường)
     const isDuplicate = products.some(p => 
       p.name.toLowerCase() === formData.name.trim().toLowerCase() && 
       (!editingProduct || p._id !== editingProduct._id)
     );
     if (isDuplicate) {
-  toast.error('⚠️ Tên sản phẩm này đã được sử dụng. Bạn vui lòng chọn tên khác nhé!');
-  return;
-}
+      toast.error('⚠️ Tên sản phẩm này đã được sử dụng. Bạn vui lòng chọn tên khác nhé!');
+      return;
+    }
 
     try {
       const payload = {
@@ -263,7 +261,6 @@ export default function ProductsPage() {
       console.error('Lỗi lưu sản phẩm:', error);
       if (axios.isAxiosError(error) && error.response) {
         const serverMessage = error.response.data?.message || '';
-        // Nếu server trả về lỗi trùng tên (có thể là 400 với message cụ thể)
         if (serverMessage.toLowerCase().includes('duplicate') || serverMessage.toLowerCase().includes('already exists')) {
           toast.error('Sản phẩm với tên này đã tồn tại. Vui lòng chọn tên khác.');
         } else {
@@ -294,6 +291,7 @@ export default function ProductsPage() {
   };
 
   const openEditModal = (product: Product) => {
+    if (!isAdmin) return;
     setEditingProduct(product);
     setFormData({
       name: product.name,
@@ -314,6 +312,7 @@ export default function ProductsPage() {
   };
 
   const resetModal = () => {
+    if (!isAdmin) return;
     setEditingProduct(null);
     setFormData({
       name: '', price: '', discount: '', stock: '', category: '',
@@ -328,13 +327,13 @@ export default function ProductsPage() {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
   };
 
-  // ✅ Tìm kiếm an toàn
   const filteredProducts = products.filter(p => {
     const name = (p.name || '').toLowerCase();
     return name.includes(searchTerm.toLowerCase());
   });
 
   const handleExport = async () => {
+    if (!isAdmin) return;
     try {
       const response = await axios.get(`${API_URL}/api/products/export`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -355,6 +354,7 @@ export default function ProductsPage() {
   };
 
   const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!isAdmin) return;
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -422,16 +422,33 @@ export default function ProductsPage() {
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <h1 className="text-2xl font-semibold text-gray-900">Quản lý sản phẩm</h1>
-        <div className="flex items-center gap-2">
-          <button onClick={handleExport} className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm">Xuất excel</button>
-          <input type="file" ref={fileInputRef} accept=".xlsx, .xls" onChange={handleImport} className="hidden" />
-          <button onClick={() => fileInputRef.current?.click()} disabled={importing} className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm disabled:bg-blue-300">
-            {importing ? 'Đang import...' : 'Nhập excel'}
-          </button>
-          <button onClick={resetModal} className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm">
-            <PlusIcon className="h-4 w-4 mr-1" /> Thêm mới
-          </button>
-        </div>
+        {isAdmin && (
+          <div className="flex items-center gap-2">
+            <button onClick={handleExport} className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm">
+              Xuất excel
+            </button>
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept=".xlsx, .xls"
+              onChange={handleImport}
+              className="hidden"
+            />
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              disabled={importing}
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm disabled:bg-blue-300"
+            >
+              {importing ? 'Đang import...' : 'Nhập excel'}
+            </button>
+            <button
+              onClick={resetModal}
+              className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm"
+            >
+              <PlusIcon className="h-4 w-4 mr-1" /> Thêm mới
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Ô tìm kiếm */}
@@ -486,8 +503,16 @@ export default function ProductsPage() {
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{p.brand || '-'}</td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm font-medium">
-                  <button onClick={() => openEditModal(p)} className="text-blue-600 hover:text-blue-900 mr-3"><PencilIcon className="h-5 w-5" /></button>
-                  <button onClick={() => handleDelete(p._id)} className="text-red-600 hover:text-red-900"><TrashIcon className="h-5 w-5" /></button>
+                  {isAdmin && (
+                    <>
+                      <button onClick={() => openEditModal(p)} className="text-blue-600 hover:text-blue-900 mr-3">
+                        <PencilIcon className="h-5 w-5" />
+                      </button>
+                      <button onClick={() => handleDelete(p._id)} className="text-red-600 hover:text-red-900">
+                        <TrashIcon className="h-5 w-5" />
+                      </button>
+                    </>
+                  )}
                 </td>
               </tr>
             ))}
@@ -501,7 +526,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Modal thêm/sửa */}
-      {showModal && (
+      {showModal && isAdmin && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
           <div className="relative top-20 mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-md bg-white">
             <h3 className="text-lg font-medium leading-6 text-gray-900 mb-4">
@@ -509,7 +534,6 @@ export default function ProductsPage() {
             </h3>
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Các trường cơ bản */}
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-1">Tên sản phẩm *</label>
                   <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-3 py-2 border border-gray-300 rounded-md" />

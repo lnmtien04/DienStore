@@ -215,7 +215,10 @@ export default function AdminDashboard() {
                     tickFormatter={(value) => `${(value / 1000000).toFixed(0)}M`}
                   />
                   <Tooltip
-                    formatter={(value: number | undefined) => (value ? formatCurrency(value) : '')}
+                    formatter={(value: any) => {
+                      if (typeof value === 'number') return formatCurrency(value);
+                      return value;
+                    }}
                     labelFormatter={(label) => `Ngày: ${label}`}
                     contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '0.5rem' }}
                   />

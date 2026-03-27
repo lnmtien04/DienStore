@@ -43,9 +43,11 @@ export default function AdminCommentsPage() {
   const [statusFilter, setStatusFilter] = useState('');
   const [selectedComments, setSelectedComments] = useState<Set<string>>(new Set());
   const [bulkActionLoading, setBulkActionLoading] = useState(false);
-  const { token, loading: authLoading } = useUser();
+  const { token, loading: authLoading, user } = useUser();
   const [imageModal, setImageModal] = useState<{ open: boolean; images: string[] }>({ open: false, images: [] });
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
+  const isAdmin = user?.roles?.includes('admin');
 
   // Fetch comments
   const fetchComments = async () => {
@@ -97,8 +99,9 @@ export default function AdminCommentsPage() {
     setPage(1);
   };
 
-  // Selection helpers
+  // Selection helpers – chỉ admin mới có
   const toggleSelectComment = (id: string) => {
+    if (!isAdmin) return;
     setSelectedComments(prev => {
       const newSet = new Set(prev);
       if (newSet.has(id)) newSet.delete(id);
@@ -108,6 +111,7 @@ export default function AdminCommentsPage() {
   };
 
   const toggleSelectAll = () => {
+    if (!isAdmin) return;
     if (selectedComments.size === comments.length) {
       setSelectedComments(new Set());
     } else {
@@ -115,8 +119,9 @@ export default function AdminCommentsPage() {
     }
   };
 
-  // Actions
+  // Actions – chỉ admin mới có
   const handleToggleStatus = async (id: string) => {
+    if (!isAdmin) return;
     try {
       const res = await axios.put(
         `${API_URL}/api/comments/admin/${id}/toggle`,
@@ -133,6 +138,7 @@ export default function AdminCommentsPage() {
   };
 
   const handleDelete = async (id: string) => {
+    if (!isAdmin) return;
     if (!confirm('Bạn có chắc muốn xóa bình luận này? Hành động này không thể hoàn tác.')) return;
     try {
       await axios.delete(`${API_URL}/api/comments/admin/${id}`, {
@@ -151,6 +157,7 @@ export default function AdminCommentsPage() {
   };
 
   const handleBulkAction = async (action: 'hide' | 'show' | 'delete') => {
+    if (!isAdmin) return;
     if (selectedComments.size === 0) {
       toast.error('Vui lòng chọn ít nhất một bình luận');
       return;
@@ -279,7 +286,7 @@ export default function AdminCommentsPage() {
         </select>
       </div>
 
-      {selectedComments.size > 0 && (
+      {isAdmin && selectedComments.size > 0 && (
         <div className="mb-4 flex gap-2 items-center p-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
           <span className="text-sm font-medium">Đã chọn {selectedComments.size} bình luận</span>
           <button
@@ -323,14 +330,16 @@ export default function AdminCommentsPage() {
             <table className="min-w-full">
               <thead className="bg-gray-100 dark:bg-gray-700">
                 <tr>
-                  <th className="px-4 py-3 w-10">
-                    <input
-                      type="checkbox"
-                      checked={selectedComments.size === comments.length && comments.length > 0}
-                      onChange={toggleSelectAll}
-                      className="rounded border-gray-300 dark:border-gray-600"
-                    />
-                  </th>
+                  {isAdmin && (
+                    <th className="px-4 py-3 w-10">
+                      <input
+                        type="checkbox"
+                        checked={selectedComments.size === comments.length && comments.length > 0}
+                        onChange={toggleSelectAll}
+                        className="rounded border-gray-300 dark:border-gray-600"
+                      />
+                    </th>
+                  )}
                   <th className="px-4 py-3 text-left text-sm font-medium">Người dùng</th>
                   <th className="px-4 py-3 text-left text-sm font-medium">Sản phẩm</th>
                   <th className="px-4 py-3 text-left text-sm font-medium">Nội dung</th>
@@ -338,7 +347,9 @@ export default function AdminCommentsPage() {
                   <th className="px-4 py-3 text-center text-sm font-medium">Phản hồi</th>
                   <th className="px-4 py-3 text-left text-sm font-medium">Ngày</th>
                   <th className="px-4 py-3 text-left text-sm font-medium">Trạng thái</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium">Thao tác</th>
+                  {isAdmin && (
+                    <th className="px-4 py-3 text-left text-sm font-medium">Thao tác</th>
+                  )}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -355,15 +366,17 @@ export default function AdminCommentsPage() {
                         isNew ? 'bg-yellow-50 dark:bg-yellow-900/20' : ''
                       } ${comment.status === 'deleted' ? 'opacity-60' : ''}`}
                     >
-                      <td className="px-4 py-3">
-                        <input
-                          type="checkbox"
-                          checked={selectedComments.has(comment._id)}
-                          onChange={() => toggleSelectComment(comment._id)}
-                          className="rounded border-gray-300 dark:border-gray-600"
-                          disabled={comment.status === 'deleted'}
-                        />
-                       </td>
+                      {isAdmin && (
+                        <td className="px-4 py-3">
+                          <input
+                            type="checkbox"
+                            checked={selectedComments.has(comment._id)}
+                            onChange={() => toggleSelectComment(comment._id)}
+                            className="rounded border-gray-300 dark:border-gray-600"
+                            disabled={comment.status === 'deleted'}
+                          />
+                        </td>
+                      )}
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden shrink-0 flex items-center justify-center">
@@ -411,28 +424,28 @@ export default function AdminCommentsPage() {
                           {comment.content}
                         </div>
                       </td>
-                     <td className="px-4 py-3 text-center">
-  {hasImages ? (
-    <button
-      onClick={() => setImageModal({ open: true, images: images!.map(img => `${API_URL}${img}`) })}
-      className="relative w-12 h-12 rounded overflow-hidden border border-gray-200 hover:shadow-md transition"
-      title={`${images!.length} ảnh đính kèm`}
-    >
-      <img
-        src={`${API_URL}${images![0]}`}
-        alt=""
-        className="w-full h-full object-cover"
-      />
-      {images!.length > 1 && (
-        <span className="absolute bottom-0 right-0 bg-black/60 text-white text-xs px-1 rounded-tl">
-          +{images!.length - 1}
-        </span>
-      )}
-    </button>
-  ) : (
-    <span className="text-gray-400">—</span>
-  )}
-</td>
+                      <td className="px-4 py-3 text-center">
+                        {hasImages ? (
+                          <button
+                            onClick={() => setImageModal({ open: true, images: images!.map(img => `${API_URL}${img}`) })}
+                            className="relative w-12 h-12 rounded overflow-hidden border border-gray-200 hover:shadow-md transition"
+                            title={`${images!.length} ảnh đính kèm`}
+                          >
+                            <img
+                              src={`${API_URL}${images![0]}`}
+                              alt=""
+                              className="w-full h-full object-cover"
+                            />
+                            {images!.length > 1 && (
+                              <span className="absolute bottom-0 right-0 bg-black/60 text-white text-xs px-1 rounded-tl">
+                                +{images!.length - 1}
+                              </span>
+                            )}
+                          </button>
+                        ) : (
+                          <span className="text-gray-400">—</span>
+                        )}
+                      </td>
                       <td className="px-4 py-3 text-center">
                         <Link
                           href={`/admin/comments/${comment._id}`}
@@ -449,37 +462,39 @@ export default function AdminCommentsPage() {
                           {getStatusText(comment.status)}
                         </span>
                       </td>
-                      <td className="px-4 py-3">
-                        <div className="flex gap-2">
-                          <Link
-                            href={`/admin/comments/${comment._id}`}
-                            className="p-1 text-blue-600 hover:bg-blue-100 rounded transition-colors"
-                            title="Xem chi tiết & trả lời"
-                          >
-                            <EyeIcon className="w-5 h-5" />
-                          </Link>
-                          {comment.status !== 'deleted' && (
-                            <button
-                              onClick={() => handleToggleStatus(comment._id)}
-                              className="p-1 text-yellow-600 hover:bg-yellow-100 rounded transition-colors"
-                              title={comment.status === 'active' ? 'Ẩn bình luận' : 'Hiển thị bình luận'}
+                      {isAdmin && (
+                        <td className="px-4 py-3">
+                          <div className="flex gap-2">
+                            <Link
+                              href={`/admin/comments/${comment._id}`}
+                              className="p-1 text-blue-600 hover:bg-blue-100 rounded transition-colors"
+                              title="Xem chi tiết & trả lời"
                             >
-                              {comment.status === 'active' ? (
-                                <EyeSlashIcon className="w-5 h-5" />
-                              ) : (
-                                <EyeIcon className="w-5 h-5" />
-                              )}
+                              <EyeIcon className="w-5 h-5" />
+                            </Link>
+                            {comment.status !== 'deleted' && (
+                              <button
+                                onClick={() => handleToggleStatus(comment._id)}
+                                className="p-1 text-yellow-600 hover:bg-yellow-100 rounded transition-colors"
+                                title={comment.status === 'active' ? 'Ẩn bình luận' : 'Hiển thị bình luận'}
+                              >
+                                {comment.status === 'active' ? (
+                                  <EyeSlashIcon className="w-5 h-5" />
+                                ) : (
+                                  <EyeIcon className="w-5 h-5" />
+                                )}
+                              </button>
+                            )}
+                            <button
+                              onClick={() => handleDelete(comment._id)}
+                              className="p-1 text-red-600 hover:bg-red-100 rounded transition-colors"
+                              title="Xóa bình luận (không thể hoàn tác)"
+                            >
+                              <TrashIcon className="w-5 h-5" />
                             </button>
-                          )}
-                          <button
-                            onClick={() => handleDelete(comment._id)}
-                            className="p-1 text-red-600 hover:bg-red-100 rounded transition-colors"
-                            title="Xóa bình luận (không thể hoàn tác)"
-                          >
-                            <TrashIcon className="w-5 h-5" />
-                          </button>
-                        </div>
-                      </td>
+                          </div>
+                        </td>
+                      )}
                     </tr>
                   );
                 })}

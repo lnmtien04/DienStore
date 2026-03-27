@@ -102,7 +102,6 @@ const loginAccount = asyncHandler(async (req, res) => {
     maxAge: 30 * 24 * 60 * 60 * 1000,
   });
 
-  // Ghi log đăng nhập thành công
   await logActivity({
     user: account._id,
     action: 'LOGIN',
@@ -158,10 +157,11 @@ const getAccountById = asyncHandler(async (req, res) => {
   res.json(account);
 });
 
+// Sửa hàm getAllAccounts để cho phép cả admin và staff
 const getAllAccounts = asyncHandler(async (req, res) => {
-  if (!req.user.roles.includes("admin")) {
+  if (!req.user.roles.includes('admin') && !req.user.roles.includes('staff')) {
     res.status(403);
-    throw new Error("Admin access required.");
+    throw new Error('Bạn không có quyền xem danh sách tài khoản.');
   }
 
   const accounts = await Account.find().select("-password");
@@ -326,6 +326,69 @@ const countUsersByRole = asyncHandler(async (req, res) => {
   res.json(counts);
 });
 
+// Cập nhật tài khoản (chỉ admin)
+const updateAccount = asyncHandler(async (req, res) => {
+  const { fullName, email, phoneNumber, roles, isActive, password } = req.body;
+  const userId = req.params.id;
+
+  const user = await Account.findById(userId);
+  if (!user) {
+    res.status(404);
+    throw new Error('Không tìm thấy người dùng');
+  }
+
+  if (fullName) user.fullName = fullName;
+  if (email && email !== user.email) {
+    const existing = await Account.findOne({ email });
+    if (existing) {
+      res.status(400);
+      throw new Error('Email đã được sử dụng');
+    }
+    user.email = email;
+  }
+  if (phoneNumber) user.phoneNumber = phoneNumber;
+  if (roles !== undefined) user.roles = roles;
+  if (isActive !== undefined) user.isActive = isActive;
+  if (password && password.trim() !== '') {
+    user.password = password;
+  }
+
+  const updatedUser = await user.save();
+  const { password: pwd, ...safeUser } = updatedUser.toObject();
+  res.json(safeUser);
+});
+
+// Hàm tạo tài khoản mới (chỉ admin)
+const createAccountByAdmin = asyncHandler(async (req, res) => {
+  const { fullName, email, password, phoneNumber, roles, isActive, username } = req.body;
+
+  if (!fullName || !email || !password || !roles || !Array.isArray(roles) || roles.length === 0) {
+    res.status(400);
+    throw new Error('Vui lòng nhập đầy đủ thông tin bắt buộc (fullName, email, password, roles)');
+  }
+
+  const existing = await Account.findOne({ email });
+  if (existing) {
+    res.status(400);
+    throw new Error('Email đã được sử dụng');
+  }
+
+  const finalUsername = username || email.split('@')[0] + Math.floor(Math.random() * 1000);
+
+  const newAccount = await Account.create({
+    fullName,
+    email,
+    password,
+    phoneNumber: phoneNumber || '',
+    roles,
+    isActive: isActive !== undefined ? isActive : true,
+    username: finalUsername,
+  });
+
+  const { password: pwd, ...safeAccount } = newAccount.toObject();
+  res.status(201).json(safeAccount);
+});
+
 module.exports = {
   registerAccount,
   loginAccount,
@@ -340,4 +403,6 @@ module.exports = {
   uploadAvatar,
   countUsersByRole,
   updatePreferences,
+  updateAccount,
+  createAccountByAdmin,
 };

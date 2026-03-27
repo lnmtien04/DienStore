@@ -1,15 +1,22 @@
 const asyncHandler = require('express-async-handler');
 const Category = require('../models/category');
+const Product = require('../models/product'); // Import model Product
 const slugify = require('slugify');
 
-// @desc    Get all categories
+// @desc    Get all categories with product count
 const getCategories = asyncHandler(async (req, res) => {
-  const categories = await Category.aggregate([
-    { $lookup: { from: 'products', localField: '_id', foreignField: 'category', as: 'products' } },
-    { $addFields: { productCount: { $size: '$products' } } },
-    { $project: { products: 0 } }
-  ]);
-  res.json(categories);
+  // Lấy tất cả danh mục (lean để tối ưu)
+  const categories = await Category.find().populate('parent', 'name').lean();
+
+  // Đếm số sản phẩm cho từng danh mục
+  const categoriesWithCount = await Promise.all(
+    categories.map(async (cat) => {
+      const productCount = await Product.countDocuments({ category: cat._id });
+      return { ...cat, productCount };
+    })
+  );
+
+  res.json(categoriesWithCount);
 });
 
 // @desc    Get category by ID

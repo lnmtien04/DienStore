@@ -14,8 +14,9 @@
     "axios": "^1.13.5",
     "cors": "^2.8.6",
     "date-fns": "^4.1.0",
-    "emoji-picker-react": "^4.5.0",
+    "emoji-picker-react": "^4.18.0",
     "exceljs": "^4.4.0",
+    "framer-motion": "^12.38.0",
     "lucide-react": "^0.576.0",
     "multer": "^2.0.2",
     "next": "16.1.6",
@@ -29,6 +30,7 @@
     "react-quilljs": "^2.0.5",
     "recharts": "^3.7.0",
     "slugify": "^1.6.6",
+    "socket.io-client": "^4.8.3",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -38,11 +40,11 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/xlsx": "^0.0.35",
-    "autoprefixer": "^10.4.24",
+    "autoprefixer": "^10.4.27",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.2.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5"
   }
 }

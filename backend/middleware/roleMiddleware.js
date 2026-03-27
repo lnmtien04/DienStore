@@ -1,4 +1,3 @@
-// Kiểm tra user có role admin không
 exports.authorize = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {

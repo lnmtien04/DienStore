@@ -54,7 +54,7 @@ export default function InformationProfileI() {
   useEffect(() => {
     if (!user) {
       router.push('/auth/login');
-    } else if (!user.roles?.includes('admin')) {
+    } else if (!user.roles?.includes('admin') && !user.roles?.includes('staff')) {
       router.push('/');
     }
   }, [user, router]);
@@ -106,26 +106,35 @@ export default function InformationProfileI() {
     }
   };
 
-  const uploadAvatar = async () => {
-    if (!avatarFile) return;
-    setUploadingAvatar(true);
-    const formData = new FormData();
-    formData.append('avatar', avatarFile);
-    try {
-      await axios.post(`${API_URL}/api/accounts/avatar`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      toast.success('Cập nhật ảnh đại diện thành công');
-      if (refreshUser) await refreshUser();
-    } catch (error: any) {
-      toast.error(error.response?.data?.message || 'Lỗi upload ảnh');
-    } finally {
-      setUploadingAvatar(false);
+const uploadAvatar = async () => {
+  if (!avatarFile) return;
+  setUploadingAvatar(true);
+  const formData = new FormData();
+  formData.append('avatar', avatarFile);
+  try {
+    const response = await axios.post(`${API_URL}/api/accounts/avatar`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    const newAvatarUrl = response.data.avatar;
+    toast.success('Cập nhật ảnh đại diện thành công');
+    
+    // Cập nhật lại user từ server
+    if (refreshUser) {
+      await refreshUser();
     }
-  };
+    
+    // Reset state tạm
+    setAvatarFile(null);
+    setAvatarPreview(''); // Xóa preview để hiển thị ảnh từ server
+  } catch (error: any) {
+    toast.error(error.response?.data?.message || 'Lỗi upload ảnh');
+  } finally {
+    setUploadingAvatar(false);
+  }
+};
 
   // Đổi mật khẩu (mock)
   const handleChangePassword = () => {
@@ -193,8 +202,14 @@ export default function InformationProfileI() {
               <div className="flex items-center gap-6 mb-6">
                 <div className="relative">
                   <div className="w-24 h-24 rounded-full bg-linear-to-r from-blue-500 to-indigo-600 flex items-center justify-center overflow-hidden ring-4 ring-white dark:ring-gray-700">
-                    {avatarPreview ? (
+                   {avatarPreview ? (
                       <img src={avatarPreview} alt="Avatar" className="w-full h-full object-cover" />
+                    ) : user.avatar ? (
+                      <img
+                        src={user.avatar.startsWith('http') ? user.avatar : `${API_URL}${user.avatar}`}
+                        alt="Avatar"
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <span className="text-white text-3xl font-bold">
                         {user.fullName?.charAt(0).toUpperCase()}

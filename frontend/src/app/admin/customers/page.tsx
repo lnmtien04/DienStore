@@ -59,18 +59,16 @@ export default function CustomersPage() {
     direction: 'asc',
   });
 
-  const { token, loading: authLoading } = useUser();
+  const { token, user, loading: authLoading } = useUser();
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const isAdmin = user?.roles?.includes('admin');
 
-  // Chỉ gọi API khi đã có token (sau khi authLoading kết thúc)
   useEffect(() => {
     if (!authLoading) {
       if (token) {
         fetchCustomers();
       } else {
         setLoading(false);
-        // Có thể redirect về login nếu cần
-        // router.push('/auth/login');
       }
     }
   }, [token, authLoading]);
@@ -85,7 +83,6 @@ export default function CustomersPage() {
         headers: { Authorization: `Bearer ${token}` },
       });
       let data = res.data;
-      // Mô phỏng dữ liệu mở rộng – thực tế nên từ backend
       data = data.map((c: Customer) => ({
         ...c,
         totalOrders: Math.floor(Math.random() * 20),
@@ -101,7 +98,6 @@ export default function CustomersPage() {
     }
   };
 
-  // Các hàm lọc, sắp xếp, phân trang giữ nguyên
   const filteredCustomers = useMemo(() => {
     let filtered = customers.filter((c) => {
       const matchesSearch =
@@ -142,6 +138,10 @@ export default function CustomersPage() {
   };
 
   const handleToggleStatus = async (id: string, currentStatus: boolean) => {
+    if (!isAdmin) {
+      toast.error('Bạn không có quyền thực hiện thao tác này');
+      return;
+    }
     if (!token) {
       toast.error('Vui lòng đăng nhập lại');
       return;
@@ -160,6 +160,10 @@ export default function CustomersPage() {
   };
 
   const handleDelete = (id: string) => {
+    if (!isAdmin) {
+      toast.error('Bạn không có quyền xóa khách hàng');
+      return;
+    }
     setDeleteTarget(id);
     setShowDeleteConfirm(true);
   };
@@ -186,6 +190,10 @@ export default function CustomersPage() {
   };
 
   const openEditModal = (customer: Customer) => {
+    if (!isAdmin) {
+      toast.error('Bạn không có quyền sửa thông tin khách hàng');
+      return;
+    }
     setSelectedCustomer(customer);
     setEditForm({
       fullName: customer.fullName,
@@ -200,6 +208,10 @@ export default function CustomersPage() {
   const handleEditSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedCustomer) return;
+    if (!isAdmin) {
+      toast.error('Bạn không có quyền sửa thông tin khách hàng');
+      return;
+    }
     if (!token) {
       toast.error('Vui lòng đăng nhập lại');
       return;
@@ -218,14 +230,26 @@ export default function CustomersPage() {
   };
 
   const handleResetPassword = (email: string) => {
+    if (!isAdmin) {
+      toast.error('Bạn không có quyền thực hiện thao tác này');
+      return;
+    }
     toast.success(`Đã gửi yêu cầu reset mật khẩu đến ${email}`);
   };
 
   const handleSendEmail = (email: string) => {
+    if (!isAdmin) {
+      toast.error('Bạn không có quyền thực hiện thao tác này');
+      return;
+    }
     toast.success(`Đã gửi email đến ${email}`);
   };
 
   const handleViewLoginHistory = (customerId: string) => {
+    if (!isAdmin) {
+      toast.error('Bạn không có quyền xem lịch sử đăng nhập');
+      return;
+    }
     toast('Chức năng đang phát triển', { icon: '🚧' });
   };
 
@@ -363,40 +387,42 @@ export default function CustomersPage() {
                       {new Date(customer.createdAt).toLocaleDateString('vi-VN')}
                     </td>
                     <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={() => openEditModal(customer)}
-                          className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition group relative"
-                          title="Sửa thông tin"
-                        >
-                          <PencilIcon className="w-5 h-5" />
-                          <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-20">
-                            Sửa
-                          </span>
-                        </button>
-                        <button
-                          onClick={() => handleToggleStatus(customer._id, customer.isActive)}
-                          className={`p-2 rounded-lg transition group relative ${
-                            customer.isActive ? 'text-yellow-600 hover:bg-yellow-50' : 'text-green-600 hover:bg-green-50'
-                          }`}
-                          title={customer.isActive ? 'Khóa' : 'Mở khóa'}
-                        >
-                          {customer.isActive ? <LockClosedIcon className="w-5 h-5" /> : <LockOpenIcon className="w-5 h-5" />}
-                          <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-20">
-                            {customer.isActive ? 'Khóa' : 'Mở khóa'}
-                          </span>
-                        </button>
-                        <button
-                          onClick={() => handleDelete(customer._id)}
-                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition group relative"
-                          title="Xóa"
-                        >
-                          <TrashIcon className="w-5 h-5" />
-                          <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-20">
-                            Xóa
-                          </span>
-                        </button>
-                      </div>
+                      {isAdmin && (
+                        <div className="flex items-center gap-1">
+                          <button
+                            onClick={() => openEditModal(customer)}
+                            className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition group relative"
+                            title="Sửa thông tin"
+                          >
+                            <PencilIcon className="w-5 h-5" />
+                            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-20">
+                              Sửa
+                            </span>
+                          </button>
+                          <button
+                            onClick={() => handleToggleStatus(customer._id, customer.isActive)}
+                            className={`p-2 rounded-lg transition group relative ${
+                              customer.isActive ? 'text-yellow-600 hover:bg-yellow-50' : 'text-green-600 hover:bg-green-50'
+                            }`}
+                            title={customer.isActive ? 'Khóa' : 'Mở khóa'}
+                          >
+                            {customer.isActive ? <LockClosedIcon className="w-5 h-5" /> : <LockOpenIcon className="w-5 h-5" />}
+                            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-20">
+                              {customer.isActive ? 'Khóa' : 'Mở khóa'}
+                            </span>
+                          </button>
+                          <button
+                            onClick={() => handleDelete(customer._id)}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition group relative"
+                            title="Xóa"
+                          >
+                            <TrashIcon className="w-5 h-5" />
+                            <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-20">
+                              Xóa
+                            </span>
+                          </button>
+                        </div>
+                      )}
                     </td>
                   </tr>
                 );
@@ -513,51 +539,53 @@ export default function CustomersPage() {
                 </div>
               </div>
 
-              {/* Hành động nâng cao */}
-              <div className="border-t pt-4">
-                <h4 className="font-medium mb-3">Hành động nâng cao</h4>
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => handleResetPassword(selectedCustomer.email)}
-                    className="px-3 py-2 bg-blue-50 text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100 flex items-center gap-1"
-                    title="Gửi yêu cầu reset mật khẩu"
-                  >
-                    <KeyIcon className="w-4 h-4" />
-                    Reset mật khẩu
-                  </button>
-                  <button
-                    onClick={() => handleSendEmail(selectedCustomer.email)}
-                    className="px-3 py-2 bg-green-50 text-green-600 border border-green-200 rounded-lg hover:bg-green-100 flex items-center gap-1"
-                    title="Gửi email"
-                  >
-                    <EnvelopeIcon className="w-4 h-4" />
-                    Gửi email
-                  </button>
-                  <button
-                    onClick={() => handleViewLoginHistory(selectedCustomer._id)}
-                    className="px-3 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded-lg hover:bg-purple-100 flex items-center gap-1"
-                    title="Xem lịch sử đăng nhập"
-                  >
-                    <ClockIcon className="w-4 h-4" />
-                    Lịch sử đăng nhập
-                  </button>
-                  <button
-                    onClick={() => toast('IP gần nhất: 192.168.1.1 (mock)', { icon: '🌐' })}
-                    className="px-3 py-2 bg-gray-50 text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-100 flex items-center gap-1"
-                    title="Xem IP"
-                  >
-                    <ComputerDesktopIcon className="w-4 h-4" />
-                    Xem IP
-                  </button>
+              {/* Hành động nâng cao - chỉ hiển thị nếu admin */}
+              {isAdmin && (
+                <div className="border-t pt-4">
+                  <h4 className="font-medium mb-3">Hành động nâng cao</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      onClick={() => handleResetPassword(selectedCustomer.email)}
+                      className="px-3 py-2 bg-blue-50 text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100 flex items-center gap-1"
+                      title="Gửi yêu cầu reset mật khẩu"
+                    >
+                      <KeyIcon className="w-4 h-4" />
+                      Reset mật khẩu
+                    </button>
+                    <button
+                      onClick={() => handleSendEmail(selectedCustomer.email)}
+                      className="px-3 py-2 bg-green-50 text-green-600 border border-green-200 rounded-lg hover:bg-green-100 flex items-center gap-1"
+                      title="Gửi email"
+                    >
+                      <EnvelopeIcon className="w-4 h-4" />
+                      Gửi email
+                    </button>
+                    <button
+                      onClick={() => handleViewLoginHistory(selectedCustomer._id)}
+                      className="px-3 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded-lg hover:bg-purple-100 flex items-center gap-1"
+                      title="Xem lịch sử đăng nhập"
+                    >
+                      <ClockIcon className="w-4 h-4" />
+                      Lịch sử đăng nhập
+                    </button>
+                    <button
+                      onClick={() => toast('IP gần nhất: 192.168.1.1 (mock)', { icon: '🌐' })}
+                      className="px-3 py-2 bg-gray-50 text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-100 flex items-center gap-1"
+                      title="Xem IP"
+                    >
+                      <ComputerDesktopIcon className="w-4 h-4" />
+                      Xem IP
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
       )}
 
-      {/* Modal sửa thông tin khách hàng */}
-      {showEditModal && selectedCustomer && (
+      {/* Modal sửa thông tin khách hàng (chỉ hiển thị nếu admin) */}
+      {showEditModal && selectedCustomer && isAdmin && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-6">
             <h3 className="text-xl font-bold mb-4">Sửa thông tin khách hàng</h3>
@@ -630,8 +658,8 @@ export default function CustomersPage() {
         </div>
       )}
 
-      {/* Confirm Delete Modal */}
-      {showDeleteConfirm && (
+      {/* Confirm Delete Modal (chỉ hiển thị nếu admin) */}
+      {showDeleteConfirm && isAdmin && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl max-w-md w-full p-6">
             <h3 className="text-lg font-bold mb-2">Xác nhận xóa</h3>

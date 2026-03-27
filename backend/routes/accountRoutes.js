@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const upload = require('../middleware/uploadMiddleware'); // chỉ một lần
+const upload = require('../middleware/uploadMiddleware');
 
 const {
   registerAccount,
@@ -14,8 +14,9 @@ const {
   searchAccounts,
   deleteAccount,
   countUsersByRole,
-  updatePreferences,  // Import hàm này
-  // updateAccount, // nếu có
+  updatePreferences,
+  updateAccount,
+  createAccountByAdmin, // import hàm mới
 } = require("../controllers/accountController");
 
 const { protect } = require("../middleware/authMiddleware");
@@ -25,63 +26,39 @@ const Account = require("../models/account");
 /* =====================================================
    PUBLIC ROUTES
 ===================================================== */
-
-// Đăng ký
 router.post("/register", registerAccount);
-
-// Đăng nhập
 router.post("/login", loginAccount);
-
-// Đăng xuất
 router.post("/logout", logoutAccount);
 
 /* =====================================================
    USER ROUTES (Yêu cầu đăng nhập)
 ===================================================== */
-
 // Lấy profile của chính mình
 router.get("/profile", protect, getAccountProfile);
-
 // Cập nhật profile
 router.put("/profile", protect, updateProfile);
-
-// Đổi mật khẩu (chỉ cần một lần)
+// Đổi mật khẩu
 router.put("/change-password", protect, changePassword);
-
 // Upload avatar
-router.post(
-  "/upload-avatar",
-  protect,
-  upload.single("avatar"),
-  async (req, res) => {
-    try {
-      if (!req.file) {
-        return res.status(400).json({ message: "Không có file được gửi lên" });
-      }
-
-      // Lấy URL Cloudinary từ req.file.path
-      const avatarUrl = req.file.path;
-
-      const user = await Account.findById(req.user._id);
-      if (!user) {
-        return res.status(404).json({ message: "Không tìm thấy tài khoản" });
-      }
-
-      user.avatar = avatarUrl;
-      await user.save();
-
-      res.status(200).json({
-        message: "Upload avatar thành công",
-        url: avatarUrl,
-      });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Lỗi server" });
+router.post("/upload-avatar", protect, upload.single("avatar"), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "Không có file được gửi lên" });
     }
+    const avatarUrl = req.file.path;
+    const user = await Account.findById(req.user._id);
+    if (!user) {
+      return res.status(404).json({ message: "Không tìm thấy tài khoản" });
+    }
+    user.avatar = avatarUrl;
+    await user.save();
+    res.status(200).json({ message: "Upload avatar thành công", url: avatarUrl });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Lỗi server" });
   }
-);
-
-// Cập nhật preferences (ngôn ngữ, giao diện...)
+});
+// Cập nhật preferences
 router.put("/preferences", protect, updatePreferences);
 
 /* =====================================================
@@ -90,20 +67,23 @@ router.put("/preferences", protect, updatePreferences);
 router.get("/search", protect, searchAccounts);
 
 /* =====================================================
-   ADMIN ROUTES
+   ADMIN & STAFF ROUTES
 ===================================================== */
-router.get('/count-by-role', protect, authorize('admin'), countUsersByRole);
+// Lấy tất cả tài khoản - cho phép admin và staff
+router.get("/", protect, authorize("admin", "staff"), getAllAccounts);
 
-// Lấy tất cả tài khoản
-router.get("/", protect, authorize("admin"), getAllAccounts);
-
-// Lấy tài khoản theo ID
+/* =====================================================
+   ADMIN-ONLY ROUTES
+===================================================== */
+// Tạo tài khoản mới (chỉ admin)
+router.post("/", protect, authorize("admin"), createAccountByAdmin);
+// Thống kê theo role (chỉ admin)
+router.get('/count-by-role', protect, authorize('admin', 'staff'), countUsersByRole);
+// Lấy tài khoản theo ID (chỉ admin)
 router.get("/:id", protect, authorize("admin"), getAccountById);
-
-// Xoá tài khoản
+// Cập nhật tài khoản (chỉ admin)
+router.put("/:id", protect, authorize("admin"), updateAccount);
+// Xoá tài khoản (chỉ admin)
 router.delete("/:id", protect, authorize("admin"), deleteAccount);
-
-// Nếu có updateAccount cho admin:
-// router.put("/:id", protect, authorize("admin"), updateAccount);
 
 module.exports = router;

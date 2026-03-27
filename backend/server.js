@@ -1,10 +1,13 @@
 const express = require("express");
+const http = require("http");
+const socketIo = require("socket.io");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const fs = require("fs");
+const Message = require("./models/Message"); // Import model Message
 
 // Load env
 dotenv.config({ path: path.join(__dirname, '.env') });
@@ -20,10 +23,21 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express();
 
-// CORS (chỉ một lần, sau khi có app)
-app.use(cors({ 
-  origin: process.env.CLIENT_URL || 'http://localhost:3000', 
-  credentials: true 
+// Cho phép nhiều origin dựa trên môi trường
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? [process.env.CLIENT_URL || 'https://dienstore-minhtien.onrender.com']
+  : ['http://localhost:3000', 'http://localhost:5000'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
 
 // Middleware cơ bản
@@ -31,12 +45,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Health check endpoint (để UptimeRobot và các dịch vụ kiểm tra)
+// Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Tạo thư mục uploads nếu chưa tồn tại
+// Tạo thư mục uploads
 const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
@@ -80,11 +94,62 @@ app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/comments', require('./routes/commentRoutes'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/accounts/avatar', (req, res) => res.status(200).json({}));
+app.use('/api/chatbot', require('./routes/chatbotRoutes'));
+// Route chat
+app.use('/api/chat', require('./routes/chatRoutes'));
+
+app.use("/api/accounts", require("./routes/accountRoutes"));
+app.use('/api/roles', require('./routes/roleRoutes'));
 // Error handling
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+// Tạo HTTP server
+const server = http.createServer(app);
 
+// Cấu hình Socket.IO với CORS
+const io = socketIo(server, {
+  cors: {
+    origin: allowedOrigins,
+    credentials: true
+  }
+});
+
+// Socket.IO logic
+io.on('connection', (socket) => {
+  console.log('New client connected:', socket.id);
+
+  socket.on('join-conversation', (data) => {
+    const { conversationId, userId, userType } = data;
+    socket.join(conversationId);
+    console.log(`${userType} ${userId} joined room ${conversationId}`);
+  });
+
+  socket.on('send-message', async (data) => {
+  const { conversationId, senderId, senderType, content, timestamp } = data;
+  try {
+    const message = new Message({
+      conversationId,
+      senderId,
+      senderType,
+      content,
+      timestamp: timestamp || new Date(),
+      readByAdmin: senderType !== 'Admin' ? false : true // admin tự động đã đọc
+    });
+    await message.save();
+
+    // Gửi đến tất cả trong room (kể cả người gửi)
+    io.to(conversationId).emit('receive-message', message);
+  } catch (err) {
+    console.error('Error saving message:', err);
+  }
+});
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected:', socket.id);
+  });
+});
+
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

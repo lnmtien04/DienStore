@@ -10,10 +10,13 @@ const {
   deleteWarranty,
 } = require('../controllers/warrantyController');
 
-// Tất cả routes đều yêu cầu admin
-router.use(protect, authorize('admin'));
+// Các route GET cho phép cả admin và staff
+router.get('/', protect, authorize('admin', 'staff'), getWarranties);
+router.get('/:id', protect, authorize('admin', 'staff'), getWarrantyById);
 
-router.route('/').get(getWarranties).post(createWarranty);
-router.route('/:id').get(getWarrantyById).put(updateWarranty).delete(deleteWarranty);
+// Các route thay đổi dữ liệu chỉ admin
+router.post('/', protect, authorize('admin'), createWarranty);
+router.put('/:id', protect, authorize('admin'), updateWarranty);
+router.delete('/:id', protect, authorize('admin'), deleteWarranty);
 
 module.exports = router;

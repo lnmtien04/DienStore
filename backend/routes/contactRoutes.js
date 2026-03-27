@@ -13,11 +13,15 @@ const {
 // Public route
 router.post('/', createContact);
 
-// Admin routes
-router.use(protect, authorize('admin'));
-router.get('/', getContacts);
-router.get('/:id', getContactById);
-router.put('/:id', updateContact);
-router.delete('/:id', deleteContact);
+// Routes yêu cầu đăng nhập
+router.use(protect);
+
+// Các route GET cho phép cả admin và staff
+router.get('/', authorize('admin', 'staff'), getContacts);
+router.get('/:id', authorize('admin', 'staff'), getContactById);
+
+// Các route thay đổi dữ liệu chỉ admin
+router.put('/:id', authorize('admin'), updateContact);
+router.delete('/:id', authorize('admin'), deleteContact);
 
 module.exports = router;

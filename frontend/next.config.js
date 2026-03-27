@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // 🔥 FIX lỗi sai root (quan trọng nhất)
+  turbopack: {
+    root: __dirname,
+  },
+
   images: {
     remotePatterns: [
       {
@@ -11,13 +16,27 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'placehold.co',
-        port: '',
         pathname: '/**',
       },
     ],
-    dangerouslyAllowSVG: true, // Cho phép SVG từ placehold.co
+
+    // 🔥 FIX warning quality
+    qualities: [75, 100],
+
+    dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    contentSecurityPolicy:
+      "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
+  // Proxy API requests to backend during development
+  async rewrites() {
+    return [
+      {
+        source: '/api/admin/:path*',
+        destination: 'http://localhost:5000/api/:path*',
+      },
+    ];
   },
 };
 

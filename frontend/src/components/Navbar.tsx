@@ -24,7 +24,7 @@ interface Category {
   _id: string;
   name: string;
   slug: string;
-  image?: string; // ảnh đại diện danh mục (từ API)
+  image?: string;
 }
 
 export default function Navbar() {
@@ -52,7 +52,6 @@ export default function Navbar() {
     const fetchCategories = async () => {
       try {
         const res = await axios.get(`${API_URL}/api/categories`);
-        // Lấy tối đa 6 danh mục, nếu API trả về nhiều hơn
         setCategories(res.data.slice(0, 6));
       } catch (error) {
         console.error('Lỗi tải danh mục:', error);
@@ -102,6 +101,8 @@ export default function Navbar() {
   };
 
   const isAdmin = user?.roles?.includes('admin');
+  const isStaff = user?.roles?.includes('staff');
+  const hasAdminAccess = isAdmin || isStaff;
 
   return (
     <>
@@ -118,7 +119,6 @@ export default function Navbar() {
 
       <nav className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white py-3 shadow-md sticky top-0 z-50 transition-colors">
         <div className="container mx-auto px-4 flex items-center justify-between gap-4">
-          {/* Logo và menu button */}
           <div className="flex items-center space-x-2">
             <button
               ref={buttonRef}
@@ -195,8 +195,8 @@ export default function Navbar() {
 
             <li className="relative">
               {user ? (
-                isAdmin ? (
-                  // Admin: button + dropdown
+                hasAdminAccess ? (
+                  // Admin/Staff: button + dropdown
                   <>
                     <button
                       ref={userMenuButtonRef}
@@ -204,7 +204,7 @@ export default function Navbar() {
                       className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition hover:bg-gray-100 dark:hover:bg-gray-700 p-2 rounded"
                     >
                       <FaUser className="text-lg" />
-                      <span className="font-medium">{user.fullName || 'Admin'}</span>
+                      <span className="font-medium">{user.fullName || 'Tài khoản'}</span>
                     </button>
                     {isUserMenuOpen && (
                       <div
@@ -217,6 +217,13 @@ export default function Navbar() {
                           className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                         >
                           Thông tin tài khoản
+                        </Link>
+                        <Link
+                          href="/admin"
+                          onClick={() => setIsUserMenuOpen(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        >
+                          Quản trị hệ thống
                         </Link>
                         <button
                           onClick={handleLogout}
@@ -238,7 +245,7 @@ export default function Navbar() {
                   </Link>
                 )
               ) : (
-                // Chưa đăng nhập: button + dropdown đăng nhập/đăng ký
+                // Chưa đăng nhập: button + dropdown
                 <>
                   <button
                     ref={userMenuButtonRef}
@@ -275,50 +282,49 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* Menu danh mục sản phẩm dạng grid 3 cột */}
         {isMenuOpen && (
-  <div
-    ref={menuRef}
-    onMouseLeave={handleMouseLeave}
-    className="absolute left-0 right-0 mt-2 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg z-40"
-  >
-    <div className="container mx-auto px-4 py-4">
-      <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 uppercase tracking-wider">
-        Danh mục sản phẩm
-      </h3>
-      <div className="grid grid-cols-4 md:grid-cols-6 gap-3">
-        {categories.map((cat) => (
-          <Link
-            key={cat._id}
-            href={`/categories/${cat.slug}`}
-            onClick={() => setIsMenuOpen(false)}
-            className="flex flex-col items-center text-center group"
+          <div
+            ref={menuRef}
+            onMouseLeave={handleMouseLeave}
+            className="absolute left-0 right-0 mt-2 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg z-40"
           >
-            <div className="w-16 h-16 md:w-20 md:h-20 relative rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700 mb-1">
-              {cat.image ? (
-                <Image
-                  src={cat.image}
-                  alt={cat.name}
-                  fill
-                  sizes="80px"
-                  className="object-cover group-hover:scale-110 transition duration-300"
-                  unoptimized
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500 text-xs">
-                  ?
-                </div>
-              )}
+            <div className="container mx-auto px-4 py-4">
+              <h3 className="text-sm font-semibold text-gray-800 dark:text-white mb-3 uppercase tracking-wider">
+                Danh mục sản phẩm
+              </h3>
+              <div className="grid grid-cols-4 md:grid-cols-6 gap-3">
+                {categories.map((cat) => (
+                  <Link
+                    key={cat._id}
+                    href={`/categories/${cat.slug}`}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex flex-col items-center text-center group"
+                  >
+                    <div className="w-16 h-16 md:w-20 md:h-20 relative rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700 mb-1">
+                      {cat.image ? (
+                        <Image
+                          src={cat.image}
+                          alt={cat.name}
+                          fill
+                          sizes="80px"
+                          className="object-cover group-hover:scale-110 transition duration-300"
+                          unoptimized
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-500 text-xs">
+                          ?
+                        </div>
+                      )}
+                    </div>
+                    <span className="text-xs font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">
+                      {cat.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
-            <span className="text-xs font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">
-              {cat.name}
-            </span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
+          </div>
+        )}
       </nav>
     </>
   );

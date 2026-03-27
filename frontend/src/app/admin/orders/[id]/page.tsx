@@ -108,6 +108,138 @@ export default function OrderDetailPage() {
     );
   };
 
+  const handlePrintInvoice = () => {
+    if (!order) return;
+
+    // Nội dung hóa đơn
+    const printContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Hóa đơn đơn hàng ${order.orderNumber}</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+          }
+          .invoice-header {
+            text-align: center;
+            margin-bottom: 30px;
+          }
+          .invoice-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          .invoice-details {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+          }
+          .customer-info, .shipping-info, .payment-info {
+            margin-bottom: 20px;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+          }
+          th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+          .total-row {
+            font-weight: bold;
+            background-color: #f9f9f9;
+          }
+          .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="invoice-header">
+          <div class="invoice-title">HÓA ĐƠN BÁN HÀNG</div>
+          <div>Mã đơn hàng: ${order.orderNumber}</div>
+          <div>Ngày tạo: ${new Date(order.createdAt).toLocaleString('vi-VN')}</div>
+        </div>
+
+        <div class="invoice-details">
+          <div class="customer-info">
+            <strong>Thông tin khách hàng:</strong><br/>
+            Họ tên: ${order.user?.fullName}<br/>
+            Email: ${order.user?.email}<br/>
+            Số điện thoại: ${order.user?.phone || 'Chưa cập nhật'}
+          </div>
+
+          <div class="shipping-info">
+            <strong>Địa chỉ giao hàng:</strong><br/>
+            Người nhận: ${order.shippingAddress.fullName}<br/>
+            SĐT: ${order.shippingAddress.phone}<br/>
+            Địa chỉ: ${order.shippingAddress.address}<br/>
+            ${order.shippingAddress.city}, ${order.shippingAddress.district}, ${order.shippingAddress.ward}
+          </div>
+
+          <div class="payment-info">
+            <strong>Thanh toán:</strong><br/>
+            Phương thức: ${order.paymentMethod === 'cod' ? 'COD' : 'Chuyển khoản'}<br/>
+            Trạng thái: ${order.paymentStatus === 'paid' ? 'Đã thanh toán' : 'Chưa thanh toán'}
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Sản phẩm</th>
+              <th>Đơn giá</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${order.items.map(item => `
+              <tr>
+                <td>${item.name}</td>
+                <td>${item.price.toLocaleString()}đ</td>
+                <td>${item.quantity}</td>
+                <td>${(item.price * item.quantity).toLocaleString()}đ</td>
+              </tr>
+            `).join('')}
+            <tr class="total-row">
+              <td colspan="3" style="text-align: right;"><strong>Tổng cộng:</strong></td>
+              <td><strong>${order.totalAmount.toLocaleString()}đ</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        ${order.notes ? `<div><strong>Ghi chú:</strong> ${order.notes}</div>` : ''}
+
+        <div class="footer">
+          Cảm ơn quý khách đã mua hàng!<br/>
+          (Hóa đơn này được tạo tự động)
+        </div>
+      </body>
+      </html>
+    `;
+
+    // Mở cửa sổ mới và in
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(printContent);
+      printWindow.document.close();
+      printWindow.print();
+    } else {
+      alert('Vui lòng cho phép popup để in hóa đơn.');
+    }
+  };
+
   if (loading) return <div className="text-center py-10">Đang tải...</div>;
   if (!order) return <div className="text-center py-10">Không tìm thấy đơn hàng</div>;
 
@@ -118,8 +250,14 @@ export default function OrderDetailPage() {
           <ArrowLeftIcon className="h-5 w-5" />
         </button>
         <h1 className="text-2xl font-semibold text-gray-900">Chi tiết đơn hàng #{order.orderNumber}</h1>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-2">
           {getStatusBadge(order.orderStatus)}
+          <button
+            onClick={handlePrintInvoice}
+            className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
+          >
+            In hóa đơn
+          </button>
         </div>
       </div>
 
@@ -148,13 +286,13 @@ export default function OrderDetailPage() {
           <p className="text-sm"><span className="font-medium">Trạng thái:</span> {order.paymentStatus === 'paid' ? 'Đã thanh toán' : 'Chưa thanh toán'}</p>
           <p className="text-sm"><span className="font-medium">Tổng tiền:</span> <span className="text-lg font-bold text-red-600">{order.totalAmount.toLocaleString()}đ</span></p>
           {/* Nút thanh toán online nếu chưa thanh toán và không phải COD */}
-          {order.paymentStatus !== 'paid' && order.paymentMethod !== 'cod' && (
+          {/* {order.paymentStatus !== 'paid' && order.paymentMethod !== 'cod' && (
             <Link href={`/payment/${order._id}`}>
               <button className="mt-3 w-full px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
                 Thanh toán online
               </button>
             </Link>
-          )}
+          )} */}
         </div>
       </div>
 

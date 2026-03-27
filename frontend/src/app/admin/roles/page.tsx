@@ -52,12 +52,15 @@ export default function RolesPage() {
   const router = useRouter();
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+  const isAdmin = user?.roles?.includes('admin');
+  const isStaff = user?.roles?.includes('staff');
+
   useEffect(() => {
     if (!token) {
       router.push('/auth/login');
       return;
     }
-    if (!user?.roles?.includes('admin')) {
+    if (!isAdmin && !isStaff) {
       router.push('/');
       return;
     }
@@ -167,6 +170,7 @@ export default function RolesPage() {
   };
 
   const openEditModal = (role: Role) => {
+    if (!isAdmin) return;
     setEditingRole(role);
     setFormData({
       name: role.name,
@@ -178,6 +182,7 @@ export default function RolesPage() {
   };
 
   const resetModal = () => {
+    if (!isAdmin) return;
     setEditingRole(null);
     resetForm();
     setShowModal(true);
@@ -275,13 +280,15 @@ export default function RolesPage() {
 
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold text-gray-900">Quản lý chức vụ</h1>
-        <button
-          onClick={resetModal}
-          className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-        >
-          <PlusIcon className="h-5 w-5 mr-2" />
-          Thêm chức vụ
-        </button>
+        {isAdmin && (
+          <button
+            onClick={resetModal}
+            className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          >
+            <PlusIcon className="h-5 w-5 mr-2" />
+            Thêm chức vụ
+          </button>
+        )}
       </div>
 
       <div className="mb-4">
@@ -346,27 +353,29 @@ export default function RolesPage() {
                   {r.description || '-'}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-  <div className="flex flex-wrap gap-1">
-    {r.name.toLowerCase() === 'admin' ? (
-      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
-        Tất cả quyền
-      </span>
-    ) : r.permissions.length > 0 ? (
-      <>
-        {r.permissions.slice(0, 3).map((perm, idx) => (
-          <span key={idx} className="...">{perm}</span>
-        ))}
-        {r.permissions.length > 3 && (
-          <span className="..." title={r.permissions.join(', ')}>
-            +{r.permissions.length - 3}
-          </span>
-        )}
-      </>
-    ) : (
-      <span className="text-xs text-gray-400">Chưa có quyền</span>
-    )}
-  </div>
-</td>
+                  <div className="flex flex-wrap gap-1">
+                    {r.name.toLowerCase() === 'admin' ? (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800">
+                        Tất cả quyền
+                      </span>
+                    ) : r.permissions.length > 0 ? (
+                      <>
+                        {r.permissions.slice(0, 3).map((perm, idx) => (
+                          <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                            {perm}
+                          </span>
+                        ))}
+                        {r.permissions.length > 3 && (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800" title={r.permissions.join(', ')}>
+                            +{r.permissions.length - 3}
+                          </span>
+                        )}
+                      </>
+                    ) : (
+                      <span className="text-xs text-gray-400">Chưa có quyền</span>
+                    )}
+                  </div>
+                </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                   {userCounts[r.name] || 0}
                 </td>
@@ -385,27 +394,31 @@ export default function RolesPage() {
                   {formatDate(r.createdAt)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <button
-                    onClick={() => openEditModal(r)}
-                    className={`text-blue-600 hover:text-blue-900 mr-3 ${
-                      r.name.toLowerCase() === 'admin' ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                    disabled={r.name.toLowerCase() === 'admin'}
-                    title={
-                      r.name.toLowerCase() === 'admin'
-                        ? 'Không thể chỉnh sửa role admin'
-                        : ''
-                    }
-                  >
-                    <PencilIcon className="h-5 w-5" />
-                  </button>
-                  {r.name.toLowerCase() !== 'admin' && (
-                    <button
-                      onClick={() => handleDelete(r._id, r.name)}
-                      className="text-red-600 hover:text-red-900"
-                    >
-                      <TrashIcon className="h-5 w-5" />
-                    </button>
+                  {isAdmin && (
+                    <>
+                      <button
+                        onClick={() => openEditModal(r)}
+                        className={`text-blue-600 hover:text-blue-900 mr-3 ${
+                          r.name.toLowerCase() === 'admin' ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
+                        disabled={r.name.toLowerCase() === 'admin'}
+                        title={
+                          r.name.toLowerCase() === 'admin'
+                            ? 'Không thể chỉnh sửa role admin'
+                            : ''
+                        }
+                      >
+                        <PencilIcon className="h-5 w-5" />
+                      </button>
+                      {r.name.toLowerCase() !== 'admin' && (
+                        <button
+                          onClick={() => handleDelete(r._id, r.name)}
+                          className="text-red-600 hover:text-red-900"
+                        >
+                          <TrashIcon className="h-5 w-5" />
+                        </button>
+                      )}
+                    </>
                   )}
                 </td>
               </tr>
@@ -415,7 +428,7 @@ export default function RolesPage() {
       </div>
 
       {/* Modal thêm/sửa */}
-      {showModal && (
+      {showModal && isAdmin && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-md">
             <h3 className="text-lg font-medium mb-4">

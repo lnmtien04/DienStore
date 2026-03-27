@@ -10,13 +10,13 @@ const {
   toggleCustomerStatus,
 } = require('../controllers/customerController');
 
-// Tất cả routes đều yêu cầu admin
-router.use(protect, authorize('admin'));
+// Các route GET cho phép cả admin và staff
+router.get('/', protect, authorize('admin', 'staff'), getCustomers);
+router.get('/:id', protect, authorize('admin', 'staff'), getCustomerById);
 
-router.get('/', getCustomers);
-router.get('/:id', getCustomerById);
-router.put('/:id', updateCustomer);
-router.patch('/:id/toggle-status', toggleCustomerStatus);
-router.delete('/:id', deleteCustomer);
+// Các route thay đổi dữ liệu chỉ admin
+router.put('/:id', protect, authorize('admin'), updateCustomer);
+router.patch('/:id/toggle-status', protect, authorize('admin'), toggleCustomerStatus);
+router.delete('/:id', protect, authorize('admin'), deleteCustomer);
 
 module.exports = router;

@@ -11,32 +11,66 @@ export default function PaymentPage() {
   const { token } = useUser();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [order, setOrder] = useState<any>(null);
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+  useEffect(() => {
+    if (orderId && token) fetchOrder();
+  }, [orderId, token]);
+
+  const fetchOrder = async () => {
+    try {
+      const res = await axios.get(`${API_URL}/api/orders/${orderId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log('Order data:', res.data);
+      setOrder(res.data);
+    } catch (error) {
+      console.error('Lỗi tải đơn hàng:', error);
+      toast.error('Không thể tải thông tin đơn hàng');
+      router.push('/cart');
+    }
+  };
+
   const handleVNPay = async () => {
+    if (!order) return;
     setLoading(true);
     try {
+      const amount = order.totalAmount || order.totalPrice || 0;
+      console.log('💰 Amount to pay:', amount);
+      if (amount <= 0) {
+        toast.error('Số tiền thanh toán không hợp lệ');
+        setLoading(false);
+        return;
+      }
       const res = await axios.post(`${API_URL}/api/payment/vnpay`, {
-        orderId,
-        amount: 100000, // cần lấy từ đơn hàng
-        orderInfo: `Thanh toán đơn hàng ${orderId}`,
+        orderId: order._id,
+        amount,
+        orderInfo: `Thanh toán đơn hàng ${order.orderNumber}`,
       }, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      // Redirect đến URL thanh toán VNPay
       window.location.href = res.data.paymentUrl;
-    } catch (error) {
-      toast.error('Không thể tạo thanh toán');
+    } catch (error: any) {
+      console.error('Lỗi tạo thanh toán:', error);
+      toast.error(error.response?.data?.message || 'Không thể tạo thanh toán');
       setLoading(false);
     }
   };
 
-  // Nếu phương thức là COD, không cần thanh toán online
-  // Trang này chỉ hiển thị nếu đơn hàng chưa thanh toán và phương thức online
+  if (!order) return <div className="text-center py-10">Đang tải...</div>;
+
+  const total = order.totalAmount || order.totalPrice || 0;
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow">
       <h1 className="text-2xl font-bold mb-4">Thanh toán đơn hàng</h1>
+      <div className="mb-4">
+        <p className="text-gray-600">Đơn hàng: {order.orderNumber}</p>
+        <p className="text-xl font-semibold text-red-600">
+          Tổng tiền: {total.toLocaleString('vi-VN')}đ
+        </p>
+      </div>
       <button
         onClick={handleVNPay}
         disabled={loading}

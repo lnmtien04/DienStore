@@ -8,7 +8,7 @@ import axios from 'axios';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CreditCardIcon, ShoppingCartIcon } from '@heroicons/react/24/solid';
 import { useCart } from '@/context/CartContext';
-
+import Chatbot from '@/components/Chatbot';
 // Interfaces (giữ nguyên)
 interface Category {
   _id: string;
@@ -111,7 +111,7 @@ const HeroCarousel = () => {
 
   return (
     <div className="relative w-full overflow-hidden bg-white">
-      <div className="relative w-full aspect-30/3 md:aspect-9/3">
+      <div className="relative w-full aspect-/3 md:aspect-9/3">
         {images.map((image, idx) => (
           <div
             key={idx}
@@ -985,6 +985,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Chatbot />
     </main>
   );
 }

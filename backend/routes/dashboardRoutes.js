@@ -4,6 +4,7 @@ const { protect } = require('../middleware/authMiddleware');
 const { authorize } = require('../middleware/roleMiddleware');
 const { getDashboardStats } = require('../controllers/dashboardController');
 
-router.get('/', protect, authorize('admin'), getDashboardStats);
+// dashboardRoutes.js
+router.get('/', protect, authorize('admin', 'staff'), getDashboardStats);
 
 module.exports = router;
